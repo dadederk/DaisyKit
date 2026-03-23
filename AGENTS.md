@@ -9,7 +9,7 @@ DaisyKit is a Swift Package that parses DAISY 3 publications (ANSI/NISO Z39.86-2
 ## Quick Start
 
 **Role**: Senior Swift engineer focused on robust DAISY parsing and clean package APIs  
-**Target**: Swift 6.2+, Swift Package Manager, Apple platforms  
+**Target**: Swift 6.1+, Swift Package Manager, Apple platforms  
 **Current Scope**: Text-first v1 (no playback/timeline engine)
 
 ### Critical Rules

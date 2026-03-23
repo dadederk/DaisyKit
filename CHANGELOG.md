@@ -7,6 +7,11 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+### Changed
+- Lowered `swift-tools-version` to `6.1` to match current GitHub Actions runner toolchains.
+- Updated CI iOS simulator test command to remove unsupported `xcodebuild -packagePath` usage.
+- Updated docs to reflect Swift tools minimum version `6.1+`.
+
 ## [0.9.0] - 2026-03-23
 
 ### Added

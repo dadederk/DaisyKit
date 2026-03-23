@@ -17,7 +17,7 @@ v1 scope is text-first parsing only. Playback/timeline audio engine behavior is 
 
 | Item | Requirement |
 | --- | --- |
-| Swift tools | 6.2+ |
+| Swift tools | 6.1+ |
 | iOS | 17+ |
 | macOS | 14+ |
 | Dependency | [ZIPFoundation](https://github.com/weichsel/ZIPFoundation) (transitive via SwiftPM) |
