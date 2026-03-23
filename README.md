@@ -1,7 +1,8 @@
 # DaisyKit
 
-[![Swift](https://img.shields.io/badge/swift-6.2%2B-F05138.svg)](https://swift.org)
+[![Swift](https://img.shields.io/badge/swift-6.1%2B-F05138.svg)](https://swift.org)
 ![Platforms](https://img.shields.io/badge/platform-iOS%2017%2B%20%7C%20macOS%2014%2B-0A84FF.svg)
+[![CI](https://github.com/dadederk/DaisyKit/actions/workflows/daisykit-tests.yml/badge.svg)](https://github.com/dadederk/DaisyKit/actions/workflows/daisykit-tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 Text-first DAISY 3 parser for Swift packages and Apple-platform apps.
@@ -73,8 +74,10 @@ func parseBook(at inputURL: URL) async {
 Strict mode example:
 
 ```swift
-let options = DaisyParseOptions(mode: .strict)
-let report = try await parsePublication(at: inputURL, options: options)
+func parseBookStrict(at inputURL: URL) async throws -> DaisyParseReport {
+    let options = DaisyParseOptions(mode: .strict)
+    return try await parsePublication(at: inputURL, options: options)
+}
 ```
 
 ## API Overview
