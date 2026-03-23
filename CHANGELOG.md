@@ -12,6 +12,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Updated CI iOS simulator test command to remove unsupported `xcodebuild -packagePath` usage.
 - Updated CI iOS simulator test job to auto-detect the available DaisyKit scheme across Xcode versions by probing known scheme names.
 - Updated CI iOS simulator test job to resolve a concrete simulator device ID dynamically (and create one when needed) instead of relying on a fixed simulator name.
+- Updated GitHub Actions to Node 24-ready major versions (`actions/checkout@v6` and `actions/upload-artifact@v6`).
 - Updated docs to reflect Swift tools minimum version `6.1+`.
 
 ## [0.9.0] - 2026-03-23
