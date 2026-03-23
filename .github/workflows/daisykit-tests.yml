@@ -44,11 +44,33 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p artifacts
+
+          # Discover a compatible Swift package scheme across Xcode versions.
+          SCHEME="$(
+            xcodebuild -list 2>&1 | tee artifacts/xcodebuild-list.log | awk '
+              /^Schemes:$/ { in_schemes=1; next }
+              in_schemes && NF==0 { exit }
+              in_schemes {
+                sub(/^[[:space:]]+/, "", $0)
+                print
+              }
+            ' | {
+              grep -x 'DaisyKit-Package' || grep -x 'DaisyKit' || grep '^DaisyKit' || true
+            } | head -n1
+          )"
+
+          if [[ -z "${SCHEME}" ]]; then
+            echo "Failed to resolve DaisyKit scheme from xcodebuild -list output." >&2
+            exit 1
+          fi
+
+          echo "Using iOS test scheme: ${SCHEME}"
+
           xcodebuild test \
-            -scheme DaisyKit-Package \
+            -scheme "${SCHEME}" \
             -destination "platform=iOS Simulator,OS=latest,name=iPhone 16" \
             -enableCodeCoverage YES \
-            -resultBundlePath artifacts/DaisyKit-Package.xcresult \
+            -resultBundlePath "artifacts/${SCHEME}.xcresult" \
             2>&1 | tee artifacts/ios-package-tests.log
 
       - name: Upload iOS artifacts
