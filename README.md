@@ -1,5 +1,9 @@
 # DaisyKit
 
+<p align="center">
+  <img src="Images/Logo.png" alt="DaisyKit logo" width="420">
+</p>
+
 [![Swift](https://img.shields.io/badge/swift-6.1%2B-F05138.svg)](https://swift.org)
 ![Platforms](https://img.shields.io/badge/platform-iOS%2017%2B%20%7C%20macOS%2014%2B-0A84FF.svg)
 [![CI](https://github.com/dadederk/DaisyKit/actions/workflows/daisykit-tests.yml/badge.svg)](https://github.com/dadederk/DaisyKit/actions/workflows/daisykit-tests.yml)
