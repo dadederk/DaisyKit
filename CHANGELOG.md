@@ -10,7 +10,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 ### Changed
 - Lowered `swift-tools-version` to `6.1` to match current GitHub Actions runner toolchains.
 - Updated CI iOS simulator test command to remove unsupported `xcodebuild -packagePath` usage.
-- Updated CI iOS simulator test job to auto-detect the available DaisyKit scheme across Xcode versions.
+- Updated CI iOS simulator test job to auto-detect the available DaisyKit scheme across Xcode versions by probing known scheme names.
 - Updated docs to reflect Swift tools minimum version `6.1+`.
 
 ## [0.9.0] - 2026-03-23
