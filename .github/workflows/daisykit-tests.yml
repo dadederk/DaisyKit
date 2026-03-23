@@ -47,7 +47,7 @@ jobs:
 
           # Discover a compatible Swift package scheme across Xcode versions.
           SCHEME=""
-          for CANDIDATE in DaisyKit DaisyKit-Package; do
+          for CANDIDATE in DaisyKit-Package DaisyKit; do
             if xcodebuild -showBuildSettings -scheme "${CANDIDATE}" > "artifacts/${CANDIDATE}-build-settings.log" 2>&1; then
               SCHEME="${CANDIDATE}"
               break
@@ -61,9 +61,45 @@ jobs:
 
           echo "Using iOS test scheme: ${SCHEME}"
 
+          # Resolve a concrete simulator destination.
+          SIM_ID="$(
+            xcrun simctl list devices available | \
+              sed -nE 's/^[[:space:]]*iPhone[^()]* \(([0-9A-F-]+)\).*/\1/p' | \
+              head -n1
+          )"
+
+          if [[ -z "${SIM_ID}" ]]; then
+            echo "No available iPhone simulator found; attempting to create one."
+            RUNTIME_ID="$(
+              xcrun simctl list runtimes | \
+                grep -E 'com\.apple\.CoreSimulator\.SimRuntime\.iOS' | \
+                grep -v unavailable | \
+                sed -nE 's/.* - (com\.apple\.CoreSimulator\.SimRuntime\.iOS[^ ]*).*/\1/p' | \
+                head -n1
+            )"
+            DEVICE_TYPE_ID="$(
+              xcrun simctl list devicetypes | \
+                sed -nE 's/.*\((com\.apple\.CoreSimulator\.SimDeviceType\.iPhone[^)]+)\).*/\1/p' | \
+                head -n1
+            )"
+
+            if [[ -n "${RUNTIME_ID}" && -n "${DEVICE_TYPE_ID}" ]]; then
+              SIM_ID="$(xcrun simctl create "DaisyKit-CI-iPhone" "${DEVICE_TYPE_ID}" "${RUNTIME_ID}")"
+            fi
+          fi
+
+          if [[ -z "${SIM_ID}" ]]; then
+            echo "Unable to resolve or create an iOS simulator device." >&2
+            xcrun simctl list devices || true
+            xcrun simctl list runtimes || true
+            exit 1
+          fi
+
+          echo "Using iOS simulator id: ${SIM_ID}"
+
           xcodebuild test \
             -scheme "${SCHEME}" \
-            -destination "platform=iOS Simulator,OS=latest,name=iPhone 16" \
+            -destination "id=${SIM_ID}" \
             -enableCodeCoverage YES \
             -resultBundlePath "artifacts/${SCHEME}.xcresult" \
             2>&1 | tee artifacts/ios-package-tests.log
