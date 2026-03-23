@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<smil xmlns="http://www.w3.org/2001/SMIL20/Language">
+  <body>
+    <seq>
+      <par id="par1">
+        <text src="chapter1.xml#p1"/>
+      </par>
+      <par id="par2">
+        <text src="chapter1.xml#p2"/>
+      </par>
+    </seq>
+  </body>
+</smil>

@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>DAISY 3 Structure Guidelines - Part 2: Tables</title>
+<!--               Start Modified              -->
+    <link href="default.css" rel="stylesheet" type="text/css" title="normal"/>
+    <link href="print.css" rel="alternate stylesheet" type="text/css" title="print"/>
+    <script language="javascript" src="hide_show.js" type="text/javascript"></script>
+<!--               -End Modified-              -->
+  </head>
+
+  <body>
+<!--               Start Modified              -->
+    <div class="navigate">
+      <a href="part2-inline.html">Previous Section</a> | <a href="index.html#contents">Table Of Contents</a> | <a href="part2-image.html">Next Section</a>
+    </div>
+
+    <hr />
+    <div class="shall">
+    	<a class="showhide button" onclick="show_all();">Show All</a>
+    	<a class="showhide button" onclick="hide_all();">Hide All</a>
+    	<a class="print_css button" onclick="setActiveStyleSheet('print');">Printer Friendly Version</a>
+    	<a class="normal_css button" onclick="setActiveStyleSheet('normal');">Web Friendly Version</a>
+    </div>
+<!--               -End Modified-              -->    <hr class="navigate" />
+
+
+    <h1 id="table-sect"><a href="http://www.daisy.org/"><img src="http://www.daisy.org/images/daisylogo-w.gif" 
+		alt="DAISY Consortium Logo - Link to Home Page" width="150" height="110" vspace="12" border="0" /></a>Part II(d): Tables</h1>
+
+    <p class="revise"><span class="title">DAISY 3 Structure Guidelines</span>
+    <br />
+     Last Revised: June 4, 2008</p>
+     <!-- Modified - LEL: Date changed; Title changed, copyright statement added       -->
+
+    <p>This section of the guidelines explain the elements used to mark up straightforward tables. For information on tagging more complex tabular material, see the <!--<a href="htmlifieddtd.html#Tables">-->"Tables"<!--</a>--> section of the DTBook DTD, the XHMTL1.1 specification, from which the table model is drawn, or applicable reference works.</p>
+
+    <h2 id="table">Information Object: Tables</h2>
+
+    <h3>Definition</h3>
+
+    <p>A table is an arrangement of data with two or more columns and one or more rows in which the information in the leftmost column relates specifically to the information in the other column or columns. The format of a table may vary depending on the project style. A table usually has column headings and may or may not have a title.</p>
+
+    <p>Tables normally read across from left to right, that is, information in the right columns relates horizontally to the information in the left columns.</p>
+<!--               Start Modified              -->
+<!-- Corrected link - changed .htm to .html -->
+    <p id="reference_0023"><a href="biblio.html#reference_0023">Bibliographic Reference</a></p>
+<!--               -End Modified-              -->
+    <h3>Markup</h3>
+
+    <p>Tables are marked up using the <code>&lt;table&gt;</code> element in combination with the <code>&lt;caption&gt;</code>, <code>&lt;thead&gt;</code> (header), optional <code>&lt;tbody&gt;</code> (main body of table), <code>&lt;tr&gt;</code> (table row), <code>&lt;th&gt;</code> (cell containing header information), and <code>&lt;td&gt;</code> (cell containing table data) elements. The <code>&lt;tfoot&gt;</code> tag can be used to add footer information. In addition, <code>&lt;col&gt;</code> defines the alignment properties for cells in one or more columns and <code>&lt;colgroup&gt;</code> groups adjacent columns that are semantically related.</p>
+
+    <p>The <code>&lt;table&gt;</code> tags surround the entire table. Certain optional elements, if used, must follow in this sequence: <code>&lt;caption&gt;</code>, either <code>&lt;col&gt;</code> or <code>&lt;colgroup&gt;</code>, <code>&lt;thead&gt;</code>, and <code>&lt;tfoot&gt;</code>. Any or all of these elements may be used. The content of the table, in the tbody element, follows. In simple tables, <code>&lt;tr&gt;</code>s mark each row of table data cells (<code>&lt;td&gt;</code>). In tables consisting of multiple sections, <code>&lt;tbody&gt;</code> marks each section and contains one or more rows (<code>&lt;tr&gt;</code>).</p>
+
+    <p>The <code>&lt;thead&gt;</code> and <code>&lt;tfoot&gt;</code> elements contain table header and footer information, respectively, in rows <code>&lt;tr&gt;</code> of cells (usually <code>&lt;th&gt;</code> which distinguishes table information from table data). Each, if used, may be used only once, and applies to all <code>&lt;tbody&gt;</code>s of the table. For a multiple-page print table, the browser or playback device may choose to repeat <code>&lt;thead&gt;</code> and <code>&lt;tfoot&gt;</code> on each page; therefore, they should not be redundantly tagged.</p>
+
+	<p>Note that the content model of the table element used in DTBook differs from the content model described in XHTML 1.1</p>
+    <!-- Modified: LEL - ADDED explanation re usage of th with thead and tfoot: "(usually &lt;th&gt; which distinguishes table information from table data. Please review for correctness)" -->
+
+    <p>A long table spanning several pages of the print book should have separate <code>&lt;pagenum&gt;</code> values for each of the pages on which the table appears. A <code>&lt;prodnote&gt;</code> explaining that the table spans several pages should be added prior to the table.</p>
+
+    <p><strong>New in DTBook-2005-3:</strong> <code>&lt;pagenum&gt;</code>s may now be included within <code>&lt;table&gt;</code>, before or after <code>&lt;tr&gt;</code> elements.</p>
+    
+    <h3>Syntax</h3>
+<pre class="element">
+<!--<a href="htmlifieddtd.html#table">-->&lt;table&gt;<!--</a>-->
+<!--<a href="htmlifieddtd.html#caption">-->  &lt;caption&gt;...&lt;/caption&gt;<!--</a>-->
+<!--<a href="htmlifieddtd.html#col">-->  &lt;col&gt;...&lt;/col&gt;<!--</a>-->
+<!--<a href="htmlifieddtd.html#colgroup">-->  &lt;colgroup&gt;...&lt;/colgroup&gt;<!--</a>-->
+<!--<a href="htmlifieddtd.html#thead">-->  &lt;thead&gt;...&lt;/thead&gt;<!--</a>-->
+<!--<a href="htmlifieddtd.html#tfoot">-->  &lt;tfoot&gt;...&lt;/tfoot&gt;<!--</a>-->
+<!--<a href="htmlifieddtd.html#tbody">-->  &lt;tbody&gt;...&lt;/tbody&gt;<!--</a>-->
+<!--<a href="htmlifieddtd.html#tr">-->  &lt;tr&gt;<!--</a>-->
+<!--<a href="htmlifieddtd.html#th">-->    &lt;th&gt;...&lt;/th&gt;<!--</a>-->
+<!--<a href="htmlifieddtd.html#td">-->    &lt;td&gt;...&lt;/td&gt;<!--</a>-->
+  &lt;/tr&gt;
+<!--<a href="htmlifieddtd.html#pagenum">-->  &lt;pagenum&gt;...&lt;/pagenum&gt;<!--</a>-->
+&lt;/table&gt;
+</pre>
+
+    <h3>Examples</h3>
+
+    <h4 id="table_examp1">Example 1</h4>
+    
+    <p>This is a very simple table with no caption, footer, or &lt;tbody&gt;:</p>
+
+    <blockquote class="example">
+<pre>
+<code>&lt;table border="1"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Parent Company&lt;/th&gt;
+      &lt;th&gt;Divested Business&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tr&gt;
+    &lt;td&gt;U.S. Sprint&lt;/td&gt;
+    &lt;td&gt;Cellular phone&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Union Pacific&lt;/td&gt;
+    &lt;td&gt;Oil, gas&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Viacom&lt;/td&gt;
+    &lt;td&gt;Cable TV&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code>
+</pre>
+    </blockquote>
+
+    <p>This table would be rendered as:</p>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Parent Company</th>
+
+          <th>Divested Business</th>
+        </tr>
+      </thead>
+
+      <tr>
+        <td>U.S. Sprint</td>
+
+        <td>Cellular phone</td>
+      </tr>
+
+      <tr>
+        <td>Union Pacific</td>
+
+        <td>Oil, gas</td>
+      </tr>
+
+      <tr>
+        <td>Viacom</td>
+
+        <td>Cable TV</td>
+      </tr>
+    </table>
+
+    <h4 id="table_examp2">Example 2</h4>
+
+    <blockquote class="example">
+<pre>
+<code>&lt;table border="1"&gt;
+  &lt;caption&gt;This table contains both a header and a footer.&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Number&lt;/th&gt;
+      &lt;th&gt;A&lt;/th&gt;
+      &lt;th&gt;B&lt;/th&gt;
+      &lt;th&gt;C&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Footer Number&lt;/th&gt;
+      &lt;th&gt;Footer A&lt;/th&gt;
+      &lt;th&gt;Footer B&lt;/th&gt;
+      &lt;th&gt;Footer C&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;A1&lt;/td&gt;
+      &lt;td&gt;B1&lt;/td&gt;
+      &lt;td&gt;C1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;A2&lt;/td&gt;
+      &lt;td&gt;B2&lt;/td&gt;
+      &lt;td&gt;C2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;A3&lt;/td&gt;
+      &lt;td&gt;B3&lt;/td&gt;
+      &lt;td&gt;C3&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+   </code> 
+</pre>
+    </blockquote>
+
+    <p>This table would be rendered as:</p>
+
+    <table border="1">
+      <caption>
+        This table contains both a header and a footer.
+      </caption>
+
+      <thead>
+        <tr>
+          <th>Number</th>
+
+          <th>A</th>
+
+          <th>B</th>
+
+          <th>C</th>
+        </tr>
+      </thead>
+
+      <tfoot>
+        <tr>
+          <td>Footer Number</td>
+
+          <td>Footer A</td>
+
+          <td>Footer B</td>
+
+          <td>Footer C</td>
+        </tr>
+      </tfoot>
+
+      <tbody>
+        <tr>
+          <td>1</td>
+
+          <td>A 1</td>
+
+          <td>B 1</td>
+
+          <td>C 1</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+
+          <td>A 2</td>
+
+          <td>B 2</td>
+
+          <td>C 2</td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+
+          <td>A 3</td>
+
+          <td>B 3</td>
+
+          <td>C 3</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 id="table_examp3">Example 3</h4>
+    
+    <p>This example shows how a table that spans three pages can be set up. Page numbers appear between table rows.</p>
+
+    <blockquote class="example">
+<pre>
+<code>&lt;pagenum id="pg255" page="normal"&gt;255&lt;/pagenum&gt;
+&lt;prodnote render="required"&gt;The following table spans pages 255 to 257. Text.&lt;/prodnote&gt;
+
+&lt;table&gt;
+    &lt;caption&gt;This table contains a header.&lt;/caption&gt;
+    &lt;thead&gt;
+        &lt;tr&gt; &lt;th&gt;&lt;!-- ... --&gt;&lt;/th&gt; &lt;/tr&gt;         
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt; &lt;td&gt;&lt;!-- ... --&gt;&lt;/td&gt; &lt;/tr&gt;
+        &lt;tr&gt; &lt;td&gt;&lt;!-- ... --&gt;&lt;/td&gt; &lt;/tr&gt;        
+        &lt;pagenum id="pg256" page="normal"&gt;256&lt;/pagenum&gt;
+        &lt;tr&gt; &lt;td&gt;&lt;!-- ... --&gt;&lt;/td&gt; &lt;/tr&gt;
+        &lt;tr&gt; &lt;td&gt;&lt;!-- ... --&gt;&lt;/td&gt; &lt;/tr&gt;       
+        &lt;pagenum id="pg257" page="normal"&gt;257&lt;/pagenum&gt;
+        &lt;tr&gt; &lt;td&gt;&lt;!-- ... --&gt;&lt;/td&gt; &lt;/tr&gt;
+        &lt;tr&gt; &lt;td&gt;&lt;!-- ... --&gt;&lt;/td&gt; &lt;/tr&gt;       
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+</code>
+</pre>
+    </blockquote>
+
+<!--               Start Modified              -->
+    <div class="sample">
+    <h4 class="sample_head">Illustrated Example 1</h4>
+    <div class="image">
+    <p class="sample_sub_head">Page Sample:</p>
+<a class="showhide" onclick="toggle_visibility('table_printpage_01');">(Show/Hide)</a>
+    <div id="table_printpage_01" style="display: none;">
+    <div class="imggroup">
+    	<img src="images/part2-table/table01.jpg" alt="Page 254 from Science (0-328-34506-2) by Pearson Scott Foresman"/>
+    	<p class="caption">Page 254 from <em>Science</em> (0-328-34506-2) by <strong>Pearson Scott Foresman</strong></p>
+    </div>
+    </div>
+    </div>
+    <div class="code">
+    <p class="sample_sub_head">Sample Code:</p>
+<a class="showhide" onclick="toggle_visibility('table_samp_code_01');">(Show/Hide)</a>
+    <div id="table_samp_code_01" style="display: none;">
+    <pre>
+    	<samp>
+&lt;level3&gt;
+    &lt;pagenum id="IDAN1NN"&gt;254&lt;/pagenum&gt;
+    &lt;h3&gt;Chapter 8 Review and Test Prep&lt;/h3&gt;
+    &lt;level4&gt;
+        &lt;h4&gt;Use Vocabulary&lt;/h4&gt;
+        &lt;list type="pl"&gt;
+            &lt;li&gt;&lt;strong&gt;air mass&lt;/strong&gt; (p. 234)&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;anemometer&lt;/strong&gt; (p. 242)&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;barometer&lt;/strong&gt; (p. 242)&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;climate&lt;/strong&gt; (p. 246)&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;convection current&lt;/strong&gt; (p. 232)&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;front&lt;/strong&gt; (p. 236)&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;rain gauge&lt;/strong&gt; (p. 243)&lt;/li&gt;
+        &lt;/list&gt;
+        &lt;p&gt;Use the terms from the list above that best completes each 
+            sentence.&lt;/p&gt;
+        &lt;list type="pl"&gt;
+            &lt;li&gt;1. A(n) _____ measures wind speed.&lt;/li&gt;
+            &lt;li&gt;2. A(n) _____ measures air pressure.&lt;/li&gt;
+            &lt;li&gt;3. A(n) _____ measures the amount of rain.&lt;/li&gt;
+            &lt;li&gt;4. A(n) _____ is the average weather conditions over 
+                many years.&lt;/li&gt;
+            &lt;li&gt;5. A(n) _____ is a circular current of air.&lt;/li&gt;
+            &lt;li&gt;6. A(n) _____ is a large body of air with generally 
+                the same temperature and moisture.&lt;/li&gt;
+            &lt;li&gt;7. A(n) _____is a boundary between two air masses.&lt;/li&gt;
+        &lt;/list&gt;
+    &lt;/level4&gt;
+    &lt;level4&gt;
+        &lt;h4&gt;Explain Concepts&lt;/h4&gt;
+        &lt;list type="pl"&gt;
+            &lt;li&gt;8. Explain why the weather changes.&lt;/li&gt;
+            &lt;li&gt;9. How are the water cycle in an area and the climate 
+                in the same area related? &lt;/li&gt;
+            &lt;li&gt;10. How do weather forecasters make predictions about 
+                tomorrow's weather?&lt;/li&gt;
+        &lt;/list&gt;
+        &lt;img src="images/thruout/ps.png" alt="Process Skills Icon" 
+            width="137" height="43"/&gt;
+        &lt;list type="pl"&gt;
+            &lt;li&gt;11. &lt;strong&gt;Interpret the Data&lt;/strong&gt; The chart 
+                compares weather conditions in the same area at noon 
+                on two summer days. Interpret the data to conclude 
+                what type of front moved through the area.
+<span class="code_ident block">                &lt;table&gt;
+                    &lt;thead&gt;
+                        &lt;tr&gt;
+                            &lt;th&gt;Day&lt;/th&gt;
+                            &lt;th&gt;Noon Temperature&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody&gt;
+                        &lt;tr&gt;
+                            &lt;td&gt;Monday&lt;/td&gt;
+                            &lt;td&gt;28°C&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td&gt;Tuesday&lt;/td&gt;
+                            &lt;td&gt;20°C&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;</span>
+            &lt;/li&gt;
+            &lt;li&gt;12. &lt;strong&gt;Predict&lt;/strong&gt; St. Louis, Missouri, 
+                experiences large differences in temperature between 
+                summer and winter. Predict how the temperature 
+                difference would change if St. Louis were next to an 
+                ocean.&lt;/li&gt;
+            &lt;li&gt;13. &lt;strong&gt;Predict&lt;/strong&gt; what would happen if the 
+                amount of energy Earth gets from the Sun were to 
+                slowly decrease over time.&lt;/li&gt;
+        &lt;/list&gt;
+        &lt;img src="images/U11C00/pr31-002.png" alt="Mind Points Quiz 
+            Show Icon" width="114" height="25"/&gt;
+    &lt;/level4&gt;
+&lt;/level3&gt;
+    	</samp>
+    </pre>
+    </div></div>
+    <div class="comments">
+    <p class="sample_sub_head">Comments and Alternative NIMAS Examples:</p>
+<a class="showhide" onclick="toggle_visibility('table_comments_01');">(Show/Hide)</a>
+    <div id="table_comments_01" style="display: none;">
+    <p><code>&lt;table&gt;</code> is a NIMAS-required element.</p>
+    <p>While the use of optional tags is recommended, if one is only using the required tag set, the above section might be formatted as follows:</p>
+<pre><samp>
+&lt;level3&gt;
+    &lt;pagenum id="IDAN1NN"&gt;254&lt;/pagenum&gt;
+    &lt;h3&gt;Chapter 8 Review and Test Prep&lt;/h3&gt;
+    &lt;level4&gt;
+        &lt;h4&gt;Use Vocabulary&lt;/h4&gt;
+        &lt;list type="pl"&gt;
+            &lt;li&gt;&lt;strong&gt;air mass&lt;/strong&gt; (p. 234)&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;anemometer&lt;/strong&gt; (p. 242)&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;barometer&lt;/strong&gt; (p. 242)&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;climate&lt;/strong&gt; (p. 246)&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;convection current&lt;/strong&gt; (p. 232)&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;front&lt;/strong&gt; (p. 236)&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;rain gauge&lt;/strong&gt; (p. 243)&lt;/li&gt;
+        &lt;/list&gt;
+        &lt;p&gt;Use the terms from the list above that best completes each 
+            sentence.&lt;/p&gt;
+        &lt;list type="pl"&gt;
+            &lt;li&gt;1. A(n) _____ measures wind speed.&lt;/li&gt;
+            &lt;li&gt;2. A(n) _____ measures air pressure.&lt;/li&gt;
+            &lt;li&gt;3. A(n) _____ measures the amount of rain.&lt;/li&gt;
+            &lt;li&gt;4. A(n) _____ is the average weather conditions over 
+                many years.&lt;/li&gt;
+            &lt;li&gt;5. A(n) _____ is a circular current of air.&lt;/li&gt;
+            &lt;li&gt;6. A(n) _____ is a large body of air with generally 
+                the same temperature and moisture.&lt;/li&gt;
+            &lt;li&gt;7. A(n) _____is a boundary between two air masses.&lt;/li&gt;
+        &lt;/list&gt;
+    &lt;/level4&gt;
+    &lt;level4&gt;
+        &lt;h4&gt;Explain Concepts&lt;/h4&gt;
+        &lt;list type="pl"&gt;
+            &lt;li&gt;8. Explain why the weather changes.&lt;/li&gt;
+            &lt;li&gt;9. How are the water cycle in an area and the climate 
+                in the same area related? &lt;/li&gt;
+            &lt;li&gt;10. How do weather forecasters make predictions about 
+                tomorrow's weather?&lt;/li&gt;
+        &lt;/list&gt;
+<!-- Mod LEL 0801: alt text removed: "Process Skills Icon" -->	
+        &lt;img src="images/thruout/ps.png" alt="" 
+            width="137" height="43"/&gt;
+        &lt;list type="pl"&gt;
+            &lt;li&gt;11. &lt;strong&gt;Interpret the Data&lt;/strong&gt; The chart 
+                compares weather conditions in the same area at noon 
+                on two summer days. Interpret the data to conclude 
+                what type of front moved through the area.
+                &lt;list type="pl"&gt;
+                    &lt;li&gt;
+<span class="code_ident block">                        &lt;table&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;&lt;strong&gt;Day&lt;/strong&gt;&lt;/td&gt;
+                                &lt;td&gt;&lt;strong&gt;Noon Temperature&lt;/strong&gt;&lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;Monday&lt;/td&gt;
+                                &lt;td&gt;28°C&lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;Tuesday&lt;/td&gt;
+                                &lt;td&gt;20°C&lt;/td&gt;
+                            &lt;/tr&gt;
+                        &lt;/table&gt;</span>
+                    &lt;/li&gt;
+                &lt;/list&gt;
+            &lt;/li&gt;
+            &lt;li&gt;12. &lt;strong&gt;Predict&lt;/strong&gt; St. Louis, Missouri, 
+                experiences large differences in temperature between 
+                summer and winter. Predict how the temperature 
+                difference would change if St. Louis were next to an 
+                ocean.&lt;/li&gt;
+            &lt;li&gt;13. &lt;strong&gt;Predict&lt;/strong&gt; what would happen if the 
+                amount of energy Earth gets from the Sun were to 
+                slowly decrease over time.&lt;/li&gt;
+        &lt;/list&gt;
+	<!-- Mod LEL 0801: alt tag added, was not present -->
+        &lt;img src="images/U11C00/pr31-002.png"
+            width="114" height="25" alt=""/&gt;
+    &lt;/level4&gt;
+&lt;/level3&gt;
+</samp></pre>
+    </div></div>
+    </div>
+        <div class="sample">
+    <h4 class="sample_head">Illustrated Example 2</h4>
+    <div class="image">
+    <p class="sample_sub_head">Page Sample:</p>
+<a class="showhide" onclick="toggle_visibility('table_printpage_02');">(Show/Hide)</a>
+    <div id="table_printpage_02" style="display: none;">
+    <div class="imggroup">
+    	<img src="images/part2-table/table02.jpg" alt="Page 5 from Focus on Earth Science (1-588-92-247-2) by CPO Science"/>
+    	
+    	<p class="caption">Page 5 from <em>Focus on Earth Science</em> (1-588-92-247-2) by <strong>CPO Science</strong></p>
+    </div>
+    </div>
+    </div>
+    <div class="code">
+    <p class="sample_sub_head">Sample Code:</p>
+<a class="showhide" onclick="toggle_visibility('table_samp_code_02');">(Show/Hide)</a>
+    <div id="table_samp_code_02" style="display: none;">
+    <pre>
+    	<samp>
+&lt;level4&gt;
+    &lt;pagenum id="IDAWYLN"&gt;5&lt;/pagenum&gt;
+    &lt;h4&gt;The scientific method&lt;/h4&gt;
+    &lt;level5&gt;
+        &lt;h5&gt;A testable hypothesis&lt;/h5&gt;
+        &lt;p&gt;Another quality of a hypothesis is that it must be testable. 
+            A hypothesis is tested to see if it is correct or not. 
+            Pieces of information that are collected to test a 
+            hypothesis are called &lt;strong&gt;data.&lt;/strong&gt;&lt;/p&gt;
+    &lt;/level5&gt;
+    &lt;level5&gt;
+        &lt;h5&gt;Collecting data&lt;/h5&gt;
+        &lt;p&gt;Scientists collect data to find out if a hypothesis is 
+            correct or not. You could ask the girl why she is smiling. 
+            She might say, "I like to read!" Or, you could ask her 
+            friends whether or not she likes to read. By collecting 
+            data, you learn if your hypothesis is correct.&lt;/p&gt;
+    &lt;/level5&gt;
+    &lt;level5&gt;
+        &lt;h5&gt;Types of data&lt;/h5&gt;
+        &lt;p&gt;There are many different types of data. &lt;em&gt;Qualitative&lt;/em&gt; 
+            data are in the form of words. &lt;em&gt;Quantitative&lt;/em&gt; data 
+            are in the form of numbers. Here are some examples of 
+            data.&lt;/p&gt;
+<span class="code_ident block">        &lt;table&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;Examples of qualitative data&lt;/th&gt;
+                    &lt;th&gt;Examples of quantitative data&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;The girl likes to read science-fiction 
+                        books.&lt;/td&gt;
+                    &lt;td&gt;The girl read 5 science-fiction books and 4 
+                        mystery novels last summer.&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Some of the apples are red and some of the 
+                        apples are green.&lt;/td&gt;
+                    &lt;td&gt;25 apples are red and 50 apples are green.&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Some of the tomato plants are tall and some 
+                        are short.&lt;/td&gt;
+                    &lt;td&gt;There are 40 tall tomato plants and 20 short 
+                        tomato plants&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;We caught a large fish.&lt;/td&gt;
+                    &lt;td&gt;The mass of the fish was 5 kilograms.&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;</span>
+    &lt;/level5&gt;
+    &lt;level5&gt;
+        &lt;h5&gt;The scientific method&lt;/h5&gt;
+        &lt;p&gt;Scientists observe, form a question, state a hypothesis, 
+            and collect method data by performing an experiment. Once 
+            these steps occur, the scientist studies the results of 
+            the experiment and reaches a conclusion. All together 
+            these steps are called the &lt;strong&gt;scientific 
+            method&lt;/strong&gt;. The scientific method is summarized in 
+            Figure 1.2.&lt;/p&gt;
+        &lt;imggroup&gt;
+            &lt;img src="images/U05C01/p005-001.png" alt="Five steps of 
+                scientific method" width="185" height="209"/&gt;
+            &lt;prodnote render="optional"&gt;
+                &lt;p&gt;The five steps of the scientific method:&lt;/p&gt;
+                &lt;list type="pl"&gt;
+                    &lt;li&gt;Observe&lt;/li&gt;
+                    &lt;li&gt;Question&lt;/li&gt;
+                    &lt;li&gt;Hypothesize&lt;/li&gt;
+                    &lt;li&gt;Collect Data&lt;/li&gt;
+                    &lt;li&gt;Draw Conclusions&lt;/li&gt;
+                &lt;/list&gt;
+            &lt;/prodnote&gt;
+            &lt;caption&gt;&lt;strong&gt;Figure 1.2:&lt;/strong&gt;&lt;em&gt;Basic steps in 
+                the scientific method.&lt;/em&gt;&lt;/caption&gt;
+        &lt;/imggroup&gt;
+        &lt;sidebar render="optional"&gt;
+            &lt;img src="images/thruout/vocab.png" alt="Vocabulary icon" 
+                height="33" width="39"/&gt;
+            &lt;hd&gt; Vocabulary&lt;/hd&gt;
+            &lt;dl&gt;
+                &lt;dt&gt;data &lt;/dt&gt;
+                &lt;dd&gt;pieces of information collected to test a 
+                    hypothesis.&lt;/dd&gt;
+                &lt;dt&gt;scientific method &lt;/dt&gt;
+                &lt;dd&gt;a series of steps including observation, forming 
+                    a question, stating a hypothesis, collecting data, 
+                    and reaching a conclusion.&lt;/dd&gt;
+            &lt;/dl&gt;
+        &lt;/sidebar&gt;
+    &lt;/level5&gt;
+&lt;/level4&gt;
+
+      </samp>
+    </pre>
+    </div></div>
+    <div class="comments">
+    <p class="sample_sub_head">Comments and Alternative NIMAS Examples:</p>
+<a class="showhide" onclick="toggle_visibility('table_comments_02');">(Show/Hide)</a>
+    <div id="table_comments_02" style="display: none;">
+    <p><code>&lt;table&gt;</code> is a NIMAS-required element.</p>
+    <p>While the use of optional tags is recommended, if one is only using the required tag set, the above section might be formatted as follows:</p>
+<pre><samp>
+&lt;level4&gt;
+    &lt;pagenum id="IDAWYLN"&gt;5&lt;/pagenum&gt;
+    &lt;h4&gt;The scientific method&lt;/h4&gt;
+    &lt;level5&gt;
+        &lt;h5&gt;A testable hypothesis&lt;/h5&gt;
+        &lt;p&gt;Another quality of a hypothesis is that it must be testable. 
+            A hypothesis is tested to see if it is correct or not. 
+            Pieces of information that are collected to test a 
+            hypothesis are called &lt;strong&gt;data.&lt;/strong&gt;&lt;/p&gt;
+    &lt;/level5&gt;
+    &lt;level5&gt;
+        &lt;h5&gt;Collecting data&lt;/h5&gt;
+        &lt;p&gt;Scientists collect data to find out if a hypothesis is 
+            correct or not. You could ask the girl why she is smiling. 
+            She might say, "I like to read!" Or, you could ask her 
+            friends whether or not she likes to read. By collecting 
+            data, you learn if your hypothesis is correct.&lt;/p&gt;
+    &lt;/level5&gt;
+    &lt;level5&gt;
+        &lt;h5&gt;Types of data&lt;/h5&gt;
+        &lt;p&gt;There are many different types of data. &lt;em&gt;Qualitative&lt;/em&gt; 
+            data are in the form of words. &lt;em&gt;Quantitative&lt;/em&gt; data 
+            are in the form of numbers. Here are some examples of 
+            data.&lt;/p&gt;
+<span class="code_ident block">        &lt;table&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;strong&gt;Examples of qualitative data&lt;/strong&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;strong&gt;Examples of quantitative data&lt;/strong&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;The girl likes to read science-fiction 
+                    books.&lt;/td&gt;
+                &lt;td&gt;The girl read 5 science-fiction books and 4 
+                    mystery novels last summer.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Some of the apples are red and some of the 
+                    apples are green.&lt;/td&gt;
+                &lt;td&gt;25 apples are red and 50 apples are green.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Some of the tomato plants are tall and some 
+                    are short.&lt;/td&gt;
+                &lt;td&gt;There are 40 tall tomato plants and 20 short 
+                    tomato plants&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;We caught a large fish.&lt;/td&gt;
+                &lt;td&gt;The mass of the fish was 5 kilograms.&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;</span>
+    &lt;/level5&gt;
+    &lt;level5&gt;
+        &lt;h5&gt;The scientific method&lt;/h5&gt;
+        &lt;p&gt;Scientists observe, form a question, state a hypothesis, 
+            and collect method data by performing an experiment. Once 
+            these steps occur, the scientist studies the results of 
+            the experiment and reaches a conclusion. All together 
+            these steps are called the &lt;strong&gt;scientific 
+            method&lt;/strong&gt;. The scientific method is summarized in 
+            Figure 1.2.&lt;/p&gt;
+        &lt;imggroup&gt;
+<!-- Mod LEL 0801: alt text, "Five steps of 
+                scientific method", removed -->
+            &lt;img src="images/U05C01/p005-001.png" alt="" width="185" height="209"/&gt;
+            &lt;caption&gt;&lt;strong&gt;Figure 1.2:&lt;/strong&gt;&lt;em&gt;Basic steps in 
+                the scientific method.&lt;/em&gt;&lt;/caption&gt;
+        &lt;/imggroup&gt;
+        &lt;sidebar render="optional"&gt;
+<!-- Mod LEL 0801: alt tag added, was not present -->	
+            &lt;img src="images/thruout/vocab.png" height="33" width="39" alt="" /&gt;
+            &lt;hd&gt;Vocabulary&lt;/hd&gt;
+            &lt;dl&gt;
+                &lt;dt&gt;data &lt;/dt&gt;
+                &lt;dd&gt;pieces of information collected to test a 
+                    hypothesis.&lt;/dd&gt;
+                &lt;dt&gt;scientific method &lt;/dt&gt;
+                &lt;dd&gt;a series of steps including observation, forming 
+                    a question, stating a hypothesis, collecting data, 
+                    and reaching a conclusion.&lt;/dd&gt;
+            &lt;/dl&gt;
+        &lt;/sidebar&gt;
+    &lt;/level5&gt;
+&lt;/level4&gt;
+</samp></pre>
+    </div></div>
+    </div>
+<!--               -End Modified-              -->
+
+
+    <hr class="navigate" />
+<!--               Start Modified              -->
+<!-- Corrected link - changed .htm to .html -->
+    <div class="navigate">
+      <a href="part2-inline.html">Previous Section</a> | <a href="index.html#contents">Table Of Contents</a> | <a href="part2-image.html">Next Section</a>     <p class="cr">
+<span class="title-footer">Structure Guidelines for DAISY 3</span>, officially, the <a href="http://www.daisy.org/z3986/">ANSI/NISO Z39.86  Specifications for the Digital Talking Book</a><br />
+	  Copyright &copy; <a href="http://www.daisy.org">The DAISY Consortium</a>, Some Rights Reserved. <br />
+       <a href="http://creativecommons.org/licenses/by-nd/3.0/">Creative Commons License: No Derivative Works</a><br />
+      <a class="image-link" href="http://creativecommons.org/licenses/by-nd/3.0/"><img src="images/somerights20.png" alt="Creative Commons" width="88" height="31" vspace="6" border="0" /></a></p>
+   </div>
+</body>
+</html>
+
+

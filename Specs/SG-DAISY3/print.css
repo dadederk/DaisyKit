@@ -1,0 +1,246 @@
+/*
+ * Style sheet for the HTML 4.0 specification
+ * $Id: print.css,v 1.12 1997/12/12 18:46:53 ijacobs Exp $
+ */
+
+body {
+    margin: 0 2em 0 2em;
+}
+div.example {
+    width: 100%;
+}
+
+div.dtd-example {
+    width: 100%;
+}
+tt.example {
+    margin-left: 1em;
+}
+pre {
+    margin-left: 1em;
+}
+div.dtd-fragment {
+    width: 100%;
+    border: none;
+}
+pre.dtd-fragment {
+    margin-left: 0;
+}
+pre.dtd {
+    margin-left: 0;
+}
+div.illegal-example {
+    width: 100%;
+    border: solid black;
+}
+div.illegal-example p {
+}
+
+div.focusbox {
+    border: 2px solid black;
+    padding: 0 1em 0 1em;
+    margin: 0 .5em 0 .5em;
+}
+div.deprecated-example {
+    width: 100%;
+    border: thin solid black;
+}
+div.deprecated-example p {
+}
+
+div.note {
+    margin-left: 1em;
+}
+p.note {
+    margin-left: 1em;
+}
+
+DIV.subtoc {padding: 1em; border: solid thin; margin: 1em 0;}
+
+ul.toc {
+    list-style-type: none;
+}
+
+p.ad {
+    font-size: larger;
+}
+
+span.ad {
+    font-size: larger;
+}
+
+blockquote.example {
+    margin-left: 1em;
+}
+
+.element {
+   margin-left: 0em;
+}
+
+dd {
+   margin-left: 1em;
+}
+
+dt {
+   font-weight: bold;
+}
+
+div.navigate {
+   text-align: center;
+   font-size: larger
+}
+hr.navigate {
+   width: 90%;
+}
+
+.comment {
+   margin-left: 1em;
+}
+
+
+.attrib {
+   margin-left: 1em;
+}
+
+div.reference {
+   margin-left: 1em;
+}
+
+hr.reference {
+   width: 95%;
+}
+
+sup {
+	font-size: 10%;
+}
+
+
+/*gh added styles*/
+
+/*navigation, print, show_hide*/
+.button {
+	cursor: pointer;
+	font-family: serif;
+	text-align: center;
+	padding: 2px;
+	border: 1px solid gray;
+	margin: 5px;
+	display: inline;
+}
+
+.show_hide {
+	width: 70px;
+}
+
+.print_css {
+	display: none;
+
+}
+
+.shall {
+	text-align: center;
+}
+
+
+/*samples*/
+.sample {
+	padding: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+
+}
+
+.sample a.showhide {
+	display: none;
+}
+
+.sample .image {
+	margin-left: 10px;
+	margin-right: 10px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	padding-bottom: 5px;
+}
+
+.sample .code {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	padding-bottom: 5px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.sample .comments {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	padding-bottom: 5px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+
+.sample .code_ident {
+	font-weight: bold;
+	font-size: 110%;
+	padding: 1px;
+	color: black;
+	background-color: #d7d7d7;
+
+}
+
+.sample .sample_head {
+	font-family: serif;
+}
+
+.sample .sample_sub_head {
+	font-family: serif;
+	font-size: 85%;
+	font-weight: bold;
+	margin-bottom: 2px;
+}
+
+.imggroup {
+	text-align: center;
+}
+
+.imggroup .zoom {
+	font-size: 75%;
+}
+
+.imggroup_enlarged {
+	text-align: center;
+}
+
+.imggroup_enlarged img {
+	width: 100%;
+	height: 100%;
+}
+
+
+.imggroup p {
+	font-size: 75%;
+}
+
+
+
+.navigate {
+	display: none;
+}
+
+a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #4e4e4e;
+} 
+
+.sample .showhide {
+	display: none;
+}
+
+.block {
+	display: block;
+}
+
+h1 img {border:inherit none; float: right} /* note do not want to affect all images */

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" version="2005-1">
+  <book>
+    <bodymatter>
+      <h1 id="h1">Heading</h1>
+      <p id="p1">Paragraph one.</p>
+    </bodymatter>
+  </book>
+</dtbook>

@@ -1,0 +1,1039 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>DAISY 3 Structure Guidelines - Mathematics</title>
+<!--               Start Modified              -->
+    <link href="default.css" rel="stylesheet" type="text/css" title="normal"/>
+    <link href="print.css" rel="alternate stylesheet" type="text/css" title="print"/>
+    <script language="javascript" src="hide_show.js" type="text/javascript"></script>
+
+<!--               -End Modified-              -->
+  </head>
+
+  <body>
+<!--               Start Modified; LEL fixed links 0801-10             -->
+    <div class="navigate">
+      <a href="part2-poem.html">Previous Section</a> | <a href="index.html#contents">Table Of Contents</a> | <a href="index-of-elements.html">Next Section</a>
+
+    </div>
+<!--               -End Modified-              -->
+<!--               Start Modified              -->
+    <hr />
+    <div class="shall">
+    	<a class="showhide button" onclick="show_all();">Show All</a>
+    	<a class="showhide button" onclick="hide_all();">Hide All</a>
+    	<a class="print_css button" onclick="setActiveStyleSheet('print');">Printer Friendly Version</a>
+    	<a class="normal_css button" onclick="setActiveStyleSheet('normal');">Web Friendly Version</a>
+    </div>
+<!--               -End Modified-              -->
+    <hr class="navigate" />
+
+    <h1 id="math-sect"><a href="http://www.daisy.org/"><img src="http://www.daisy.org/images/daisylogo-w.gif" 
+		alt="DAISY Consortium Logo - Link to Home Page" width="150" height="110" vspace="12" border="0" /></a>Part II(g): Mathematics</h1>
+
+  <p class="revise"><span class="title">DAISY 3 Structure Guidelines</span>
+    <br />
+    Last Revised: June 4, 2008</p>
+     <!-- Modified - LEL: Date changed; Title changed, copyright statement added, retained Date Created       --> 
+
+<!-- Modified: LEL - date changed, day to be aded -->
+
+    <p>This section of the guidelines explains how to use elements 
+    to mark up mathematical expressions in DAISY books.
+    The elements described here come 
+    from the W3C <a href="http://www.w3.org/TR/2003/REC-MathML2-20031021/">
+    MathML</a> Standard. 
+    MathML forms the basis of DAISY's
+    <a href="http://www.daisy.org/projects/mathml/mathml-in-daisy-spec.html">
+    Modular Extension for Mathematics</a>, which is the normative reference 
+    upon which these guidelines are based.</p>
+
+    <h2 id="math">Information Object: Math</h2>
+
+    <h3>Definition</h3>
+
+    <p>A mathematical expression is a collection of symbols representing 
+    a mathematical idea.
+    A mathematical expression may be as simple as a single variable or it may be a complex expression that spans many lines.
+    It may occur either inline or in a block context.</p>
+
+    <h3>Markup</h3>
+
+    <p>All content that represents mathematical expressions should 
+    be marked up using MathML; images (pictures) <strong>alone</strong> should not be used because 
+    these can not be rendered with synthetic speech or converted to braille.</p>
+<p>Mathematical content must be enclosed in the <code>&lt;math&gt;</code> element. The children 
+of the <code>&lt;math&gt;</code> element must be valid MathML presentation elements. While MathML does not require the 
+<code>altimg</code> and <code>alttext</code> attributes to be present on the <code>&lt;math&gt;</code> 
+element, the MathML in DAISY Specification does require these attributes to be specified. These attributes provide a fallback 
+mechanism for basic DAISY players that are not capable of rendering MathML. The resolution of the 
+image referenced by the <code>altimg</code> attribute should be such that it is readable when scaled for large print.
+The <code>alttext</code> value should 
+unambiguously describe the mathematical expression.</p>
+
+    <h3>Syntax</h3>
+
+<pre class="element">
+&lt;math&gt;...&lt;/math&gt;
+</pre>
+
+    <h3>Examples</h3>
+
+    <h4 id="math_examp1e1">Example 1</h4>
+    
+    <p>This example shows markup for math that involves units. 
+	Units require special markup so that they are displayed properly and so that 
+	they can be spoken properly. For example, &quot;km&quot; should be spoken as 
+	&quot;kilometer&quot; or &quot;kilometers&quot;.
+	A unit is indicated by adding to the <code>mi</code> tag the 
+	class attribute value &quot;MathML-Unit&quot;.
+	See <a href="http://www.w3.org/TR/mathml-units/">Units in MathML</a> for more details.</p>
+	<p>In addition to using the class attribute value &quot;MathML-Unit&quot;, two additional points should be noted:</p>
+	<ul>
+	<li>units are typically preceded or followed by an expression and should typically be separated from the expression by an operator representing multiplication;</li>
+	<li>monetary signs such as "$" should be treated as units.</li>
+	</ul>
+ <p>In the example below, <code>&amp;#x2062;</code> is the Unicode character representing invisible times. It separates the expression from the unit ("ft").
+ </p>
+   
+    <blockquote class="example">
+<pre><code>
+&lt;m:math display=&quot;inline&quot; xmlns:dtbook=&quot;http://www.daisy.org/z3986/2005/dtbook/&quot;
+         alttext=&quot;56 b squared feet squared&quot; altimg=&quot;images/p281-022.png&quot;&gt; 
+  &lt;m:mrow&gt;
+    &lt;m:mn&gt;56&lt;/m:mn&gt;
+    &lt;m:mo&gt;&amp;#x2062;&lt;/m:mo&gt;
+    &lt;m:msup&gt;
+      &lt;m:mi&gt;b&lt;/m:mi&gt;
+      &lt;m:mn&gt;2&lt;/m:mn&gt;
+    &lt;/m:msup&gt;
+    &lt;m:mo rspace="thickmathspace"&gt;&amp;#x2062;&lt;/m:mo&gt;
+    &lt;m:msup&gt;
+       &lt;m:mi mathvariant=&quot;normal&quot; class=&quot;MathML-Unit&quot;&gt;ft&lt;/m:mi&gt;
+       &lt;m:mn&gt;2&lt;/m:mn&gt;
+    &lt;/m:msup&gt; 
+  &lt;/m:mrow&gt; 
+&lt;/m:math&gt;
+</code></pre>
+    </blockquote>
+    
+    <h4 id="math_example2">Example 2</h4>
+    
+     <p>This example shows markup for math that has textual 
+     annotations next to it. 
+     Math such as this should be marked up using <code>table</code> with the math being in 
+     one column of the table and text in the other column. It should <em>
+     not </em> be marked up with <code>mtable</code> and <code>mtext</code> in the second column.
+	 This does not apply to text used for equation numbering.
+	 For that, an <code>mtable</code> is appropriate;
+	 the equation number should be part of an <code>mlabeledtr</code> element.</p>
+
+    <blockquote class="example">
+<pre><code>
+&lt;table border="0" cellspacing="4"&gt;
+  &lt;tr&gt;
+    &lt;td&gt; 
+      &lt;m:math display="inline" xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/"
+	     alttext="Left parenthesis 4 x squared right parenthesis cubed
+                       equals 4 cubed times left parenthesis x squared right parenthesis cubed."
+	     altimg="images/p278-015.png"&gt;
+        &lt;m:mrow&gt;
+          &lt;m:msup&gt;
+            &lt;m:mrow&gt;
+              &lt;m:mrow&gt;
+                &lt;m:mo&gt;(&lt;/m:mo&gt;
+                &lt;m:mrow&gt;
+                  &lt;m:mn&gt;4&lt;/m:mn&gt;
+                  &lt;m:mo&gt;&amp;#x2062;&lt;/m:mo&gt;
+                  &lt;m:msup&gt;
+                    &lt;m:mi&gt;x&lt;/m:mi&gt;
+                    &lt;m:mn&gt;2&lt;/m:mn&gt;
+                  &lt;/m:msup&gt;
+                &lt;/m:mrow&gt;
+                &lt;m:mo&gt;)&lt;/m:mo&gt;
+              &lt;/m:mrow&gt;
+            &lt;/m:mrow&gt;
+            &lt;m:mn mathcolor="red"&gt;3&lt;/m:mn&gt;
+          &lt;/m:msup&gt;
+          &lt;m:mo&gt;=&lt;/m:mo&gt;
+          &lt;m:msup&gt;
+            &lt;m:mn&gt;4&lt;/m:mn&gt;
+            &lt;m:mn mathcolor="red"&gt;3&lt;/m:mn&gt;
+          &lt;/m:msup&gt;
+          &lt;m:mo&gt;·&lt;/m:mo&gt;
+          &lt;m:msup&gt;
+            &lt;m:mrow&gt;
+              &lt;m:mrow&gt;
+                &lt;m:mo&gt;(&lt;/m:mo&gt;
+                &lt;m:mrow&gt;
+                  &lt;m:msup&gt;
+                    &lt;m:mi&gt;x&lt;/m:mi&gt;
+                    &lt;m:mn&gt;2&lt;/m:mn&gt;
+                  &lt;/m:msup&gt;
+                &lt;/m:mrow&gt;
+                &lt;m:mo&gt;)&lt;/m:mo&gt;
+              &lt;/m:mrow&gt;
+            &lt;/m:mrow&gt;
+            &lt;m:mn mathcolor="red"&gt;3&lt;/m:mn&gt;
+          &lt;/m:msup&gt;
+        &lt;/m:mrow&gt;
+      &lt;/m:math&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+      &lt;sent&gt;Raise each factor to the third power.&lt;/sent&gt;
+    &lt;/td&gt; 
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; 
+      &lt;m:math display="inline" xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/"
+	     alttext="Equals 4 cubed times x superscript 2 times 3 baseline."
+	     altimg="images/p278-016.png"&gt;
+        &lt;m:mrow&gt;
+          &lt;m:mphantom&gt;
+            &lt;m:msup&gt;
+              &lt;m:mrow&gt;
+                &lt;m:mrow&gt;
+                  &lt;m:mo&gt;(&lt;/m:mo&gt;
+                  &lt;m:mrow&gt;
+                    &lt;m:mn&gt;4&lt;/m:mn&gt;
+                    &lt;m:mo&gt;&amp;#x2062;&lt;/m:mo&gt;
+                    &lt;m:msup&gt;
+                      &lt;m:mi&gt;x&lt;/m:mi&gt;
+                      &lt;m:mn&gt;2&lt;/m:mn&gt;
+                    &lt;/m:msup&gt;
+                  &lt;/m:mrow&gt;
+                  &lt;m:mo&gt;)&lt;/m:mo&gt;
+                &lt;/m:mrow&gt;
+              &lt;/m:mrow&gt;
+              &lt;m:mn mathcolor="red"&gt;3&lt;/m:mn&gt;
+            &lt;/m:msup&gt;
+          &lt;/m:mphantom&gt;
+          &lt;m:mo&gt;=&lt;/m:mo&gt;
+          &lt;m:msup&gt;
+            &lt;m:mn&gt;4&lt;/m:mn&gt;
+            &lt;m:mn&gt;3&lt;/m:mn&gt;
+          &lt;/m:msup&gt;
+          &lt;m:mo&gt;·&lt;/m:mo&gt;
+          &lt;m:msup&gt;
+            &lt;m:mi&gt;x&lt;/m:mi&gt;
+            &lt;m:mrow&gt;
+              &lt;m:mn&gt;2&lt;/m:mn&gt;
+              &lt;m:mo&gt;·&lt;/m:mo&gt;
+              &lt;m:mn&gt;3&lt;/m:mn&gt;
+            &lt;/m:mrow&gt;
+          &lt;/m:msup&gt;
+        &lt;/m:mrow&gt;
+      &lt;/m:math&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+      &lt;sent&gt;Use the Rule for Raising a Power to a Power. &lt;/sent&gt;
+    &lt;/td&gt; 
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; 
+      &lt;m:math display="inline" xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/"
+	     alttext="Equals 4 cubed times x superscript 6."
+	     altimg="images/p278-017.png"&gt;
+        &lt;m:mrow&gt;
+          &lt;m:mphantom&gt;
+            &lt;m:msup&gt;
+              &lt;m:mrow&gt;
+                &lt;m:mrow&gt;
+                  &lt;m:mo&gt;(&lt;/m:mo&gt;
+                  &lt;m:mrow&gt;
+                    &lt;m:mn&gt;4&lt;/m:mn&gt;
+                    &lt;m:mo&gt;&amp;#x2062;&lt;/m:mo&gt;
+                    &lt;m:msup&gt;
+                      &lt;m:mi&gt;x&lt;/m:mi&gt;
+                      &lt;m:mn&gt;2&lt;/m:mn&gt;
+                    &lt;/m:msup&gt;
+                  &lt;/m:mrow&gt;
+                  &lt;m:mo&gt;)&lt;/m:mo&gt;
+                &lt;/m:mrow&gt;
+              &lt;/m:mrow&gt;
+              &lt;m:mn mathcolor="red"&gt;3&lt;/m:mn&gt;
+            &lt;/m:msup&gt;
+          &lt;/m:mphantom&gt;
+          &lt;m:mo&gt;=&lt;/m:mo&gt;
+          &lt;m:msup&gt;
+            &lt;m:mn&gt;4&lt;/m:mn&gt;
+            &lt;m:mn&gt;3&lt;/m:mn&gt;
+          &lt;/m:msup&gt;
+          &lt;m:mo&gt;·&lt;/m:mo&gt;
+          &lt;m:msup&gt;
+            &lt;m:mi&gt;x&lt;/m:mi&gt;
+            &lt;m:mn&gt;6&lt;/m:mn&gt;
+          &lt;/m:msup&gt;
+        &lt;/m:mrow&gt;
+      &lt;/m:math&gt;
+    &lt;/td&gt; &lt;td&gt;&lt;sent&gt;Multiply exponents. &lt;/sent&gt;&lt;/td&gt; 
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; 
+      &lt;m:math display="inline" xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/"
+              alttext="Equals 64 x superscript 6."
+              altimg="images/p278-018.png"&gt;
+        &lt;m:mrow&gt;
+          &lt;m:mphantom&gt;
+            &lt;m:msup&gt;
+              &lt;m:mrow&gt;
+                &lt;m:mrow&gt;
+                  &lt;m:mo&gt;(&lt;/m:mo&gt;
+                  &lt;m:mrow&gt;
+                    &lt;m:mn&gt;4&lt;/m:mn&gt;
+                    &lt;m:mo&gt;&amp;#x2062;&lt;/m:mo&gt;
+                    &lt;m:msup&gt;
+                      &lt;m:mi&gt;x&lt;/m:mi&gt;
+                      &lt;m:mn&gt;2&lt;/m:mn&gt;
+                    &lt;/m:msup&gt;
+                  &lt;/m:mrow&gt;
+                  &lt;m:mo&gt;)&lt;/m:mo&gt;
+                &lt;/m:mrow&gt;
+              &lt;/m:mrow&gt;
+              &lt;m:mn mathcolor="red"&gt;3&lt;/m:mn&gt;
+            &lt;/m:msup&gt;
+          &lt;/m:mphantom&gt;
+          &lt;m:mo&gt;=&lt;/m:mo&gt;
+          &lt;m:mn&gt;64&lt;/m:mn&gt;
+          &lt;m:msup&gt;
+            &lt;m:mi&gt;x&lt;/m:mi&gt;
+            &lt;m:mn&gt;6&lt;/m:mn&gt;
+          &lt;/m:msup&gt;
+        &lt;/m:mrow&gt;
+      &lt;/m:math&gt;
+    &lt;/td&gt;
+    &lt;td&gt;&lt;sent&gt;Simplify.&lt;/sent&gt;&lt;/td&gt; 
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+    </blockquote>
+    <h4 id="math_examp1e3">Example 3</h4> 
+    <p>This example shows markup for simple inline math and
+	illustrates two points:</p>
+    
+	  <ol>
+	    <li>Single letter variables should be marked up using MathML.</li>
+	    <li>There should be navigation points surrounding the math.</li>
+	  </ol>
+	<p>Even though this example just consists of a single letter variable, it is
+	important to mark this up as math so that both braille and speech translations
+	handle it appropriately.  Some braille math codes will mark variables and symbols differently than
+	the corresponding character codes.  For speech, some variables need to have a specific
+	pronunciation.  For example, the letter "a" in English should always have the long "a" sound
+	when used as a math variable.</p>
+	
+	<p>In order to allow navigation to before or after the math (e.g., to skip reading the math after hearing the first part of it),
+	there should be elements immediately before and after the <code>math</code> element that have their 
+	<code>id</code> attribute set.
+	For inline math, this  requires introducing <code>span</code> elements as shown below if there are
+	no other elements with <code>id</code>s adjacent to the <code>math</code> element.</p>
+
+    <blockquote class="example">
+
+<pre><code>
+&lt;span&gt;, where &lt;/span&gt;
+  &lt;m:math display="inline" xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/"
+          alttext="s" altimg="images/p281-028.png"&gt; 
+    &lt;m:mi&gt;s&lt;/m:mi&gt;                                                                       
+  &lt;/m:math&gt;
+&lt;span&gt; is the length of a side, to find the volume of each cube.&lt;/span&gt;</code></pre>
+    </blockquote>
+     
+ <div class="sample">
+    <h4 class="sample_head">Illustrated Example 1</h4>
+    <div class="image">
+
+    <p class="sample_sub_head">Page Sample:</p>
+
+<button class="showhide" onclick="toggle_visibility('mathml_01');">(Show/Hide)</button>
+    <div id="mathml_01" style="display: none;">
+    <div class="imggroup">
+    	<img src="images/part2-math/mathml4.jpg" alt="Page 281 from Prentice Hall Mathematics: Pre-algebra (10: 0132015641)"/>
+    	<p class="caption">Page 281 from <em>Prentice Hall Mathematics: Pre-algebra</em> (10: 0132015641 )</p>
+
+    </div>
+
+    </div>
+    </div>
+    <div class="code">
+    <p class="sample_sub_head">Sample Code:</p>
+<button class="showhide" onclick="toggle_visibility('math_samp_code_01');">(Show/Hide)</button>
+    <div id="math_samp_code_01" style="display: none;">
+<p>Only part of the sample page is given in the XML below. The part that is shown 
+ encodes problem 68 in the sample page. The highlighted section demonstrates the use of units.</p>
+<pre>
+<samp>
+&lt;li&gt;
+  &lt;lic&gt;68.&lt;/lic&gt;
+  &lt;lic&gt;
+    &lt;span&gt; The side length of a square rug is &lt;/span&gt;
+    &lt;m:math display="inline" xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/"
+            alttext="7 b feet" altimg="images/p281-021.png"&gt; 
+      &lt;m:mrow&gt;
+        &lt;m:mn&gt;7&lt;/m:mn&gt;
+        &lt;m:mo&gt;&amp;#x2062;&lt;/m:mo&gt;
+        &lt;m:mi&gt;b&lt;/m:mi&gt;
+        &lt;m:mi mathvariant="normal" class="MathML-Unit"&gt;ft&lt;/m:mi&gt;
+      &lt;/m:mrow&gt;                                                      
+    &lt;/m:math&gt;
+    &lt;span&gt;. &lt;/span&gt;
+  &lt;/lic&gt; 
+  &lt;list type="ol"&gt;
+    &lt;li&gt;
+      &lt;lic&gt;
+        &lt;span&gt;(a) Will the rug cover a square floor with area &lt;/span&gt;
+<span class="code_ident block">       &lt;m:math display="inline" xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/"
+               alttext="56 b squared feet squared" altimg="images/p281-022.png"&gt;
+          &lt;m:mrow&gt;
+            &lt;m:mn&gt;56&lt;/m:mn&gt;
+            &lt;m:mo&gt;&amp;#x2062;&lt;/m:mo&gt;
+            &lt;m:msup&gt;
+              &lt;m:mi&gt;b&lt;/m:mi&gt;
+              &lt;m:mn&gt;2&lt;/m:mn&gt;
+            &lt;/m:msup&gt;
+            &lt;m:mo rspace="thickmathspace"&gt;&amp;#x2062;&lt;/m:mo&gt;
+            &lt;m:msup&gt;
+              &lt;m:mi mathvariant="normal" class="MathML-Unit"&gt;ft&lt;/m:mi&gt;
+              &lt;m:mn&gt;2&lt;/m:mn&gt;
+            &lt;/m:msup&gt;                              
+          &lt;/m:mrow&gt;                                                   
+       &lt;/m:math&gt;
+</span>        &lt;span&gt;? &lt;/span&gt;
+      &lt;/lic&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+       &lt;lic&gt;(b) Explain your reasoning.&lt;/lic&gt;
+    &lt;/li&gt;
+  &lt;/list&gt;
+&lt;/li&gt;
+</samp>
+    </pre>
+    </div></div>
+    <div class="comments">
+    <p class="sample_sub_head">Comments and Alternative NIMAS Examples:</p>
+
+<button class="showhide" onclick="toggle_visibility('math_comments_01');">(Show/Hide)</button>
+    <div id="math_comments_01" style="display: none;">
+    <p><code>&lt;math&gt;</code>, and its subelements are NIMAS-optional elements.</p>
+        <p>The use of the optional <code>&lt;math&gt;</code> tag is strongly recommended.
+        However, if one is only using the required tag set, then images may be used.
+		Care should be taken for the words used in the <code>alt</code> attribute
+		so that the expression is unambiguously described.
+        The above section might be formatted as follows:</p>
+
+<pre><samp>
+&lt;li&gt;
+  &lt;lic&gt;68.&lt;/lic&gt;
+  &lt;lic&gt;
+    &lt;span&gt; The side length of a square rug is &lt;/span&gt;
+    &lt;imggroup&gt;
+       &lt;img  src="images/p281-021.png" alt="7 b feet"/&gt;
+    &lt;/imggroup&gt;
+    &lt;span&gt;. &lt;/span&gt;
+  &lt;/lic&gt; 
+  &lt;list type="ol"&gt;
+    &lt;li&gt;
+      &lt;lic&gt;
+        &lt;span&gt;(a) Will the rug cover a square floor with area &lt;/span&gt;
+<span class="code_ident block">       &lt;imggroup&gt;
+         &lt;img  src="images/p281-022.png" alt="56 b squared feet squared"/&gt;
+       &lt;/imggroup&gt;
+</span>        &lt;span&gt;? &lt;/span&gt;
+      &lt;/lic&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+       &lt;lic&gt;(b) Explain your reasoning.&lt;/lic&gt;
+    &lt;/li&gt;
+  &lt;/list&gt;
+&lt;/li&gt;
+</samp></pre>
+    </div></div>
+  </div>
+
+  
+  <div class="sample">
+    <h4 class="sample_head">Illustrated Example 2</h4>
+    <div class="image">
+
+    <p class="sample_sub_head">Page Sample:</p>
+
+<button class="showhide" onclick="toggle_visibility('mathml_02');">(Show/Hide)</button>
+    <div id="mathml_02" style="display: none;">
+    <div class="imggroup">
+    	<img src="images/part2-math/mathml1.jpg" alt="Page 278 from Prentice Hall Mathematics: Pre-algebra (10: 0132015641)"/>
+    	<p class="caption">Page 278 from <em>Prentice Hall Mathematics: Pre-algebra</em> (10: 0132015641 )</p>
+
+    </div>
+
+    </div>
+    </div>
+    <div class="code">
+    <p class="sample_sub_head">Sample Code:</p>
+<button class="showhide" onclick="toggle_visibility('math_samp_code_02');">(Show/Hide)</button>
+    <div id="math_samp_code_02" style="display: none;">
+<p>Only part of the sample page is given in the XML below. What is 
+shown here encodes &quot;Example 1&quot; in the sample page.
+The simplification part in this example is marked up as a table.</p>
+<pre>
+<samp>
+&lt;level3&gt;
+  &lt;h3&gt;1 Example Simplifying a Power of a Product&lt;/h3&gt;
+  &lt;p&gt;
+    &lt;sent&gt;
+      &lt;span&gt;Simplify &lt;/span&gt;
+      &lt;m:math display="inline" xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/"
+              alttext="Left parenthesis 4 x squared right parenthesis cubed."
+              altimg="images/p278-014.png"&gt;
+        &lt;m:mrow&gt;
+          &lt;m:msup&gt;
+            &lt;m:mrow&gt;
+              &lt;m:mrow&gt;
+                &lt;m:mo&gt;(&lt;/m:mo&gt;
+                &lt;m:mrow&gt;
+                  &lt;m:mn&gt;4&lt;/m:mn&gt;
+                  &lt;m:mo&gt;&amp;#x2062;&lt;/m:mo&gt;
+                  &lt;m:msup&gt;
+                    &lt;m:mi&gt;x&lt;/m:mi&gt;
+                    &lt;m:mn&gt;2&lt;/m:mn&gt;
+                  &lt;/m:msup&gt;
+                &lt;/m:mrow&gt;
+                &lt;m:mo&gt;)&lt;/m:mo&gt;
+              &lt;/m:mrow&gt;
+            &lt;/m:mrow&gt;
+            &lt;m:mn&gt;3&lt;/m:mn&gt;
+          &lt;/m:msup&gt;
+        &lt;/m:mrow&gt;
+    &lt;/m:math&gt;&lt;span&gt;. &lt;/span&gt;&lt;/sent&gt;
+  &lt;/p&gt;
+<span class="code_ident block">  &lt;table border="0" cellspacing="4"&gt;
+    &lt;tr&gt;
+      &lt;td&gt; 
+        &lt;m:math display="inline" xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/"
+                alttext="Left parenthesis 4 x squared right parenthesis cubed
+                         equals 4 cubed times
+                         left parenthesis x squared right parenthesis cubed."
+                altimg="images/p278-015.png"&gt;
+          &lt;m:mrow&gt;
+            &lt;m:msup&gt;
+              &lt;m:mrow&gt;
+                &lt;m:mrow&gt;
+                  &lt;m:mo&gt;(&lt;/m:mo&gt;
+                  &lt;m:mrow&gt;
+                    &lt;m:mn&gt;4&lt;/m:mn&gt;
+                    &lt;m:mo&gt;&amp;#x2062;&lt;/m:mo&gt;
+                    &lt;m:msup&gt;
+                      &lt;m:mi&gt;x&lt;/m:mi&gt;
+                      &lt;m:mn&gt;2&lt;/m:mn&gt;
+                    &lt;/m:msup&gt;
+                  &lt;/m:mrow&gt;
+                  &lt;m:mo&gt;)&lt;/m:mo&gt;
+                &lt;/m:mrow&gt;
+              &lt;/m:mrow&gt;
+              &lt;m:mn mathcolor="red"&gt;3&lt;/m:mn&gt;
+            &lt;/m:msup&gt;
+            &lt;m:mo&gt;=&lt;/m:mo&gt;
+            &lt;m:msup&gt;
+              &lt;m:mn&gt;4&lt;/m:mn&gt;
+              &lt;m:mn mathcolor="red"&gt;3&lt;/m:mn&gt;
+            &lt;/m:msup&gt;
+            &lt;m:mo&gt;·&lt;/m:mo&gt;
+            &lt;m:msup&gt;
+              &lt;m:mrow&gt;
+                &lt;m:mrow&gt;
+                  &lt;m:mo&gt;(&lt;/m:mo&gt;
+                  &lt;m:mrow&gt;
+                    &lt;m:msup&gt;
+                      &lt;m:mi&gt;x&lt;/m:mi&gt;
+                      &lt;m:mn&gt;2&lt;/m:mn&gt;
+                    &lt;/m:msup&gt;
+                  &lt;/m:mrow&gt;
+                  &lt;m:mo&gt;)&lt;/m:mo&gt;
+                &lt;/m:mrow&gt;
+              &lt;/m:mrow&gt;
+              &lt;m:mn mathcolor="red"&gt;3&lt;/m:mn&gt;
+            &lt;/m:msup&gt;
+          &lt;/m:mrow&gt;
+        &lt;/m:math&gt;
+      &lt;/td&gt;
+  &lt;td&gt;
+    &lt;sent&gt;Raise each factor to the third power. &lt;/sent&gt;
+  &lt;/td&gt; 
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; 
+        &lt;m:math display="inline" xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/"
+                alttext="Equals 4 cubed times x superscript 2 times 3 baseline."
+                altimg="images/p278-016.png"&gt;
+          &lt;m:mrow&gt;
+            &lt;m:mphantom&gt;
+              &lt;m:msup&gt;
+                &lt;m:mrow&gt;
+                  &lt;m:mrow&gt;
+                    &lt;m:mo&gt;(&lt;/m:mo&gt;
+                    &lt;m:mrow&gt;
+                      &lt;m:mn&gt;4&lt;/m:mn&gt;
+                      &lt;m:mo&gt;&amp;#x2062;&lt;/m:mo&gt;
+                      &lt;m:msup&gt;
+                        &lt;m:mi&gt;x&lt;/m:mi&gt;
+                        &lt;m:mn&gt;2&lt;/m:mn&gt;
+                      &lt;/m:msup&gt;
+                    &lt;/m:mrow&gt;
+                    &lt;m:mo&gt;)&lt;/m:mo&gt;
+                  &lt;/m:mrow&gt;
+                &lt;/m:mrow&gt;
+                &lt;m:mn mathcolor="red"&gt;3&lt;/m:mn&gt;
+              &lt;/m:msup&gt;
+            &lt;/m:mphantom&gt;
+            &lt;m:mo&gt;=&lt;/m:mo&gt;
+            &lt;m:msup&gt;
+              &lt;m:mn&gt;4&lt;/m:mn&gt;
+              &lt;m:mn&gt;3&lt;/m:mn&gt;
+            &lt;/m:msup&gt;
+            &lt;m:mo&gt;·&lt;/m:mo&gt;
+            &lt;m:msup&gt;
+              &lt;m:mi&gt;x&lt;/m:mi&gt;
+              &lt;m:mrow&gt;
+                &lt;m:mn&gt;2&lt;/m:mn&gt;
+                &lt;m:mo&gt;·&lt;/m:mo&gt;
+                &lt;m:mn&gt;3&lt;/m:mn&gt;
+              &lt;/m:mrow&gt;
+            &lt;/m:msup&gt;
+          &lt;/m:mrow&gt;
+        &lt;/m:math&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;sent&gt;Use the Rule for Raising a Power to a Power. &lt;/sent&gt;
+      &lt;/td&gt; 
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; 
+        &lt;m:math display="inline" xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/"
+                alttext="Equals 4 cubed times x superscript 6."
+                altimg="images/p278-017.png"&gt;
+          &lt;m:mrow&gt;
+            &lt;m:mphantom&gt;
+              &lt;m:msup&gt;
+                &lt;m:mrow&gt;
+                  &lt;m:mrow&gt;
+                    &lt;m:mo&gt;(&lt;/m:mo&gt;
+                    &lt;m:mrow&gt;
+                      &lt;m:mn&gt;4&lt;/m:mn&gt;
+                      &lt;m:mo&gt;&amp;#x2062;&lt;/m:mo&gt;
+                      &lt;m:msup&gt;
+                        &lt;m:mi&gt;x&lt;/m:mi&gt;
+                        &lt;m:mn&gt;2&lt;/m:mn&gt;
+                      &lt;/m:msup&gt;
+                    &lt;/m:mrow&gt;
+                    &lt;m:mo&gt;)&lt;/m:mo&gt;
+                  &lt;/m:mrow&gt;
+                &lt;/m:mrow&gt;
+                &lt;m:mn mathcolor="red"&gt;3&lt;/m:mn&gt;
+              &lt;/m:msup&gt;
+            &lt;/m:mphantom&gt;
+            &lt;m:mo&gt;=&lt;/m:mo&gt;
+            &lt;m:msup&gt;
+              &lt;m:mn&gt;4&lt;/m:mn&gt;
+              &lt;m:mn&gt;3&lt;/m:mn&gt;
+            &lt;/m:msup&gt;
+            &lt;m:mo&gt;·&lt;/m:mo&gt;
+            &lt;m:msup&gt;
+              &lt;m:mi&gt;x&lt;/m:mi&gt;
+              &lt;m:mn&gt;6&lt;/m:mn&gt;
+            &lt;/m:msup&gt;
+          &lt;/m:mrow&gt;
+        &lt;/m:math&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;sent&gt;Multiply exponents. &lt;/sent&gt;
+      &lt;/td&gt; 
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; 
+        &lt;m:math display="inline" xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/"
+                alttext="Equals 64 x superscript 6."
+                altimg="images/p278-018.png"&gt;
+          &lt;m:mrow&gt;
+            &lt;m:mphantom&gt;
+              &lt;m:msup&gt;
+                &lt;m:mrow&gt;
+                  &lt;m:mrow&gt;
+                    &lt;m:mo&gt;(&lt;/m:mo&gt;
+                    &lt;m:mrow&gt;
+                      &lt;m:mn&gt;4&lt;/m:mn&gt;
+                      &lt;m:mo&gt;&amp;#x2062;&lt;/m:mo&gt;
+                      &lt;m:msup&gt;
+                        &lt;m:mi&gt;x&lt;/m:mi&gt;
+                        &lt;m:mn&gt;2&lt;/m:mn&gt;
+                      &lt;/m:msup&gt;
+                    &lt;/m:mrow&gt;
+                    &lt;m:mo&gt;)&lt;/m:mo&gt;
+                  &lt;/m:mrow&gt;
+                &lt;/m:mrow&gt;
+                &lt;m:mn mathcolor="red"&gt;3&lt;/m:mn&gt;
+              &lt;/m:msup&gt;
+            &lt;/m:mphantom&gt;
+            &lt;m:mo&gt;=&lt;/m:mo&gt;
+            &lt;m:mn&gt;64&lt;/m:mn&gt;
+            &lt;m:mo&gt;&amp;#x2062;&lt;/m:mo&gt;
+            &lt;m:msup&gt;
+              &lt;m:mi&gt;x&lt;/m:mi&gt;
+              &lt;m:mn&gt;6&lt;/m:mn&gt;
+            &lt;/m:msup&gt;
+          &lt;/m:mrow&gt;
+        &lt;/m:math&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;sent&gt;Simplify.&lt;/sent&gt;
+      &lt;/td&gt; 
+    &lt;/tr&gt;
+  &lt;/table&gt;</span>
+  &lt;level4&gt;
+    &lt;h4&gt;Quick Check&lt;/h4&gt;
+    &lt;list type="ol"&gt;
+      &lt;li&gt;
+        &lt;lic&gt;1.&lt;/lic&gt;
+        &lt;lic&gt; Simplify each expression.&lt;/lic&gt; 
+        &lt;list type="ol"&gt;
+          &lt;li&gt; &lt;lic&gt;a.&lt;/lic&gt; &lt;lic&gt; 
+              &lt;m:math display="inline" xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/"
+                      alttext="Left parenthesis 2 left parenthesis 3
+                                right parenthesis right parenthesis cubed."
+                      altimg="images/p278-020.png"&gt;                          
+                &lt;m:mrow&gt;
+                  &lt;m:msup&gt;
+                    &lt;m:mrow&gt;
+                      &lt;m:mrow&gt;
+                        &lt;m:mo&gt;(&lt;/m:mo&gt;
+                        &lt;m:mrow&gt;
+                          &lt;m:mn&gt;2&lt;/m:mn&gt;
+                          &lt;m:mo&gt;&amp;#x2062;&lt;/m:mo&gt;
+                          &lt;m:mrow&gt;
+                            &lt;m:mo&gt;(&lt;/m:mo&gt;
+                            &lt;m:mn&gt;3&lt;/m:mn&gt;
+                            &lt;m:mo&gt;)&lt;/m:mo&gt;
+                          &lt;/m:mrow&gt;
+                        &lt;/m:mrow&gt;
+                        &lt;m:mo&gt;)&lt;/m:mo&gt;
+                      &lt;/m:mrow&gt;
+                    &lt;/m:mrow&gt;
+                    &lt;m:mn&gt;3&lt;/m:mn&gt;
+                  &lt;/m:msup&gt;
+                &lt;/m:mrow&gt;                                                    
+              &lt;/m:math&gt;
+          &lt;/lic&gt; &lt;/li&gt;
+          &lt;li&gt; &lt;lic&gt;b.&lt;/lic&gt; &lt;lic&gt; 
+              &lt;m:math display="inline" xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/"
+                      alttext="Left parenthesis 2 p right parenthesis superscript 4."
+                      altimg="images/p278-021.png"&gt;                          
+                &lt;m:mrow&gt;
+                  &lt;m:msup&gt;
+                    &lt;m:mrow&gt;
+                      &lt;m:mrow&gt;
+                        &lt;m:mo&gt;(&lt;/m:mo&gt;
+                        &lt;m:mrow&gt;
+                          &lt;m:mn&gt;2&lt;/m:mn&gt;
+                          &lt;m:mo&gt;&amp;#x2062;&lt;/m:mo&gt;
+                          &lt;m:mi&gt;p&lt;/m:mi&gt;
+                        &lt;/m:mrow&gt;
+                        &lt;m:mo&gt;)&lt;/m:mo&gt;
+                      &lt;/m:mrow&gt;
+                    &lt;/m:mrow&gt;
+                    &lt;m:mn&gt;4&lt;/m:mn&gt;
+                  &lt;/m:msup&gt;
+                &lt;/m:mrow&gt;                                                    
+              &lt;/m:math&gt;
+          &lt;/lic&gt; &lt;/li&gt;
+          &lt;li&gt; &lt;lic&gt;c.&lt;/lic&gt; &lt;lic&gt; 
+              &lt;m:math display="inline" xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/"
+                      alttext="Left parenthesis x y squared right parenthesis superscript 5."
+                      altimg="images/p278-022.png"&gt;                          
+                &lt;m:mrow&gt;
+                  &lt;m:msup&gt;
+                    &lt;m:mrow&gt;
+                      &lt;m:mrow&gt;
+                        &lt;m:mo&gt;(&lt;/m:mo&gt;
+                        &lt;m:mrow&gt;
+                          &lt;m:mi&gt;x&lt;/m:mi&gt;
+                          &lt;m:mo&gt;&amp;#x2062;&lt;/m:mo&gt;
+                          &lt;m:msup&gt;
+                            &lt;m:mi&gt;y&lt;/m:mi&gt;
+                            &lt;m:mn&gt;2&lt;/m:mn&gt;
+                          &lt;/m:msup&gt;
+                        &lt;/m:mrow&gt;
+                        &lt;m:mo&gt;)&lt;/m:mo&gt;
+                      &lt;/m:mrow&gt;
+                    &lt;/m:mrow&gt;
+                    &lt;m:mn&gt;5&lt;/m:mn&gt;
+                  &lt;/m:msup&gt;
+                &lt;/m:mrow&gt;                                                    
+              &lt;/m:math&gt;
+          &lt;/lic&gt; &lt;/li&gt;
+          &lt;li&gt; &lt;lic&gt;d.&lt;/lic&gt; &lt;lic&gt; 
+              &lt;m:math display="inline" xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/"
+                      alttext="Left parenthesis 5 x cubed right parenthesis squared."
+                      altimg="images/p278-023.png"&gt;                          
+                &lt;m:mrow&gt;
+                  &lt;m:msup&gt;
+                    &lt;m:mrow&gt;
+                      &lt;m:mrow&gt;
+                        &lt;m:mo&gt;(&lt;/m:mo&gt;
+                        &lt;m:mrow&gt;
+                          &lt;m:mn&gt;5&lt;/m:mn&gt;
+                          &lt;m:mo&gt;&amp;#x2062;&lt;/m:mo&gt;
+                          &lt;m:msup&gt;
+                            &lt;m:mi&gt;x&lt;/m:mi&gt;
+                            &lt;m:mn&gt;3&lt;/m:mn&gt;
+                          &lt;/m:msup&gt;
+                        &lt;/m:mrow&gt;
+                        &lt;m:mo&gt;)&lt;/m:mo&gt;
+                      &lt;/m:mrow&gt;
+                    &lt;/m:mrow&gt;
+                    &lt;m:mn&gt;2&lt;/m:mn&gt;
+                  &lt;/m:msup&gt;
+                &lt;/m:mrow&gt;                                                    
+              &lt;/m:math&gt;
+          &lt;/lic&gt; &lt;/li&gt;
+        &lt;/list&gt;
+      &lt;/li&gt;
+    &lt;/list&gt;
+    &lt;pagenum page="front"&gt;279&lt;/pagenum&gt; 
+    &lt;p&gt;
+      &lt;sent&gt;The location of a negative sign affects the value of an expression.&lt;/sent&gt;
+    &lt;/p&gt;
+  &lt;/level4&gt;
+&lt;/level3&gt;
+</samp></pre>
+    </div></div>
+    <div class="comments">
+    <p class="sample_sub_head">Comments and Alternative NIMAS Examples:</p>
+
+<button class="showhide" onclick="toggle_visibility('math_comments_02');">(Show/Hide)</button>
+    <div id="math_comments_02" style="display: none;">
+    <p><code>&lt;math&gt;</code>, and its subelements are NIMAS-optional elements.</p>
+        <p>The use of the optional <code>&lt;math&gt;</code> tag is strongly recommended.
+        However, if one is only using the required tag set, then images may be used.
+		Care should be taken for the words used in the <code>alt</code> attribute
+		so that the expression is unambiguously described.
+        The above section might be formatted as follows:</p>
+
+<pre><samp>
+&lt;level3&gt;
+  &lt;h3&gt;1 Example Simplifying a Power of a Product&lt;/h3&gt;
+  &lt;p&gt;
+    &lt;sent&gt;
+      &lt;span&gt;Simplify &lt;/span&gt;
+      &lt;imggroup&gt;
+        &lt;img src="images/p278-014.png"
+             alt="Left parenthesis 4 x squared right parenthesis cubed."/&gt;
+      &lt;/imggroup&gt;
+      &lt;span&gt;. &lt;/span&gt;
+    &lt;/sent&gt;
+  &lt;/p&gt;
+<span class="code_ident block">  &lt;table border="0" cellspacing="4"&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;imggroup&gt;
+          &lt;img src="images/p278-015.png"
+               alt="Left parenthesis 4 x squared right parenthesis cubed
+                    equals 4 cubed times left parenthesis x squared right parenthesis cubed."/&gt;
+        &lt;/imggroup&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;sent&gt;Raise each factor to the third power. &lt;/sent&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;imggroup&gt;
+          &lt;img src="images/p278-016.png"
+               alt="Equals 4 cubed times x superscript 2 times 3 baseline."/&gt;
+        &lt;/imggroup&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;sent&gt;Use the Rule for Raising a Power to a Power. &lt;/sent&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;imggroup&gt;
+          &lt;img src="images/p278-017.png"
+               alt="Equals 4 cubed times x superscript 6."/&gt;
+        &lt;/imggroup&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;sent&gt;Multiply exponents. &lt;/sent&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;imggroup&gt;
+          &lt;img src="images/p278-018.png"
+               alt="Equals 64 x superscript 6."/&gt;
+        &lt;/imggroup&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;sent&gt;Simplify.&lt;/sent&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;</span>
+  &lt;level4&gt;
+    &lt;h4&gt;Quick Check&lt;/h4&gt;
+    &lt;list type="ol"&gt;
+      &lt;li&gt;
+        &lt;lic&gt;1.&lt;/lic&gt;
+        &lt;lic&gt; Simplify each expression.&lt;/lic&gt;
+        &lt;list type="ol"&gt;
+          &lt;li&gt;
+            &lt;lic&gt;a.&lt;/lic&gt;
+            &lt;lic&gt;
+              &lt;imggroup&gt;
+                &lt;img src="images/p278-020.png"
+                     alt="Left parenthesis 2 left parenthesis 3
+                           right parenthesis right parenthesis cubed."/&gt;
+              &lt;/imggroup&gt;
+            &lt;/lic&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;lic&gt;b.&lt;/lic&gt;
+            &lt;lic&gt;
+              &lt;imggroup&gt;
+                &lt;img src="images/p278-021.png"
+                     alt="Left parenthesis 2 p right parenthesis superscript 4."/&gt;
+              &lt;/imggroup&gt;
+            &lt;/lic&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;lic&gt;c.&lt;/lic&gt;
+            &lt;lic&gt;
+              &lt;imggroup&gt;
+                &lt;img src="images/p278-022.png"
+                     alt="Left parenthesis x y squared right parenthesis superscript 5."/&gt;
+              &lt;/imggroup&gt;
+            &lt;/lic&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;lic&gt;d.&lt;/lic&gt;
+            &lt;lic&gt;
+              &lt;imggroup&gt;
+                &lt;img src="images/p278-023.png"
+                     alt="Left parenthesis 5 x cubed right parenthesis squared."/&gt;
+              &lt;/imggroup&gt;
+            &lt;/lic&gt;
+          &lt;/li&gt;
+        &lt;/list&gt;
+      &lt;/li&gt;
+    &lt;/list&gt;
+    &lt;pagenum&gt;279&lt;/pagenum&gt;
+    &lt;p&gt;
+
+      &lt;sent&gt;The location of a negative sign affects the value of an expression.&lt;/sent&gt;
+    &lt;/p&gt;
+  &lt;/level4&gt;
+&lt;/level3&gt;
+</samp></pre>
+    </div></div>
+  </div>
+
+  <div class="sample">
+    <h4 class="sample_head">Illustrated Example 3</h4>
+    <div class="image">
+
+    <p class="sample_sub_head">Page Sample:</p>
+<button class="showhide" onclick="toggle_visibility('mathml_03');">(Show/Hide)</button>
+    <div id="mathml_03" style="display: none;">
+
+    <div class="imggroup">
+    	<img src="images/part2-math/mathml4.jpg" alt="Page 281 from Prentice Hall Mathematics: Pre-algebra (10: 0132015641)"/>
+    	<p class="caption">Page 281 from <em>Prentice Hall Mathematics: Pre-algebra</em> (10: 0132015641 )</p>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="code">
+    <p class="sample_sub_head">Sample Code:</p>
+<button class="showhide" onclick="toggle_visibility('math_samp_code_03');">(Show/Hide)</button>
+    <div id="math_samp_code_03" style="display: none;">
+<p>Only part of the sample page is given in the XML below. What is 
+shown below encodes the first two lines of text on the page. 
+The highlighted section corresponds to the use of the variable "s" and the <code>span</code>s that
+surround it.</p>
+
+<pre>
+<samp>
+&lt;p&gt;
+  &lt;sent&gt;
+    &lt;strong&gt;Geometry&lt;/strong&gt;
+    &lt;span&gt; Use the formula &lt;/span&gt;
+    &lt;m:math display="inline" xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/"
+            alttext="V equals s cubed" altimg="images/p281-001.png"&gt;
+      &lt;m:mrow&gt;
+        &lt;m:mi&gt;V&lt;/m:mi&gt;
+        &lt;m:mo&gt;=&lt;/m:mo&gt;
+        &lt;m:msup&gt;
+          &lt;m:mi&gt;s&lt;/m:mi&gt;
+          &lt;m:mn&gt;3&lt;/m:mn&gt;
+        &lt;/m:msup&gt;
+      &lt;/m:mrow&gt; 
+    &lt;/m:math&gt;
+<span class="code_ident block">    &lt;span&gt;, where &lt;/span&gt;
+    &lt;m:math display="inline" xmlns:dtbook="http://www.daisy.org/z3986/2005/dtbook/"
+            alttext="s" altimg="images/p281-028.png"&gt;
+      &lt;m:mi&gt;s&lt;/m:mi&gt;
+    &lt;/m:math&gt;
+    &lt;span&gt; is the length of a side,
+      to find the volume of each cube. &lt;/span&gt;</span>
+  &lt;/sent&gt;
+&lt;/p&gt;
+</samp></pre>
+    </div></div>
+    <div class="comments">
+    <p class="sample_sub_head">Comments and Alternative NIMAS Examples:</p>
+
+<button class="showhide" onclick="toggle_visibility('math_comments_03');">(Show/Hide)</button>
+    <div  id="math_comments_03" style="display: none;">
+    <p><code>&lt;math&gt;</code>, and its subelements are NIMAS-optional elements.</p>
+
+        <p>The use of the optional <code>&lt;math&gt;</code> tag is strongly recommended.
+        However, if one is only using the required tag set, then images may be used.
+		Care should be taken for the words used in the <code>alt</code> attribute
+		so that the expression is unambiguously described.
+        The above section might be formatted as follows:</p>
+<pre><samp>
+&lt;p&gt;
+  &lt;sent&gt;
+    &lt;strong&gt;Geometry&lt;/strong&gt;
+    Use the formula 
+  &lt;imggroup&gt;
+    &lt;img src="images/p281-001.png" alt="V equals s cubed"/&gt;
+  &lt;/imggroup&gt;
+  , where
+<span class="code_ident block">  &lt;imggroup&gt;
+    &lt;img src="images/p281-028.png" alt="s"/&gt;
+  &lt;/imggroup&gt;
+  is the length of a side, to find the volume of each cube.</span>
+  &lt;/sent&gt;
+&lt;/p&gt;
+</samp></pre>
+    </div></div>
+  </div>
+
+<!--               -End Modified-              -->
+    <hr class="navigate" />
+
+    <div class="navigate">
+<!--               Start Modified              -->
+<!-- Corrected link - changed .htm to .html; LEL next link fixed 0801-10-->
+      <a href="part2-poem.html">Previous Section</a> | <a href="index.html#contents">Table Of Contents</a> | <a href="index-of-elements.html">Next Section</a>
+
+<!--               -End Modified-              -->
+	  <p class="cr">
+<span class="title-footer">Structure Guidelines for DAISY 3</span>, officially, the <a href="http://www.daisy.org/z3986/">ANSI/NISO Z39.86  Specifications for the Digital Talking Book</a><br />
+	  Copyright &copy; <a href="http://www.daisy.org">The DAISY Consortium</a>, Some Rights Reserved. <br />
+       <a href="http://creativecommons.org/licenses/by-nd/3.0/" style="">Type 3 Creative Commons License<br />
+      <img src="images/somerights20.png" alt="Creative Commons" width="88" height="31" vspace="6" border="0" style="float:none;" /></a></p>
+   </div>
+</body>
+</html>

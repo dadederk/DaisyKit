@@ -1,0 +1,646 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+    <title>DAISY 3 Structure Guidelines - Appendix 1: Glossary Of Terms</title>
+    <link rel="stylesheet" href="default.css" type="text/css" />
+  </head>
+
+  <body>
+    <div class="navigate">
+<!--               Start Modified              -->
+      <a href="index-of-elements.html">Previous Section</a> | <a href="index.html#contents">Table Of Contents</a> | <a href="dtb-announcements.html">Next Section</a>
+<!--               -End Modified-              -->
+    </div>
+    <hr class="navigate" />
+
+
+    <h1 id="glossary"><a href="http://www.daisy.org/"><img src="http://www.daisy.org/images/daisylogo-w.gif" 
+		alt="DAISY Consortium Logo - Link to Home Page" width="150" height="110" vspace="12" border="0" /></a>Appendix 1: Glossary of Terms</h1>
+<!-- Modified: LEL - changed to lower case "o" -->
+
+<p class="revise"><span class="title">DAISY 3 Structure Guidelines</span>
+    <br />
+     Last Revised: June 4, 2008</p>
+     <!-- Modified - LEL: Date changed; Title changed, copyright statement added       -->
+
+
+<!-- Modified 07: LEL - Last revised date changed, retained Sept rev date above -->
+
+    <p class="note">Note: Terms with an asterisk (*) have been Extracted from <cite>XML : A PRIMER</cite> written by Simon St. Laurent</p>
+
+    <dl>
+      <dt id="ad">A-D</dt>
+
+      <dd>Analog To Digital. The process of converting an analog audio signal, usually recorded on magnetic tape, into a digital representation for use within a computer. An analog recording may have structure indicated by low-frequency index tones, and an A-D conversion system may capture that information to automatically generate structured markup.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="application">Application*</dt>
+
+      <dd>Either a program that does something (formats, sorts, imports, etc.) with XML or a set of markup tags created with XML. HTML, for example, is an application of SGML, defined with an SGML DTD.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="ascii">ASCII</dt>
+
+      <dd>American Standard Code for Information Interchange. See <a href="http://www.ietf.org/rfc/rfc20">http://www.ietf.org/rfc/rfc20</a></dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="attribute">Attribute*</dt>
+
+      <dd>A source of additional information about an element. Attribute values may be fixed in the DTD or listed as namevalue pairs (name="value") in the start tag of an element.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="audio_book">Audio Book</dt>
+
+      <dd>A recording of a human voice reading the book.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="css"><a href="http://www.w3.org/Style/CSS/">Cascading Style Sheets (CSS)</a>*</dt>
+
+      <dd>A standard that provides formatting control over elements using information contained in &lt;STYLE&gt; tags and STYLE attributes. Less powerful than XSL, it nonetheless looks like it has a bright short-term future as the only style mechanism already recommended by the W3C and (partially) implemented in major browsers.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="block_elements">Block Elements (Structures)</dt>
+
+      <dd>Block structures are discrete segments of text that are often separated from surrounding text by blank lines, indentation, etc. The most common block structure is the paragraph.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="cdata">Character data (CDATA)*</dt>
+
+      <dd>Information in a document that should not be parsed at all. This allows the use of the markup characters &amp; &lt;, and &gt; within the text, even though no elements or entities may appear in the section. CDATA declarations may appear in attributes, and CDATA-marked sections may appear in documents.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="child">Child elements*</dt>
+
+      <dd>An element directly nested inside another element. In &lt;FIRST&gt;&lt;SECOND/&gt;&lt;/FIRST&gt;, the SECOND element is the child element of FIRST element.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="daisy"><a href="http://www.daisy.org">DAISY</a></dt>
+
+      <dd>Digital Accessible Information System. The DAISY Consortium - an international consortium made up of "members" which are organizations producing and or providing accessible reading materials, and "friends" which are companies developing and or manufacturing related services or products.</dd>
+<!-- Modified: LEL - punctuation and capitalization change -->
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="dap">DAP</dt>
+
+      <dd>Digital Audio Project</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="dmedia">Delivery media</dt>
+
+      <dd>That media received by the end user.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="document">Document*</dt>
+
+      <dd>A "textual object." In HTML, documents (or "pages") were single files containing HTML. In XML, documents may contain content from several files or chunks and should include markup structures that make it valid or well-formed.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="dom"><a href="http://www.w3.org/DOM/">Document object model (DOM)</a>*</dt>
+
+      <dd>A means of addressing elements and attributes in a document from a processing application or scripts. The W3C has a Document Object Model Working Group that is developing a standard model for HTML and XML documents.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="dtype">Document type declaration*</dt>
+
+      <dd>In valid documents, the declaration that connects a document to its document type definition. The declaration may connect to an external file or include the definition within itself.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="dtd">Document type definition (DTD)*</dt>
+
+      <dd>A set of rules for document construction that lies at the hearts of all SGML development and all valid XML document construction. Processing applications and authoring tools rely on DTDs to inform them of the parts required by a particular document type. A document with a DTD may be validated against the definition.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="db">Double Byte Characters</dt>
+
+      <dd>Asian characters, for example, require two bytes to represent single characters. This is a common term used to describe computers' international representation of thousands of characters.</dd>
+<!-- Modified: LEL - slight wording changes -->
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="dvd">DVD</dt>
+
+      <dd>Digital Versatile Disc. The successor to Compact Disc (CD) as a storage medium.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="element">Element*</dt>
+
+      <dd>The fundamental logical unit of an XML document. All content in XML documents must be contained within one or more elements.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="empty_element">Empty element*</dt>
+
+      <dd>An element that has no textual content. An empty element may be indicated by a start tag and end tag placed next to each other (&lt;EMPTY&gt;&lt;EMPTY/&gt;) or by a start tag that ends with /&gt; (&lt;EMPTY/&gt;). Empty elements may contain attributes only.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="endtag">End tag*</dt>
+
+      <dd>A tag that closes an element. An end tag follows the syntax &lt;/Name&gt;, where Name matches the element name declared in the start tag.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="entity">Entity*</dt>
+
+      <dd>A reference to other data that often acts as an abbreviation or a shortcut. By declaring entities, developers can avoid entering the same information in a document or DTD repetitively.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="e-text">E-text</dt>
+
+      <dd>Books in electronic format</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="exten"><a href="http://www.w3.org/XML/">Extensible Markup Language (XML)</a>*</dt>
+
+      <dd>A widely adopted W3C recommendation that provides a much simpler set of rules for markup than SGML, while offering more flexibility that HTML.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="extensl"><a href="http://www.w3.org/Style/XSL/">Extensible Style Language (XSL)</a>*</dt>
+
+      <dd>A style sheet standard submitted by Microsoft, ArborText, and Inso Corporation to the W3C. An XML vocabulary for specifying formatting semantics. XSLT is a language for transforming XML documents into other XML documents.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="dtdsubset">External DTD subset*</dt>
+
+      <dd>The portion of a document type definition that is stored outside of the document. External DTDs are convenient for storing document type definitions that will be used b multiple documents, allowing them to share a centrally managed definition.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="genent">General entity*</dt>
+
+      <dd>An entity for use in document content. When used in documents, the name of a general entity must be preceded by an ampersand (&amp;) and should be followed by a semicolon (;).</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="html"><a href="http://www.w3.org/MarkUp/">Hypertext Markup Language (HTML)</a>*</dt>
+
+      <dd>The most popular markup language in use today, HTML is an application of SGML. HTML is one of the foundation of web development, providing formatting and basic structures to documents for presentation via browser applications.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="http">Hypertext Transfer Protocol (HTTP)*</dt>
+
+      <dd>The protocol that governs communications between clients and servers on the World Wide Web. HTTP allows clients to send requests to servers, which reply with an appropriate document or an error message.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="io">I/O Interface</dt>
+
+      <dd>Input/Output Interface</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="instance">Instance*</dt>
+
+      <dd>The actual use of an element or document type in a document, as opposed to its definition. An instance may also refer to an entire document; a document may be an instance of a DTD if it can be validated under that DTD.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="idtdsubset">Internal DTD subset*</dt>
+
+      <dd>The portion of a document type definition that appears inside the document to which it applies. Internal DTD subsets can be hard to manage, but provide developers an easy way to test out new features or develop DTDs without disrupting other documents.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="iso">ISO*</dt>
+
+      <dd>The International Organization for Standardization (the acronym is derived from its French name), which sets industrial standard relating to everything from character sets to quality processors to SGML.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="kbdequiv">Keyboard Equivalents</dt>
+
+      <dd>These are keyboard options that are equal to a mouse click. CTRL+O, for example, is equal to using the mouse to open a file. Keyboard equivalents also known as key combinations, or hot keys, or accelerator keys. Normally these are two keys that are pressed together to perform a function. These are often found in pull-down menus and take the place of going through the menu by mouse clicks. These keys can also replace the need for pressing icons with a mouse.</dd>
+<!-- Modified: LEL - CTRL-O changed to CTRL+O, and punctuation change and wording change. -->
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="legacy">Legacy Data</dt>
+
+      <dd>Data that was produced with previous technologies, for example analog recordings on tape are the legacy data.</dd>
+<!-- Modified: LEL - complete rewording -->
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="link">Link</dt>
+
+      <dd>A reference (link) from some point in one hypertext document to (some point in) another document or another place in the same document. A browser usually displays a hyperlink in some distinguishing way, e.g. in a different color, font or style. When the user activates the link (e.g. by clicking on it with the mouse), the browser will display the target of the link.</dd>
+<!-- Modified: LEL - punctuation correction -->
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="markup">Markup*</dt>
+
+      <dd>Structural information stored in the same file as the content. Traditionally, structural information is separated from the content and isolated in elements (defined with tags) and entities.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="markupdec">Markup declaration*</dt>
+
+      <dd>The contents of document type declarations, which are used to define the elements, attributes, entities, and notations. They specify the kinds of markup that will be legal in a given document.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="name">Name*</dt>
+
+      <dd>A name must begin with a letter or underscores, and full stops. (Full stops in Latin character sets are periods.)</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="namechar">Name characters*</dt>
+
+      <dd>Letters, digits, hyphens, underscores, and full stops. (Full stops in Latin character sets are periods.)</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="nametoken">Name token*</dt>
+
+      <dd>Any string composed of name characters.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="ncc">NCX - Navigation Control Center</dt>
+
+      <dd>The file in a DAISY DTB which provides a view of all the points in a text to which a user may navigate. Each navigation point in the NCX is linked through the SMIL file to the corresponding location in the audio and XML textual content files, providing direct access to that location.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="niso"><a href="http://www.niso.org">NISO</a></dt>
+
+      <dd>National Information Standards Organization. A non-profit standards organization that develops, maintains and publishes technical standards related to bibliographic and library applications.</dd>
+<!-- Modified: LEL - definition changed completely -->
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="notation">Notation*</dt>
+
+      <dd>An XML structure that identifies the type of content contained by an element and suggesting a viewer to present it.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="noteref">Note reference</dt>
+
+      <dd>This is a link to a note</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="note">Note</dt>
+
+      <dd>Note is a marked footnote, endnote or some other piece of text in a document.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="parament">Parameter entity*</dt>
+
+      <dd>An entity used to represent information within the context of a document type definition. Parameter entities may be used to link the content of additional DTD files to a DTD, or as an abbreviation for frequently repeated declarations. Parameter entities are distinguished from general entities by their use of a percent sign (%) rather than a parent element of the SECOND element.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="pcdata">Parsed character data (#PCDATA)*</dt>
+
+      <dd>Parsed character data is text that will be examined by the parser for entities and markup. Parsed character data should not contain any &amp;, &lt;, or &gt; characters; these need to be represented by the &amp;amp; &amp;lt;, and &amp;gt; entities, respectively.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="phrase">Phrase detection</dt>
+
+      <dd>A system that detects a pause in the speaker's voice and somehow marks that time for later use.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="processapp">Processing application*</dt>
+
+      <dd>An application that takes the output generated by a parser (it may include a parser, or be a parser itself) and does something with it. That something may include presentation, calculation, or anything else that seems appropriate.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="processinst">Processing instruction*</dt>
+
+      <dd>Directions that allow XML authors to send instructions directly to a processing that may be outside the native capacities of XML. A processing instruction is differentiated from normal element markup by question marks after the opening &lt; and before the closing &gt; (i.e. &lt;? Instruction ?&gt; ). The XML declaration is itself a processing instruction.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="prolog">Prolog*</dt>
+
+      <dd>the opening part of a document, containing the XML declaration and any document type declarations or markup declarations needed to process the document.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="recursion">Recursion*</dt>
+
+      <dd>A programming technique in which a function may call itself. Recursive programming is especially well-suited to parsing nested markup structures.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="root">Root element*</dt>
+
+      <dd>The first element in a document. The root element is not contained by any other elements and forms the base of the tree structure created by parsing the nested elements.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="scrubbing">Scrubbing</dt>
+
+      <dd>Ability to move forward/reverse in the audio while listening to the audio. Similar to cueing during wind/rewind on analog recorders.</dd>
+<!-- Modified: LEL - spelling change -->
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="semantic">Semantic structure</dt>
+
+      <dd>The relationship between a document's content and its structure.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="sgml">SGML</dt>
+
+      <dd>see <a href="#standardgml">Standard Generalized Mark-up Language</a></dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="sideinfo">Side Information</dt>
+
+      <dd>The elements within a document which are not part of the main body text. Often called side bars, notes, marginalia, margin notes.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="simple">Simple link*</dt>
+
+      <dd>A link that includes its target locator in an HREF attribute.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="smil"><a href="http://www.w3.org/TR/REC-smil/">SMIL</a></dt>
+
+      <dd>Synchronized Multimedia Integration Language. SMIL supports the  integration of independent multimedia objects into a synchronized multimedia set.</dd>
+<!-- Modified: LEL - reworded -->
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="spanning">Spanning</dt>
+
+      <dd>"To extend across", e.g. a project may not fit on one CD-ROM so it is spanned to three CD-ROMs.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="standardgml">Standard Generalized Markup Language (SGML)*</dt>
+
+      <dd>The parent language of HTML and XML. SGML provides a complex set of rules for defining document structures, HTML uses structures defined under that set of rules, whereas XML provide a subset of the rules for defining document structures. SGML is formally standardized as ISO/IEC 8879-1986, although a series of later amendments have continued its development.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="starttag">Start tag*</dt>
+
+      <dd>The opening tag that begins an element. The general syntax for a start tag is &lt;Name attributes&gt;, where Name is the name of the element being defined, and attributes is a set of name-value pairs. All start tags in XML must either have end tags or use empty element syntax, &lt;Name attributes/&gt;.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="stylesheet">Style sheet*</dt>
+
+      <dd>A formatting description for a document. Style sheets may be stored in separate files from the documents they describe.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="ssheets">Style Sheets</dt>
+
+      <dd>Style sheets describe and define the presentation of a document, and can be used for visual and audio presentation.</dd>
+      <!-- Modified: LEL - rewritten -->
+
+      <dd><br />
+      <br />
+      </dd>
+
+     <dt id="unicode">Unicode*</dt>
+
+      <dd>Unicode provides a unique number for every character, no matter what the platform, no matter what the program, no matter what the language. A standard for international character encoding. Unicode support characters that are 2 bytes wide rather than the 1 byte currently supported by most systems, allowing it to include 65,536 characters rather than the 256 available to 1-byte systems. Visit <a href="http://www.unicode.org/standard/WhatIsUnicode.html">http://www.unicode.org/standard/WhatIsUnicode.html</a> for more information.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="valid">Valid*</dt>
+
+      <dd>A document is valid if it conforms to a declared document type definition (DTD) and meets the conditions for well-formedness. All elements, attributes, and entities must be declared in the DTD, and all data types must match their definition's requirement.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="w3c">W3C*</dt>
+
+      <dd>The <a href="http://www.w3.org">World Wide Web Consortium</a>, the standard body responsible for many of the standard key to the functionality if the World Wide Web, including HTML, XML, and Cascading Style Sheets. The W3C site includes the latest public versions of their standards as well as other information about the web and standard processes. Visit http://www.w3c.org for more information.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="wai">WAI</dt>
+
+      <dd><a href="http://www.w3.org/WAI/">Web Accessibility Initiative</a>. The WAI is the international portion of the W3C with the goal of making the web usable by all persons.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="wav">Wav</dt>
+
+      <dd>A sound format developed by Microsoft.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="wellformed">Well-formed*</dt>
+
+      <dd>A well-formed XML document is syntactically correct. It does not have angle brackets that are not part of tags. (Entity references are used to embed angle brackets in an XML document.) In
+addition, all tags have an ending tag or are themselves self-ending. In addition, in a well-formed document, all tags are fully nested. They never overlap. A well-formed document can be processed. A well-formed document may not be valid however. To determine that, a validating parser and a DTD are required.
+.</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="xml">XML*</dt>
+
+      <dd>see <a href="#exten">eXtensible Markup Language</a></dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="xmldec">XML declaration*</dt>
+
+      <dd>The processing instruction at the top of an XML document. It begins with &lt;?XML, includes a version identifier, required markup declaration, and encoding identifier, and closes with ?&gt;. (The XML declaration may be case-sensitive at some point; the standard at present is unclear on this issue.)</dd>
+
+      <dd><br />
+      <br />
+      </dd>
+
+      <dt id="xsl">XSL*</dt>
+
+      <dd>see <a href="#extensl">eXtensible Style Language.</a></dd>
+    </dl>
+    <hr class="navigate" />
+
+    <div class="navigate">
+<!--               Start Modified              -->
+      <a href="index-of-elements.html">Previous Section</a> | <a href="index.html#contents">Table Of Contents</a> | <a href="dtb-announcements.html">Next Section</a>
+<!--               -End Modified-              -->
+	  <p class="cr">
+<span class="title-footer">Structure Guidelines for DAISY 3</span>, officially, the <a href="http://www.daisy.org/z3986/">ANSI/NISO Z39.86  Specifications for the Digital Talking Book</a><br />
+	  Copyright &copy; <a href="http://www.daisy.org">The DAISY Consortium</a>, Some Rights Reserved. <br />
+       <a href="http://creativecommons.org/licenses/by-nd/3.0/">Creative Commons License: No Derivative Works</a><br />
+      <a class="image-link" href="http://creativecommons.org/licenses/by-nd/3.0/"><img src="images/somerights20.png" alt="Creative Commons" width="88" height="31" vspace="6" border="0" /></a></p>
+   </div>
+</body>
+</html>

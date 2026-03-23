@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>DAISY 3 Structure Guidelines - Part 2: Images</title>
+    <link href="default.css" rel="STYLESHEET" type="text/css" />
+<!--               Start Modified              -->
+    <link href="default.css" rel="stylesheet" type="text/css" title="normal"/>
+    <link href="print.css" rel="alternate stylesheet" type="text/css" title="print"/>
+    <script language="javascript" src="hide_show.js" type="text/javascript"></script>
+<!--               -End Modified-              -->
+  </head>
+
+  <body>
+<!--               Start Modified              -->
+    <div class="navigate">
+      <a href="part2-table.html">Previous Section</a> | <a href="index.html#contents">Table Of Contents</a> | <a href="part2-poem.html">Next Section</a>
+    </div>
+<!--               -End Modified-              -->
+<!--               Start Modified              -->
+    <hr />
+    <div class="shall">
+    	<a class="showhide button" onclick="show_all();">Show All</a>
+    	<a class="showhide button" onclick="hide_all();">Hide All</a>
+    	<a class="print_css button" onclick="setActiveStyleSheet('print');">Printer Friendly Version</a>
+    	<a class="normal_css button" onclick="setActiveStyleSheet('normal');">Web Friendly Version</a>
+    </div>
+<!--               -End Modified-              -->
+    <hr class="navigate" />
+
+    <h1 id="image-sect"><a href="http://www.daisy.org/"><img src="http://www.daisy.org/images/daisylogo-w.gif" 
+		alt="DAISY Consortium Logo - Link to Home Page" width="150" height="110" vspace="12" border="0" /></a>Part II(e): Images</h1>
+
+    <p class="revise"><span class="title">DAISY 3 Structure Guidelines</span>
+    <br />
+     Last Revised: June 4, 2008</p>
+     <!-- Modified - LEL: Date changed; Title changed, copyright statement added       -->
+	 
+<!-- Modified: LEL - date changed, day to be aded -->
+
+    <p>This section of the guidelines explains the elements used to mark up images and their associated captions and descriptions.</p>
+
+    <h2 id="image">Information Object: Images</h2>
+
+    <h3>Definition</h3>
+
+    <p>An image is a graphical object presented in a visual format.</p>
+
+    <h3>Markup</h3>
+
+    <p>The <code>&lt;img&gt;</code> element may be used alone to mark a single image. However, if there is an associated caption and/or a <code>&lt;prodnote&gt;</code> containing a description of the image, the <code>&lt;imggroup&gt;</code> tag should be used. The <code>&lt;imggroup&gt;</code> element provides a container for one or more <code>&lt;img&gt;</code>s and associated <code>&lt;caption&gt;</code>(s) and <code>&lt;prodnote&gt;</code>(s). The <code>&lt;imggroup&gt;</code> element may contain:</p>
+
+    <ol>
+      <li>multiple <code>&lt;img&gt;</code>s if they share a caption, with the ids of each <code>&lt;img&gt;</code> referenced by the imgref attribute on <code>&lt;caption&gt;</code>, e.g., <code>&lt;caption imgref="id1 id2 ..."&gt;</code>,</li>
+
+      <li>multiple <code>&lt;caption&gt;</code>s if several captions refer to a single <code>&lt;img&gt;</code>. When the <code>&lt;img&gt;</code> has <code>id="xxx"</code>, each caption would have the same value for imgref, i.e., <code>&lt;caption imgref="xxx"&gt;</code> (that is, each caption must be associated with a specific image using the 'id', 'idref' pair),</li>
+<!--               Start Modified              -->
+<!-- Corrected link - changed .htm to .html -->
+      <li>multiple <code>&lt;prodnote&gt;</code>s if different versions are needed for different media (e.g., large print, braille, or print). If several <code>&lt;prodnote&gt;</code>s refer to a single <code>&lt;img&gt;</code> with <code>id="xxx"</code>, each prodnote would have the same <code>&lt;prodnote imgref="xxx"&gt;</code>.
+	  <!-- note: showin deprecated
+	  	but each <code>&lt;prodnote&gt;</code> would have a different value for the <code>showin</code> attribute to control which media it is displayed in. See <a href="part2-block.html#prodnote">Information Object: Producer's Note</a> in Part II(b): Block Elements. 
+	  --> 
+	  If multiple <code>&lt;prodnote&gt;</code>s refer to a group of images, the imgref attribute would include the ids of all images in that group, e.g., <code>&lt;prodnote imgref="id1 id2 id3 ..."&gt;</code>.</li>
+<!--               -End Modified-              -->
+      <li>multiple <code>&lt;pagenum&gt;</code>s.</li>
+    </ol>
+
+    <p>The <code>alt</code> attribute is required for all <code>&lt;img&gt;</code>s and should contain a short description of the image; if the caption describes the image sufficiently, it may be copied here..</p>
+
+    <p>Images may be tagged simply to mark their location in the book. The SMIL file(s) may be used to control the presentation of images. The requisite attributes to control image display from the markup in the textual content file are not provided in the DTBook DTD.</p>
+
+    <p><strong>New in DTBook-2005-3:</strong> <code>&lt;pagenum&gt;</code>s may now be included within <code>&lt;imggroup&gt;</code>.</p>
+
+    <h3>Syntax</h3>
+<pre class="element">
+<!--<a href="htmlifieddtd.html#imggroup">-->&lt;imggroup&gt;
+<!--<a href="htmlifieddtd.html#img">-->  &lt;img&gt;...&lt;/img&gt;<!--</a>-->
+<!--<a href="htmlifieddtd.html#caption">-->  &lt;caption&gt;...&lt;/caption&gt;<!--</a>-->
+<!--<a href="htmlifieddtd.html#pagenum">-->  &lt;pagenum&gt;...&lt;/pagenum&gt;<!--</a>-->
+<!--<a href="htmlifieddtd.html#prodnote">-->  &lt;prodnote&gt;...&lt;/prodnote&gt;<!--</a>-->
+&lt;/imggroup&gt;
+</pre>
+<h3>Examples</h3>
+<h4  id="image_examp1">Example 1</h4>
+    <p>This example shows markup for a single image and its associated <code>&lt;caption&gt;</code> and <code>&lt;prodnote&gt;</code>.</p>
+
+    <blockquote class="example">
+<pre>
+<code>&lt;imggroup id="imggrp_2"&gt;
+  &lt;img id="img1_1" src="fig1_01.png" alt="By the way, Sam, as someday 
+    you'll be paying for my entitlements, I'd like to thank you in 
+    advance." /&gt;
+  &lt;caption imgref="img1_1"&gt;By the way, Sam, as someday you'll be paying for my 
+    entitlements, I'd like to thank you in advance.&lt;/caption&gt;
+  &lt;prodnote render="optional" imgref="img1_1" id="pnote_p3" showin="blp"&gt;Reader's note: A 
+    cartoon shows a father in his easy chair looking at the newspaper.
+    As his small son plays with a pull toy on the floor next to him, the 
+    father says to the boy, "By the way, Sam, as someday you'll be paying
+    for my entitlements, I'd like to thank you in advance." End of note.
+    &lt;/prodnote&gt;
+&lt;/imggroup&gt;
+</code>
+</pre>
+    </blockquote>
+
+    <h4 id="image_examp2">Example 2</h4>
+    <p>This example shows markup for two images that share a single <code>&lt;caption&gt;</code> and two <code>&lt;prodnote&gt;</code>s. The first <code>&lt;prodnote&gt;</code> will show only in a braille version of the textual content file, the second in either a print or large-print version.</p>
+
+    <blockquote class="example">
+<pre>
+<code>&lt;imggroup id="imggrp_43"&gt;
+  &lt;img id="img_12" src="orion62.jpg" alt="Orion Nebula by visible and 
+    ultraviolet light" /&gt;
+  &lt;img id="img_13" src="orion3.jpg" alt="Young stars in Orion Nebula" /&gt;
+  &lt;caption imgref="img_12 img_13"&gt;Many young stars lie inside the mass of 
+    gas and dust that forms the Orion Nebula.&lt;/caption&gt;
+  &lt;prodnote render="optional" imgref="img_12 img_13" id="pnote_19" showin="bxx"&gt;Producer's Note: Two images 
+    of the Orion Nebula are shown, revealing many small points of light 
+    within the swirling mass of gas and dust that forms the nebula. Reference accompanying tactile drawing, number 22. 
+    &lt;/prodnote&gt;
+  &lt;prodnote render="optional" imgref="img_12 img_13" id="pnote_20" showin="xlp"&gt;Producer's Note: The two 
+    images of the Orion Nebula shown above reveal many small points of 
+    light within the swirling mass of gas and dust that forms the nebula.
+    &lt;/prodnote&gt;
+&lt;/imggroup&gt;
+</code>
+</pre>
+    </blockquote>
+  <!-- Modified: LEL - Added " Reference accompanying tactile drawing, number 22. " to the bxx prodnote to highlight the difference between the two prodnotes and provide a reason for two prodnotes being required for different outputs -->  
+  
+<!--               Start Modified              -->
+    <div class="sample">
+    <h4 class="sample_head">Illustrated Example 1</h4>
+    <div class="image">
+    <p class="sample_sub_head">Page Sample:</p>
+<a class="showhide" onclick="toggle_visibility('imggroup_printpage_01');">(Show/Hide)</a>
+    <div id="imggroup_printpage_01" style="display: none;">
+    <div class="imggroup">
+    	<img src="images/part2-image/imggroup01.jpg" alt="Page 158 from The Visual Experience (0-87192-627-X) by Davis Publications"/>
+    	<p class="caption">Page 158 from <em>The Visual Experience</em> (0-87192-627-X) by <strong>Davis Publications</strong></p>
+    </div>
+    </div>
+    </div>
+    <div class="code">
+    <p class="sample_sub_head">Sample Code:</p>
+<a class="showhide" onclick="toggle_visibility('imggroup_samp_code_01');">(Show/Hide)</a>
+    <div id="imggroup_samp_code_01" style="display: none;">
+    <pre>
+    	<samp>
+&lt;level2&gt;
+    &lt;pagenum id="IDA1OMN"&gt;158&lt;/pagenum&gt;
+    &lt;h2&gt;7.3 Art Criticism Step by Step &lt;/h2&gt;
+    &lt;level3&gt;
+        &lt;h3&gt;An Expressionist Landscape&lt;/h3&gt;
+        &lt;sidebar render="optional"&gt;
+            &lt;hd&gt;About the Artist Vincent van Gogh (1853-1890)&lt;/hd&gt;
+<span class="code_ident block">            &lt;imggroup&gt;
+                &lt;img src="images/U10C03/p158-001.png" alt="Photograph 
+                    of Vincent van Gogh" width="84" height="108"/&gt;
+            &lt;/imggroup&gt;</span>
+            &lt;p&gt;We know many details from the life of &lt;strong&gt;Vincent 
+                van Gogh&lt;/strong&gt; because of his letters to his 
+                brother, Theo. It was Theo who provided support that 
+                permitted van Gogh to paint so prolifically. Even 
+                when Vincent's life was shattered by attacks of 
+                mental illness, he still painted whenever he was able 
+                to. From April 1889 to May 1890 van Gogh was a 
+                voluntary patient at an asylum near the town of Saint-
+                Rémy, France. Eventually, he was permitted to venture 
+                into the surrounding countryside. His letters to his 
+                brother were always very coherent. In one Vincent 
+                says, "As far as I can judge, I am not really mad. 
+                You will see that the canvases I have done in the 
+                meantime are untroubled and no worse than the 
+                others."&lt;/p&gt;
+        &lt;/sidebar&gt;
+<span class="code_ident block">        &lt;imggroup&gt;
+            &lt;img src="images/U10C03/p158-002.png" alt="Painting by 
+                Vincent van Gogh, The Poplars at Saint-Rémy," 
+                width="396" height="545"/&gt;
+            &lt;caption&gt;7-17 &lt;strong&gt;The Post-Impressionists inherited 
+                their color palette, interest in light's effects, and 
+                love of nature from Impressionist painters like 
+                Renoir and Monet. They also inherited a love of 
+                painting outdoors. Van Gogh combined this approach 
+                with an ability to express intense feelings and 
+                emotion--thus giving name to a new style, 
+                Expressionism.&lt;/strong&gt; Vincent van Gogh,&lt;em&gt; The 
+                Poplars at Saint-Rémy,&lt;/em&gt; 1889. Oil on fabric, (61.6 
+                x 45.7 cm). Cleveland Museum of Art, Bequest of 
+                Leonard C. Hanna, Jr.&lt;/caption&gt;
+        &lt;/imggroup&gt;</span>
+    &lt;/level3&gt;
+&lt;/level2&gt;
+    	</samp>
+    </pre>
+    </div></div>
+    <div class="comments">
+    <p class="sample_sub_head">Comments and Alternative NIMAS Examples:</p>
+<a class="showhide" onclick="toggle_visibility('imggroup_comments_01');">(Show/Hide)</a>
+    <div id="imggroup_comments_01" style="display: none;">
+    <p><code>&lt;imggroup&gt;</code>, <code>&lt;img&gt;</code>, and <code>&lt;caption&gt;</code> are NIMAS-required elements.</p>
+        <p>While the use of optional tags is recommended, if one is only using the required tag set, the above section might be formatted as follows:</p>
+<pre><samp>
+&lt;level2&gt;
+    &lt;pagenum id="IDA1OMN"&gt;158&lt;/pagenum&gt;
+    &lt;h2&gt;7.3 Art Criticism Step by Step &lt;/h2&gt;
+    &lt;level3&gt;
+        &lt;h3&gt;An Expressionist Landscape&lt;/h3&gt;
+        &lt;sidebar render="optional"&gt;
+            &lt;hd&gt;About the Artist Vincent van Gogh (1853-1890)&lt;/hd&gt;
+<span class="code_ident block">            &lt;imggroup&gt;
+                &lt;img src="images/U10C03/p158-001.png" alt="" 
+                  width="84" height="108"/&gt;
+            &lt;/imggroup&gt;</span>
+            &lt;p&gt;We know many details from the life of &lt;strong&gt;Vincent 
+                van Gogh&lt;/strong&gt; because of his letters to his 
+                brother, Theo. It was Theo who provided support that 
+                permitted van Gogh to paint so prolifically. Even 
+                when Vincent's life was shattered by attacks of 
+                mental illness, he still painted whenever he was able 
+                to. From April 1889 to May 1890 van Gogh was a 
+                voluntary patient at an asylum near the town of Saint-
+                Rémy, France. Eventually, he was permitted to venture 
+                into the surrounding countryside. His letters to his 
+                brother were always very coherent. In one Vincent 
+                says, "As far as I can judge, I am not really mad. 
+                You will see that the canvases I have done in the 
+                meantime are untroubled and no worse than the 
+                others."&lt;/p&gt;
+        &lt;/sidebar&gt;
+<span class="code_ident block">        &lt;imggroup&gt;
+            &lt;img src="images/U10C03/p158-002.png" alt="" 
+                width="396" height="545"/&gt;
+            &lt;caption&gt;7-17 &lt;strong&gt;The Post-Impressionists inherited 
+                their color palette, interest in light's effects, and 
+                love of nature from Impressionist painters like 
+                Renoir and Monet. They also inherited a love of 
+                painting outdoors. Van Gogh combined this approach 
+                with an ability to express intense feelings and 
+                emotion--thus giving name to a new style, 
+                Expressionism.&lt;/strong&gt; Vincent van Gogh,&lt;em&gt; The 
+                Poplars at Saint-Rémy,&lt;/em&gt; 1889. Oil on fabric, (61.6 
+                x 45.7 cm). Cleveland Museum of Art, Bequest of 
+                Leonard C. Hanna, Jr.&lt;/caption&gt;
+        &lt;/imggroup&gt;</span>
+    &lt;/level3&gt;
+&lt;/level2&gt;
+</samp></pre>
+    </div></div>
+    </div>
+        <div class="sample">
+    <h4 class="sample_head">Illustrated Example 2</h4>
+    <div class="image">
+    <p class="sample_sub_head">Page Sample:</p>
+<a class="showhide" onclick="toggle_visibility('imggroup_printpage_02');">(Show/Hide)</a>
+    <div id="imggroup_printpage_02" style="display: none;">
+    <div class="imggroup">
+    	<img src="images/part2-image/imggroup02.jpg" alt="Page 148-149 from Science (0-328-34506-2) by Pearson Scott Foresman"/>
+    	
+    	<p class="caption">Page 148-149 from <em>Science</em> (0-328-34506-2) by <strong>Pearson Scott Foresman</strong></p>
+    </div>
+    </div>
+    </div>
+    <div class="code">
+    <p class="sample_sub_head">Sample Code:</p>
+<a class="showhide" onclick="toggle_visibility('imggroup_samp_code_02');">(Show/Hide)</a>
+    <div id="imggroup_samp_code_02" style="display: none;">
+    <pre>
+    	<samp>
+&lt;level3&gt;
+    &lt;pagenum id="IDAVAYN"&gt;148&lt;/pagenum&gt;
+    &lt;h3&gt;Lesson 6 What cycles occur in ecosystems?&lt;/h3&gt;
+    &lt;p&gt;&lt;em&gt;In an ecosystem, a substance may be passed from one 
+        organism to another. These substances go through an ecosystem 
+        again and again.&lt;/em&gt;&lt;/p&gt;
+    &lt;level4&gt;
+        &lt;h4&gt;Recycling Matter&lt;/h4&gt;
+        &lt;p&gt;Every day in every ecosystem, animals produce waste 
+            products. Eventually plants, animals, and all other 
+            organisms will die. There must be a way to "clean up" the 
+            waste and dead matter.&lt;/p&gt;
+<span class="code_ident block">        &lt;imggroup&gt;
+            &lt;img src="images/U13C07/p148-001.png" alt="Various 
+                plants and animals 'recycling' a log." width="1152" 
+                height="539"/&gt;
+            &lt;prodnote render="optional"&gt;
+                &lt;p&gt;Various decomposers on a log. Each has a callout 
+                    identifying and describing each decomposer. These 
+                    are listed as follows:&lt;/p&gt;
+                &lt;list type="pl"&gt;
+                    &lt;li&gt;A fungus breaks down a log by releasing 
+                        special chemicals. Materials from the log are 
+                        then absorbed by the fungus and used as 
+                        food.&lt;/li&gt;
+                    &lt;li&gt;With its yellow coloring and long body, it is 
+                        not hard to see why this is called the banana 
+                        slug. As it eats material on the forest floor, 
+                        this decomposer can grow to be 25 centimeters 
+                        long.&lt;/li&gt;
+                    &lt;li&gt;Slime molds are protists. They not only 
+                        decompose matter,but they may also eat 
+                        bacteria.&lt;/li&gt;
+                    &lt;li&gt;Carpenter ants do not eat wood, but they do 
+                        chew through it to make their homes. The 
+                        resulting wood partciles can be added to the 
+                        soil faster.&lt;/li&gt;
+                    &lt;li&gt;The almond-scented millipede eats pine needles 
+                        and otherleaves that have fallen from trees.
+                        &lt;/li&gt;
+                &lt;/list&gt;
+            &lt;/prodnote&gt;
+        &lt;/imggroup&gt;</span>
+        &lt;pagenum id="IDAJBYN"&gt;149&lt;/pagenum&gt;
+        &lt;p&gt;Decomposers are organisms that eat wastes and dead matter. 
+            By doing this, they break material into smaller pieces and 
+            put it back into the soil. Most decomposers are 
+            microorganisms like bacteria and fungi. Earthworms, flies, 
+            and slugs are also decomposers. Whenever you see something 
+            decaying or rotting, decomposers have been at work.&lt;/p&gt;
+        &lt;p&gt;Decomposers have the important niche, or role, of recycling 
+            wastes and dead material. They make minerals and nutrients 
+            that were in waste or dead materials available to living 
+            plants. These plants will then be food for other 
+            organisms. In this way, minerals and nutrients become part 
+            of a cycle. A &lt;strong&gt;cycle&lt;/strong&gt; is a repeating 
+            process or a repeating flow of material through a system. 
+            There is a constant cycle of minerals and some nutrients 
+            moving from living things to the soil and back into living 
+            things.&lt;/p&gt;
+        &lt;p&gt;Decomposers are not the only things that break down dead 
+            matter. Fire also does this. When plants burn, their ashes 
+            become part of the soil.&lt;/p&gt;
+        &lt;list type="pl"&gt;
+            &lt;li&gt;1. &lt;strong&gt;Checkpoint&lt;/strong&gt; What is the niche of 
+                slime molds and other decomposers? &lt;/li&gt;
+            &lt;li&gt;2. &lt;strong&gt;Math In Science&lt;/strong&gt; A slug started 
+                moving across a log at 10:52 A.M. and got to the 
+                other end at 11:09 A.M. How many minutes did the slug 
+                take to cross the log? &lt;/li&gt;
+        &lt;/list&gt;
+    &lt;/level4&gt;
+&lt;/level3&gt;
+      </samp>
+    </pre>
+    </div></div>
+    <div class="comments">
+    <p class="sample_sub_head">Comments and Alternative NIMAS Examples:</p>
+<a class="showhide" onclick="toggle_visibility('imggroup_comments_02');">(Show/Hide)</a>
+    <div id="imggroup_comments_02" style="display: none;">
+    <p><code>&lt;imggroup&gt;</code>, <code>&lt;img&gt;</code>, and <code>&lt;caption&gt;</code> are NIMAS-required elements.</p>
+    <p>While the use of optional tags is recommended, if one is only using the required tag set, the above section might be formatted as follows:</p>
+<pre><samp>
+&lt;level3&gt;
+    &lt;pagenum id="IDAVAYN"&gt;148&lt;/pagenum&gt;
+    &lt;h3&gt;Lesson 6 What cycles occur in ecosystems?&lt;/h3&gt;
+    &lt;p&gt;&lt;em&gt;In an ecosystem, a substance may be passed from one 
+        organism to another. These substances go through an ecosystem 
+        again and again.&lt;/em&gt;&lt;/p&gt;
+    &lt;level4&gt;
+        &lt;h4&gt;Recycling Matter&lt;/h4&gt;
+        &lt;p&gt;Every day in every ecosystem, animals produce waste 
+            products. Eventually plants, animals, and all other 
+            organisms will die. There must be a way to "clean up" the 
+            waste and dead matter.&lt;/p&gt;
+<span class="code_ident block">        &lt;imggroup&gt;
+            &lt;img src="images/U13C07/p148-001.png" width="1152" 
+                height="539" alt=""/&gt;
+        &lt;/imggroup&gt;</span>
+        &lt;list type="pl"&gt;
+            &lt;li&gt;A fungus breaks down a log by releasing 
+                special chemicals. Materials from the log are 
+                then absorbed by the fungus and used as 
+                food.&lt;/li&gt;
+            &lt;li&gt;With its yellow coloring and long body, it is 
+                not hard to see why this is called the banana 
+                slug. As it eats material on the forest floor, 
+                this decomposer can grow to be 25 centimeters 
+                long.&lt;/li&gt;
+            &lt;li&gt;Slime molds are protists. They not only 
+                decompose matter,but they may also eat 
+                bacteria.&lt;/li&gt;
+            &lt;li&gt;Carpenter ants do not eat wood, but they do 
+                chew through it to make their homes. The 
+                resulting wood partciles can be added to the 
+                soil faster.&lt;/li&gt;
+            &lt;li&gt;The almond-scented millipede eats pine needles 
+                and otherleaves that have fallen from trees.
+                &lt;/li&gt;
+        &lt;/list&gt;
+        &lt;pagenum id="IDAJBYN"&gt;149&lt;/pagenum&gt;
+        &lt;p&gt;Decomposers are organisms that eat wastes and dead matter. 
+            By doing this, they break material into smaller pieces and 
+            put it back into the soil. Most decomposers are 
+            microorganisms like bacteria and fungi. Earthworms, flies, 
+            and slugs are also decomposers. Whenever you see something 
+            decaying or rotting, decomposers have been at work.&lt;/p&gt;
+        &lt;p&gt;Decomposers have the important niche, or role, of recycling 
+            wastes and dead material. They make minerals and nutrients 
+            that were in waste or dead materials available to living 
+            plants. These plants will then be food for other 
+            organisms. In this way, minerals and nutrients become part 
+            of a cycle. A &lt;dfn&gt;cycle&lt;/dfn&gt; is a repeating 
+            process or a repeating flow of material through a system. 
+            There is a constant cycle of minerals and some nutrients 
+            moving from living things to the soil and back into living 
+            things.&lt;/p&gt;
+        &lt;p&gt;Decomposers are not the only things that break down dead 
+            matter. Fire also does this. When plants burn, their ashes 
+            become part of the soil.&lt;/p&gt;
+        &lt;list type="pl"&gt;
+            &lt;li&gt;1. &lt;strong&gt;Checkpoint&lt;/strong&gt; What is the niche of 
+                slime molds and other decomposers? &lt;/li&gt;
+            &lt;li&gt;2. &lt;strong&gt;Math In Science&lt;/strong&gt; A slug started 
+                moving across a log at 10:52 A.M. and got to the 
+                other end at 11:09 A.M. How many minutes did the slug 
+                take to cross the log? &lt;/li&gt;
+        &lt;/list&gt;
+    &lt;/level4&gt;
+&lt;/level3&gt;
+</samp></pre>
+    </div></div>
+    </div>
+<!--               -End Modified-              -->
+    <hr class="navigate" />
+
+    <div class="navigate">
+<!--               Start Modified              -->
+<!-- Corrected link - changed .htm to .html -->
+      <a href="part2-table.html">Previous Section</a> | <a href="index.html#contents">Table Of Contents</a> | <a href="part2-poem.html">Next Section</a>
+<!--               -End Modified-              -->     <p class="cr">
+<span class="title-footer">Structure Guidelines for DAISY 3</span>, officially, the <a href="http://www.daisy.org/z3986/">ANSI/NISO Z39.86  Specifications for the Digital Talking Book</a><br />
+	  Copyright &copy; <a href="http://www.daisy.org">The DAISY Consortium</a>, Some Rights Reserved. <br />
+       <a href="http://creativecommons.org/licenses/by-nd/3.0/">Creative Commons License: No Derivative Works</a><br />
+      <a class="image-link" href="http://creativecommons.org/licenses/by-nd/3.0/"><img src="images/somerights20.png" alt="Creative Commons" width="88" height="31" vspace="6" border="0" /></a></p>
+   </div>
+</body>
+</html>

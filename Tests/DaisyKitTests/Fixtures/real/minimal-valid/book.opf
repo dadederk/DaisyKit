@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.daisy.org/z3986/2005/ncx/" xmlns:dc="http://purl.org/dc/elements/1.1/" unique-identifier="BookId" version="2005-1">
+  <metadata>
+    <dc:title>Real Fixture Minimal Valid</dc:title>
+    <dc:creator>DAISY Consortium</dc:creator>
+    <dc:identifier id="BookId">real-minimal-valid</dc:identifier>
+    <dc:language>en</dc:language>
+  </metadata>
+  <manifest>
+    <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+    <item id="chapter1" href="chapter1.xml" media-type="application/x-dtbook+xml"/>
+    <item id="smil1" href="sync.smil" media-type="application/smil+xml"/>
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="chapter1"/>
+  </spine>
+</package>

@@ -1,0 +1,182 @@
+[
+  {
+    "id": "real_minimal_valid",
+    "type": "real",
+    "provenance": "Curated from DAISY 3 public specification structure (license-safe synthetic adaptation).",
+    "relativePath": "real/minimal-valid",
+    "expectedStrict": "success",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": []
+  },
+  {
+    "id": "real_navlabel_missing",
+    "type": "real",
+    "provenance": "Curated from DAISY 3 navigation examples with intentionally missing nav label for warning coverage.",
+    "relativePath": "real/navlabel-missing",
+    "expectedStrict": "success",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": ["ncx"]
+  },
+  {
+    "id": "synthetic_opf_missing_manifest",
+    "type": "synthetic",
+    "provenance": "Generated in test runtime for deterministic parser branch coverage.",
+    "generator": "opfMissingManifest",
+    "expectedStrict": "throws",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": ["opf"]
+  },
+  {
+    "id": "synthetic_opf_missing_spine",
+    "type": "synthetic",
+    "provenance": "Generated in test runtime for deterministic parser branch coverage.",
+    "generator": "opfMissingSpine",
+    "expectedStrict": "throws",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": ["opf"]
+  },
+  {
+    "id": "synthetic_opf_invalid_manifest_item",
+    "type": "synthetic",
+    "provenance": "Generated in test runtime for deterministic parser branch coverage.",
+    "generator": "opfInvalidManifestItem",
+    "expectedStrict": "throws",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": ["opf"]
+  },
+  {
+    "id": "synthetic_opf_invalid_spine_idref",
+    "type": "synthetic",
+    "provenance": "Generated in test runtime for deterministic parser branch coverage.",
+    "generator": "opfInvalidSpineIDRef",
+    "expectedStrict": "throws",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": ["opf"]
+  },
+  {
+    "id": "synthetic_opf_unique_identifier_mismatch",
+    "type": "synthetic",
+    "provenance": "Generated in test runtime for deterministic parser branch coverage.",
+    "generator": "opfUniqueIdentifierMismatch",
+    "expectedStrict": "success",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": []
+  },
+  {
+    "id": "synthetic_opf_href_outside_workspace",
+    "type": "synthetic",
+    "provenance": "Generated in test runtime for deterministic parser branch coverage.",
+    "generator": "opfHrefOutsideWorkspace",
+    "expectedStrict": "throws",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": ["opf"]
+  },
+  {
+    "id": "synthetic_ncx_missing_navmap",
+    "type": "synthetic",
+    "provenance": "Generated in test runtime for deterministic parser branch coverage.",
+    "generator": "ncxMissingNavMap",
+    "expectedStrict": "success",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": ["ncx"]
+  },
+  {
+    "id": "synthetic_ncx_missing_label_and_source",
+    "type": "synthetic",
+    "provenance": "Generated in test runtime for deterministic parser branch coverage.",
+    "generator": "ncxMissingLabelAndSource",
+    "expectedStrict": "success",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": ["ncx"]
+  },
+  {
+    "id": "synthetic_ncx_nested_depth",
+    "type": "synthetic",
+    "provenance": "Generated in test runtime for deterministic parser branch coverage.",
+    "generator": "ncxNestedDepth",
+    "expectedStrict": "success",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": []
+  },
+  {
+    "id": "synthetic_ncx_malformed",
+    "type": "synthetic",
+    "provenance": "Generated in test runtime for deterministic parser branch coverage.",
+    "generator": "malformedNCX",
+    "expectedStrict": "throws",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": ["ncx"]
+  },
+  {
+    "id": "synthetic_dtbook_heading_levels",
+    "type": "synthetic",
+    "provenance": "Generated in test runtime for deterministic parser branch coverage.",
+    "generator": "dtbookHeadingLevels",
+    "expectedStrict": "success",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": []
+  },
+  {
+    "id": "synthetic_dtbook_mixed_language",
+    "type": "synthetic",
+    "provenance": "Generated in test runtime for deterministic parser branch coverage.",
+    "generator": "dtbookMixedLanguage",
+    "expectedStrict": "success",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": []
+  },
+  {
+    "id": "synthetic_dtbook_whitespace",
+    "type": "synthetic",
+    "provenance": "Generated in test runtime for deterministic parser branch coverage.",
+    "generator": "dtbookWhitespaceParagraphs",
+    "expectedStrict": "success",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": []
+  },
+  {
+    "id": "synthetic_dtbook_duplicate_ids",
+    "type": "synthetic",
+    "provenance": "Generated in test runtime for deterministic parser branch coverage.",
+    "generator": "dtbookDuplicateIDs",
+    "expectedStrict": "success",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": []
+  },
+  {
+    "id": "synthetic_smil_missing_text_source",
+    "type": "synthetic",
+    "provenance": "Generated in test runtime for deterministic parser branch coverage.",
+    "generator": "smilMissingTextSrc",
+    "expectedStrict": "success",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": ["smil"]
+  },
+  {
+    "id": "synthetic_smil_outside_workspace",
+    "type": "synthetic",
+    "provenance": "Generated in test runtime for deterministic parser branch coverage.",
+    "generator": "smilOutsideWorkspaceTarget",
+    "expectedStrict": "success",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": ["smil"]
+  },
+  {
+    "id": "synthetic_unresolved_smil_target",
+    "type": "synthetic",
+    "provenance": "Generated in test runtime for deterministic parser branch coverage.",
+    "generator": "unresolvedSmilTarget",
+    "expectedStrict": "success",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": ["smil"]
+  },
+  {
+    "id": "synthetic_smil_file_missing",
+    "type": "synthetic",
+    "provenance": "Generated in test runtime for deterministic parser branch coverage.",
+    "generator": "smilFileMissingReferencedByOPF",
+    "expectedStrict": "success",
+    "expectedLenient": "success",
+    "expectedDiagnosticFamilies": ["smil"]
+  }
+]

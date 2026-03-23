@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" version="2005-1">
+  <book>
+    <bodymatter>
+      <h1 id="h1">Opening Chapter</h1>
+      <h2 id="h2">Section One</h2>
+      <p id="p1">This is a real curated fixture.</p>
+      <p id="p2">It is intentionally compact.</p>
+    </bodymatter>
+  </book>
+</dtbook>

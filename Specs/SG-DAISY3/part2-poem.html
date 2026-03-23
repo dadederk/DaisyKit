@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>DAISY 3 Structure Guidelines - Part 2: Poem</title><!-- Start Modified -->
+    <link href="default.css" rel="stylesheet" type="text/css" title="normal" />
+    <link href="print.css" rel="alternate stylesheet" type="text/css" title="print" />
+<script language="javascript" src="hide_show.js" type="text/javascript">
+</script>
+    <!-- -End Modified- -->
+  </head>
+
+  <body>
+    <div class="navigate">
+      <!-- Start Modified; LEL changed next link to Math 0810-10-->
+      <a href="part2-image.html">Previous Section</a> | <a href="index.html">Table Of Contents</a> | <a href="part2-math.html">Next Section</a><!-- -End Modified- -->
+    </div>
+    <!-- Start Modified -->
+    <hr />
+
+    <div class="shall">
+      <a class="showhide button" onclick="show_all();">Show All</a> <a class="showhide button" onclick="hide_all();">Hide All</a> <a class="print_css button" onclick="setActiveStyleSheet('print');">Printer Friendly Version</a> <a class="normal_css button" onclick="setActiveStyleSheet('normal');">Web Friendly Version</a>
+    </div>
+    <!-- -End Modified- -->
+    <hr class="navigate" />
+
+
+    <h1 id="poem"><a href="http://www.daisy.org/"><img src="http://www.daisy.org/images/daisylogo-w.gif" 
+		alt="DAISY Consortium Logo - Link to Home Page" width="150" height="110" vspace="12" border="0" /></a>Part II(f): Poetry</h1>
+
+    <p class="revise"><span class="title">DAISY 3 Structure Guidelines</span>
+    <br />
+     Last Revised: June 4, 2008</p>
+     <!-- Modified - LEL: Date changed; Title changed, title in metadata changed, copyright statement added       -->
+    
+    <p>This section of the guidelines explains the elements used to mark up poetry and texts displaying the structural elements of poetry.</p>
+
+    <h2>Information Object: Poem</h2>
+    <!--<p><strong>New in DAISY/NISO 2005:</strong> The <code>&lt;poem&gt;</code> element has been added, for markup of a complete poem or fragment thereof.</p>-->
+
+    <h3>Definition</h3>
+    
+    <p><dfn>poem</dfn>, n.<br />
+    <strong>1</strong>. <em>a</em> A literary composition forming a unity in itself, written in a metrical form, rhymed or unrhymed; the word usually implies also a certain emotional, imaginative, or romantic treatment of the subject-matter, and a style and diction which are marked by appropriateness to the emotions and ideas expressed, together with beauty of sound, and the quality of evoking images; <em>b</em> a prose composition which, though lacking metre, has the other qualities of a poem.<br />
+    <strong>2</strong>. Any expression of human passion and emotion and the interplay of these, as revealed in a series of events and actions, and the situations arising from these.</p>
+    <!--               Start Modified              -->
+    <!--Fixed .htm to .html-->
+
+    <p id="reference_0023"><strong><a href="biblio.html#reference_0023">Bibliographic Reference</a></strong> (text to be placed on reference page) <cite>Webster Universal Dictionary. Text Copyright &copy; 1968 Routledge &amp; Keegan Paul Ltd. Section P. pp 1078.</cite></p>
+    <!--               -End Modified-              -->
+
+    <h3>Markup</h3> 
+    
+    <p>The <code>&lt;poem&gt;</code> tags wrap a poem or fragment of a poem specifically.</p>
+
+    <p>The <code>&lt;poem&gt;</code> element may also be used to mark up texts displaying elements of versification, metre and rhyme where the use of <code>&lt;p&gt;</code> is considered insufficiently accurate. Use of the &lt;poem&gt; element to mark up plays should be confined to libretti and those works employing dramatic verse.</p>
+
+    <p>The <code>&lt;poem&gt;</code> element does not allow text content and therefore must contain at least one <code>&lt;line&gt;</code> element to be valid markup.<br />
+    The <code>&lt;poem&gt;</code> element may also contain the child elements: <code>&lt;title&gt;</code>, <code>&lt;author&gt;</code>, <code>&lt;hd&gt;</code>, <code>&lt;dateline&gt;</code>, <code>&lt;byline&gt;</code>, <code>&lt;epigraph&gt;</code>, <code>&lt;linegroup&gt;</code>, <code>&lt;pagenum&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;imggroup&gt;</code>, <code>&lt;sidebar&gt;</code>. Please see the respective entries in the Structure Guidelines for a more detailed description of these elements.</p>
+
+    <p>The <code>&lt;poem&gt;</code> element may possess the following attributes: <code>id</code>, <code>class</code>, <code>title</code>, <code>xml:space</code>, <code>xml:lang</code>, <code>dir</code> and <code>smilref</code>.</p>
+
+    <h3>Syntax</h3>
+<pre class="element">
+    &lt;poem&gt;
+        &lt;title&gt;..&lt;/title&gt;
+        &lt;author&gt;..&lt;/author&gt;
+        &lt;hd&gt;..&lt;/hd&gt;
+        &lt;dateline&gt;..&lt;/dateline&gt;
+        &lt;byline&gt;..&lt;/byline&gt;
+        &lt;epigraph&gt;..&lt;/epigraph&gt;
+        &lt;linegroup&gt;..&lt;/linegroup&gt;
+        &lt;line&gt;..&lt;/line&gt;
+        &lt;pagenum&gt;..&lt;/pagenum&gt;
+        &lt;img&gt;..&lt;/img&gt;
+        &lt;imggroup&gt;..&lt;/imggroup&gt;
+        &lt;sidebar&gt;..&lt;/sidebar&gt;
+    &lt;/poem&gt;
+</pre>
+
+    <h3>Description and suggested boundaries</h3>
+
+    <p>Use of the <code>&lt;poem&gt;</code> element, and associated child elements, can be applied to any text where definition of poetic structure is required. This does not exclude text that is not specifically poetry in any 'traditional' sense of the word. The <code>&lt;poem&gt;</code> element can be readily applied to classical texts where capturing metre is of importance and is an appropriate form of markup for song texts.</p>
+
+    <p>Two questions for operators arise when applying the element and children. What tools are available to me to ensure accurate and descriptive markup of the text in question and, where do I draw the line for appropriate use of <code>&lt;poem&gt;</code> markup?</p>
+
+    <p>While the <code>&lt;poem&gt;</code> element is versatile and can be applied to the many forms of writing that display metrical structure, rhyme or versification, it would be sensible to exclude some forms of prose of a &quot;poetic&quot; nature, in which the benefits of marking up the work with the <code>&lt;poem&gt;</code> element are not apparent and may even produce ambiguous results. If, for example, a text concerns prose poetry where the use of versification, metrical structure and lack of explicit rhyme structure are in focus, then markup with <code>&lt;poem&gt;</code> should be considered relevant and appropriate. However, prose lacking any formal structure recognisable within the definition of poetry, though rich in imagery for example, may not be an appropriate object for such markup.</p>
+
+    <p>Some simple forms of <code>&lt;poem&gt;</code> markup follow, each illustrating the use of a child element or application of an available attribute.</p>
+
+    <h3>Examples</h3>
+    <h4>Example 1</h4>
+    <p>In its simplest form, <code>&lt;poem&gt;</code> can be applied in the following manner:</p>
+
+    <blockquote class="example">
+<pre>
+<code>&lt;poem&gt;
+    &lt;line&gt;If I cannot see her, at least I can think of her, and so be happy;&lt;/line&gt;
+    &lt;line&gt;To light the beggar's hut no candle is better than moonlight.&lt;/line&gt;
+&lt;/poem&gt;
+</code>
+</pre>
+    </blockquote>
+
+    <p>The couplet is wrapped with the <code>&lt;poem&gt;</code> tags, with <code>&lt;line&gt;</code> tags wrapping each discrete text node.</p>
+
+    <h4>Example 2</h4>
+    <p>The leap from couplets to more complex poetry isn't long. The Standard provides a wrapping element for verses and other forms of delineation, <code>&lt;linegroup&gt;</code>, for example:</p>
+
+    <blockquote class="example">
+<pre>
+<code>&lt;poem&gt;
+    &lt;linegroup xml:lang="fa"&gt;
+        &lt;line&gt;Abr mi barad-o man shovm-e az yar-e judaa&lt;/line&gt;
+        &lt;line&gt;Choon kunam dil becheneen roz zedildar judaa.&lt;/line&gt;
+        &lt;line&gt;Abr baraan wa man-o yar satadah ba-widaa'&lt;/line&gt;
+        &lt;line&gt;Man judaa girya kunaan, abr judaa, yaar judaa&lt;/line&gt;
+    &lt;/linegroup&gt;
+    &lt;author&gt;Amir Khusrau&lt;/author&gt;
+    &lt;linegroup xml:lang="en"&gt;
+        &lt;line&gt;The weeping cloud becomes parted from his friend.&lt;/line&gt;
+        &lt;line&gt;Can I part my heart from my heart's companion on a day such as this?&lt;/line&gt;
+        &lt;line&gt;The weeping cloud, my companion and I stood leave-taking.&lt;/line&gt;
+        &lt;line&gt;I weep apart, the cloud apart, my companion apart.&lt;/line&gt;
+    &lt;/linegroup&gt;
+    &lt;byline&gt;Translation: Anon&lt;/byline&gt;
+&lt;/poem&gt;
+</code>
+</pre>
+    </blockquote>
+
+    <p>Note the application of xml:lang on each <code>&lt;linegroup&gt;</code> element. The text includes the name of the author and the name of the translator for the English text. The Standard allows the multiple use of the <code>&lt;author&gt;</code> element with <code>&lt;poem&gt;</code>, though not within <code>&lt;linegroup&gt;</code>. What the Standard does not answer is whether a translator can be considered the author of the translated work. <!-- start BN -->The <code>&lt;byline&gt;</code> element is useful in this case; it is a generic element indicating information about a creator or contributor to the work. Another option is to use the <code>class</code> attribute in <code>&lt;author&gt;</code>, e.g.: <code>&lt;author class="translator"&gt;Translation: Anon&lt;/author&gt;</code>.</p>
+    <!-- end BN -->
+
+    <h4>Example 3</h4>
+    <p>The following example applies <code>&lt;linegroup&gt;</code> in a different manner, not to mark up discrete verses, but to mark up discrete rhyme structure within a poem: in this case the typical three quatrains and an ending couplet of an English sonnet. Use of the <code>class</code> attribute in this example is essential to the understanding of the <code>&lt;linegroup&gt;</code> usage:</p>
+
+    <blockquote class="example">
+<pre>
+<code>&lt;poem class="shakespearean_sonnet" title="XXIX"&gt;
+    &lt;linegroup class="abab"&gt;
+        &lt;line&gt;When in disgrace with fortune and men's eyes&lt;/line&gt;
+        &lt;line&gt;I all alone beweep my outcast state,&lt;/line&gt;
+        &lt;line&gt;And trouble deaf heaven with my bootless cries,&lt;/line&gt;
+        &lt;line&gt;And look upon myself, and curse my fate,&lt;/line&gt;
+    &lt;/linegroup&gt;
+    &lt;linegroup class="cdcd"&gt;
+        &lt;line&gt;Wishing me like to one more rich in hope,&lt;/line&gt;
+        &lt;line&gt;Featured like him, like him with friends possessed,&lt;/line&gt;
+        &lt;line&gt;Desiring this man's art, and that man's scope,&lt;/line&gt;
+        &lt;line&gt;With what I most enjoy contented least;&lt;/line&gt;
+    &lt;/linegroup&gt;
+    &lt;linegroup class="efef"&gt;
+        &lt;line&gt;Yet in these thoughts my self almost despising,&lt;/line&gt;
+        &lt;line&gt;Haply I think on thee, and then my state,&lt;/line&gt;
+        &lt;line&gt;Like to the lark at break of day arising&lt;/line&gt;
+        &lt;line&gt;From sullen earth, sings hymns at heaven's gate;&lt;/line&gt;
+    &lt;/linegroup&gt;
+    &lt;linegroup class="gg"&gt;
+        &lt;line&gt;For thy sweet love remembered such wealth brings&lt;/line&gt;
+        &lt;line&gt;That then I scorn to change my state with kings.&lt;/line&gt;
+    &lt;/linegroup&gt;
+    &lt;author&gt;William Shakespeare&lt;/author&gt;
+&lt;/poem&gt;
+</code>
+</pre>
+    </blockquote>
+
+    <p>The attribute on each <code>&lt;linegroup&gt;</code>, excepting the closing couplet, could equally have been <code>class="quatrain1"</code> and so on, the point being that subtle structures can be highlighted using simple markup measures. Note the use of the <code>title</code> attribute in the <code>&lt;poem&gt;</code> tag. <!--Let me not to the marriage of true minds (a)
+    Admit impediments. Love is not love (b)
+    Which alters when it alteration finds, (a)
+    Or bends with the remover to remove. (b)
+    O no, it is an ever fixed mark (c)
+    That looks on tempests and is never shaken; (d)
+    It is the star to every wand'ring barque, (c)
+    Whose worth's unknown although his height be taken. (d)
+    Love's not time's fool, though rosy lips and cheeks (e)
+    Within his bending sickle's compass come; (f)
+    Love alters not with his brief hours and weeks, (e)
+    But bears it out even to the edge of doom. (f)
+    If this be error and upon me proved, (g)
+    I never writ, nor no man ever loved. (g)--></p>
+
+    <h4>Example 4</h4>
+    <p>In the following example we see <code>&lt;linegroup&gt;</code> used to define the formatted relationship between verses and in this case the use of the <code>xml:space</code> attribute to preserve important formatting introduced by the author:</p>
+
+    <blockquote class="example">
+<pre>
+<code>&lt;poem xml:space="preserve"&gt;
+    &lt;linegroup&gt;
+        &lt;line&gt;What is it,		what defines this?&lt;/line&gt;
+    &lt;/linegroup&gt;
+    &lt;linegroup&gt;
+        &lt;line&gt;Is it			the aching for her?&lt;/line&gt;
+    &lt;/linegroup&gt;
+    &lt;linegroup&gt;
+        &lt;line&gt;Is it			the fresh memory&lt;/line&gt;
+        &lt;line&gt;of her			caught in my open hand&lt;/line&gt;
+        &lt;line&gt;I speak			broken sentences&lt;/line&gt;
+        &lt;line&gt;honestly,			of no help&lt;/line&gt;
+    &lt;/linegroup&gt;
+    &lt;linegroup&gt;
+        &lt;line&gt;Is it			the eye seeing this?&lt;/line&gt;
+    &lt;/linegroup&gt;
+    &lt;linegroup&gt;
+        &lt;line&gt;Is it a			photograph too&lt;/line&gt;
+        &lt;line&gt;focused,			dear to the heart&lt;/line&gt;
+        &lt;line&gt;Speaking			in words weighing so&lt;/line&gt;
+        &lt;line&gt;little			so little is said&lt;/line&gt;
+    &lt;/linegroup&gt;
+    &lt;linegroup&gt;
+        &lt;line&gt;The simplest		truth, my keen&lt;/line&gt;
+        &lt;line&gt;heart does not know	how to stop&lt;/line&gt;
+    &lt;/linegroup&gt;
+    &lt;author&gt;anon&lt;/author&gt;
+&lt;/poem&gt;
+</code>
+</pre>
+    </blockquote>
+
+    <p><strong>Note:</strong> Child elements of a parent with the <code>xml:space</code> attribute applied inherit the chosen value (unless overidden by a new instance of the attribute). However, be aware that compliance with the <code>xml:space</code> is application dependent.</p>
+
+    <h4>Example 5</h4>
+    <p>As mentioned above, <code>&lt;poem&gt;</code> can be an appropriate form of markup for lyrics. The example below shows one possible scenario, marking up a rhyme structure, as with the example of a Shakespearean sonnet above.</p>
+
+    <blockquote class="example">
+<pre>
+<code>&lt;poem class="popular_song"&gt;
+    &lt;title&gt;Let Me Call You Sweetheart&lt;/title&gt;
+    &lt;author&gt;Beth Slater Whitson&lt;/author&gt;
+    &lt;dateline&gt;1910&lt;/dateline&gt;
+    &lt;linegroup class="aabc_quatrain"&gt;
+        &lt;line&gt;I am dreaming Dear of you, day by day&lt;/line&gt;
+        &lt;line&gt;Dreaming when the skies are blue, When they're gray;&lt;/line&gt;
+        &lt;line&gt;When the silv'ry moonlight gleams, Still I wander on in dreams,&lt;/line&gt;
+        &lt;line&gt;In a land of love, it seems, Just with you.&lt;/line&gt;
+    &lt;/linegroup&gt;
+    &lt;linegroup class="monorhyme_quatrain"&gt;
+        &lt;line&gt;Let me call you "Sweetheart," I'm in love with you.&lt;/line&gt;
+        &lt;line&gt;Let me hear you whisper that you love me too.&lt;/line&gt;
+        &lt;line&gt;Keep the love-light glowing in your eyes so true.&lt;/line&gt;
+        &lt;line&gt;Let me call you "Sweetheart," I'm in love with you.&lt;/line&gt;
+    &lt;/linegroup&gt;
+    &lt;linegroup class="aabc_quatrain"&gt;
+        &lt;line&gt;Longing for you all the while, More and more;&lt;/line&gt;
+        &lt;line&gt;Longing for the sunny smile, I adore;&lt;/line&gt;
+        &lt;line&gt;Birds are singing far and near, Roses blooming ev'rywhere&lt;/line&gt;
+        &lt;line&gt;You, alone, my heart can cheer; You, just you.&lt;/line&gt;
+    &lt;/linegroup&gt;
+    &lt;linegroup class="monorhyme_quatrain"&gt;
+        &lt;line&gt;Let me call you "Sweetheart," I'm in love with you.&lt;/line&gt;
+        &lt;line&gt;Let me hear you whisper that you love me too.&lt;/line&gt;
+        &lt;line&gt;Keep the love-light glowing in your eyes so true.&lt;/line&gt;
+        &lt;line&gt;Let me call you "Sweetheart," I'm in love with you.&lt;/line&gt;
+    &lt;/linegroup&gt;
+&lt;/poem&gt;
+</code>
+</pre>
+    </blockquote>
+
+    <p>The following section supplies readers of the guidelines with an image of an example text and shows a markup scenario with alternatives. Commentary is also provided.</p>
+    <!-- Start Modified -->
+
+    <div class="sample">
+      <h4 class="sample_head">Illustrated Example 1</h4>
+
+      <div class="image">
+        <p class="sample_sub_head">Page Sample:</p>
+        <a class="showhide" onclick="toggle_visibility('poem_printpage_01');">(Show/Hide)</a> 
+
+        <div id="poem_printpage_01" style="display: none;">
+          <img src="images/part2-poem/poem01.jpg" alt="Page 131 from Lectura (0-328-26789-9) by Pearson Scott Foresman" /> 
+
+          <p class="caption">Page 131 from <em>Lectura</em> (0-328-26789-9) by <strong>Pearson Scott Foresman</strong></p>
+        </div>
+      </div>
+
+      <div class="code">
+        <p class="sample_sub_head">Sample Code:</p>
+        <a class="showhide" onclick="toggle_visibility('poem_samp_code_01');">(Show/Hide)</a> 
+
+        <div id="poem_samp_code_01" style="display: none;">
+<pre>
+<samp>&lt;pagenum id="IDAJ3NP"&gt;131&lt;/pagenum&gt;
+<span class="code_ident block">&lt;poem xml:lang="es"&gt;
+    &lt;title&gt;Mami&lt;/title&gt;
+    &lt;author&gt;por Gustavo Gatti&lt;/author&gt;
+    &lt;linegroup&gt;
+        &lt;line&gt;Hueles a leche derramada.&lt;/line&gt;
+        &lt;line&gt;Hueles a miel de abeja.&lt;/line&gt;
+        &lt;line&gt;Hueles a pan, a menta&lt;/line&gt;
+        &lt;line&gt;y a frágil madrugada.&lt;/line&gt;
+    &lt;/linegroup&gt;
+&lt;/poem&gt;</span>
+<span class="code_ident block">&lt;poem xml:lang="es"&gt;
+    &lt;title&gt;Suéter&lt;/title&gt;
+    &lt;author&gt;por Alberto Forcada&lt;/author&gt;
+    &lt;linegroup&gt;
+        &lt;line&gt;Abuela,&lt;/line&gt;
+        &lt;line&gt;tengo frío;&lt;/line&gt;
+        &lt;line&gt;téjeme a mí también&lt;/line&gt;
+        &lt;line&gt;unas arrugas.&lt;/line&gt;
+    &lt;/linegroup&gt;
+&lt;/poem&gt;</span>
+</samp>
+</pre>
+        </div>
+      </div>
+
+      <div class="comments">
+        <p class="sample_sub_head">Comments and Alternative NIMAS Examples:</p>
+        <a class="showhide" onclick="toggle_visibility('poem_comments_01');">(Show/Hide)</a> 
+
+        <div id="poem_comments_01" style="display: none;">
+          <p>&lt;poem&gt; is a NIMAS-optional element, however &lt;line&gt; is a NIMAS-required element.</p>
+
+          <p>1. In this example, the use of the "xml:lang" attribute is somewhat redundant, given that the entire textbook is in Spanish. However, it is applicable in such situations.</p>
+
+          <p>2. While the use of optional tags is recommended, if one is only using the required tag set, the above section might be formatted as follows:</p>
+<pre>
+<samp>&lt;level3&gt;
+    &lt;pagenum id="IDAJ3NP"&gt;131&lt;/pagenum&gt;
+ <span class="code_ident block">   &lt;h3&gt;Mami&lt;/h3&gt;
+    &lt;p&gt;por&lt;/p&gt; &lt;author&gt;Gustavo Gatti&lt;/author&gt;
+    &lt;line&gt;Hueles a leche derramada.&lt;/line&gt;
+    &lt;line&gt;Hueles a miel de abeja.&lt;/line&gt;
+    &lt;line&gt;Hueles a pan, a menta&lt;/line&gt;
+    &lt;line&gt;y a frágil madrugada.&lt;/line&gt;</span>
+&lt;/level3&gt;
+&lt;level3&gt;
+ <span class="code_ident block">   &lt;h3&gt;Suéter&lt;/h3&gt;
+    &lt;p&gt;por&lt;/p&gt; &lt;author&gt;Alberto Forcada&lt;/author&gt;
+    &lt;line&gt;Abuela,&lt;/line&gt;
+    &lt;line&gt;tengo frío;&lt;/line&gt;
+    &lt;line&gt;téjeme a mí también&lt;/line&gt;
+    &lt;line&gt;unas arrugas.&lt;/line&gt;</span>
+&lt;/level3&gt;
+</samp>
+</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="sample">
+      <h4 class="sample_head">Illustrated Example 2</h4>
+
+      <div class="image">
+        <p class="sample_sub_head">Page Sample:</p>
+        <a class="showhide" onclick="toggle_visibility('poem_printpage_02');">(Show/Hide)</a> 
+
+        <div id="poem_printpage_02" style="display: none;">
+          <img src="images/part2-poem/poem02.jpg" alt="Page 153 from Making Music (0-382-36571-2) by Pearson Scott Foresman" /> 
+
+          <p class="caption">Page 153 from <em>Making Music</em> (0-382-36571-2) by <strong>Pearson Scott Foresman</strong></p>
+        </div>
+      </div>
+
+      <div class="code">
+        <p class="sample_sub_head">Sample Code:</p>
+        <a class="showhide" onclick="toggle_visibility('poem_samp_code_02');">(Show/Hide)</a> 
+
+        <div id="poem_samp_code_02" style="display: none;">
+<pre>
+<samp>&lt;level4&gt;
+    &lt;pagenum id="IDAXN5Q"&gt;153&lt;/pagenum&gt;
+    &lt;h4&gt;Begin a New Song&lt;/h4&gt;
+    &lt;p&gt;Now learn a new song. &lt;strong&gt;Listen&lt;/strong&gt; for the nonsense 
+        words in "Michael Finnigan," then &lt;strong&gt;sing&lt;/strong&gt; along.
+        &lt;/p&gt;
+ <span class="code_ident block">   &lt;poem&gt;
+        &lt;img src="images/thruout/cd.png" alt="CD Icon" width="38" 
+            height="37"/&gt;
+        &lt;hd&gt;CD 5-25&lt;/hd&gt;
+        &lt;title&gt;Michael Finnigan&lt;/title&gt;
+        &lt;author&gt;Traditional from the United States&lt;/author&gt;
+        &lt;img src="images/U04C07/p153-002.png" alt="Sheet music for 
+            Michael Finnigan" width="457" height="520"/&gt;
+        &lt;linegroup class="verse1"&gt;
+            &lt;line&gt;1. There was an old man named Mi-chael Fin-ni-gan,
+                &lt;/line&gt;
+            &lt;line&gt;He had whis-kers on his chin-ni-gan, The&lt;/line&gt;
+            &lt;line&gt;wind came up and blew them in a-gain,&lt;/line&gt;
+            &lt;line&gt;Poor old Mi-chael Fin-ni-gan. Be-gin a-gain.&lt;/line&gt;
+        &lt;/linegroup&gt;
+        &lt;linegroup class="verse2"&gt;
+            &lt;line&gt;2. There was an old man named Mi-chael Fin-ni-gan,
+                &lt;/line&gt;
+            &lt;line&gt;He went fish-ing with a pin-ni-gan, He&lt;/line&gt;
+            &lt;line&gt;caught a fish but dropped it in a-gain,&lt;/line&gt;
+            &lt;line&gt;Poor old Mi-chael Fin-ni-gan. Be-gin a-gain.&lt;/line&gt;
+        &lt;/linegroup&gt;
+        &lt;linegroup class="verse3"&gt;
+            &lt;line&gt;3. There was an old man named Mi-chael Fin-ni-gan,
+                &lt;/line&gt;
+            &lt;line&gt;Climbed a tree and barked his shin-ni-gan, He&lt;/line&gt;
+            &lt;line&gt;lost a-bout a yard of skin-ni-gan,&lt;/line&gt;
+            &lt;line&gt;Poor old Mi-chael Fin-ni-gan. Be-gin a-gain.&lt;/line&gt;
+        &lt;/linegroup&gt;
+        &lt;linegroup class="verse4"&gt;
+            &lt;line&gt;4. There was an old man named Michael Finnigan,
+                &lt;/line&gt;
+            &lt;line&gt;He grew fat and then grew thinnigan,&lt;/line&gt;
+            &lt;line&gt;Then he died and had to begin again,&lt;/line&gt;
+            &lt;line&gt;Poor old Mi-chael Fin-ni-gan. Be-gin a-gain.&lt;/line&gt;
+        &lt;/linegroup&gt;
+    &lt;/poem&gt;</span>
+&lt;/level4&gt;
+&lt;level4&gt;
+    &lt;h4&gt;A Special Challenge!&lt;/h4&gt;
+    &lt;p&gt;&lt;strong&gt;Sing&lt;/strong&gt; "This Old Man" and "Michael Finnigan" as 
+        partner songs. &lt;strong&gt;Sing&lt;/strong&gt; one song with half of 
+        your class while the rest of the class sings the other song.
+        &lt;/p&gt;
+&lt;/level4&gt;
+</samp>
+</pre>
+        </div>
+      </div>
+
+      <div class="comments">
+        <p class="sample_sub_head">Comments and Alternative NIMAS Examples:</p>
+        <a class="showhide" onclick="toggle_visibility('poem_comments_02');">(Show/Hide)</a> 
+
+        <div id="poem_comments_02" style="display: none;">
+          <p>&lt;poem&gt; is a NIMAS-optional element, however &lt;line&gt; is a NIMAS-required element.</p>
+
+          <p>While the use of optional tags is recommended, if one is only using the required tag set, the above section might be formatted as follows:</p>
+<pre>
+<samp>&lt;level4&gt;
+    &lt;pagenum id="IDAXN5Q"&gt;153&lt;/pagenum&gt;
+    &lt;h4&gt;Begin a New Song&lt;/h4&gt;
+    &lt;p&gt;Now learn a new song. &lt;strong&gt;Listen&lt;/strong&gt; for the nonsense 
+        words in "Michael Finnigan," then &lt;strong&gt;sing&lt;/strong&gt; along.
+        &lt;/p&gt;
+ <span class="code_ident block">   &lt;img src="images/thruout/cd.png" width="38" 
+            height="37" alt=""/&gt;
+        &lt;p&gt;CD 5-25&lt;/p&gt;
+    &lt;level5&gt;
+        &lt;h5&gt;Michael Finnigan&lt;/h5&gt;
+        &lt;author&gt;Traditional from the United States&lt;/author&gt;
+        &lt;img src="images/U04C07/p153-002.png" width="457" height="520" alt=""/&gt;
+        &lt;line&gt;1. There was an old man named Mi-chael Fin-ni-gan,&lt;/line&gt;
+        &lt;line&gt;He had whis-kers on his chin-ni-gan, The&lt;/line&gt;
+        &lt;line&gt;wind came up and blew them in a-gain,&lt;/line&gt;
+        &lt;line&gt;Poor old Mi-chael Fin-ni-gan. Be-gin a-gain.&lt;/line&gt;
+        &lt;line&gt;2. There was an old man named Mi-chael Fin-ni-gan,&lt;/line&gt;
+        &lt;line&gt;He went fish-ing with a pin-ni-gan, He&lt;/line&gt;
+        &lt;line&gt;caught a fish but dropped it in a-gain,&lt;/line&gt;
+        &lt;line&gt;Poor old Mi-chael Fin-ni-gan. Be-gin a-gain.&lt;/line&gt;
+        &lt;line&gt;3. There was an old man named Mi-chael Fin-ni-gan,&lt;/line&gt;
+        &lt;line&gt;Climbed a tree and barked his shin-ni-gan, He&lt;/line&gt;
+        &lt;line&gt;lost a-bout a yard of skin-ni-gan,&lt;/line&gt;
+        &lt;line&gt;Poor old Mi-chael Fin-ni-gan. Be-gin a-gain.&lt;/line&gt;
+        &lt;line&gt;4. There was an old man named Michael Finnigan,&lt;/line&gt;
+        &lt;line&gt;He grew fat and then grew thinnigan,&lt;/line&gt;
+        &lt;line&gt;Then he died and had to begin again,&lt;/line&gt;
+        &lt;line&gt;Poor old Mi-chael Fin-ni-gan. Be-gin a-gain.&lt;/line&gt;
+    &lt;/level5&gt;</span>
+&lt;/level4&gt;
+&lt;level4&gt;
+    &lt;h4&gt;A Special Challenge!&lt;/h4&gt;
+    &lt;p&gt;&lt;strong&gt;Sing&lt;/strong&gt; "This Old Man" and "Michael Finnigan" as 
+        partner songs. &lt;strong&gt;Sing&lt;/strong&gt; one song with half of 
+        your class while the rest of the class sings the other song.
+        &lt;/p&gt;
+&lt;/level4&gt;
+</samp>
+</pre>
+        </div>
+      </div>
+    </div>
+    <!-- -End Modified- -->
+<!-- Mod LEL changed next link to Math 0810-10 -->
+    <div class="navigate">
+      <a href="part2-image.html">Previous Section</a> | <a href="index.html">Table Of Contents</a> | <a href="part2-math.html">Next Section</a>
+	  <p class="cr">
+<span class="title-footer">Structure Guidelines for DAISY 3</span>, officially, the <a href="http://www.daisy.org/z3986/">ANSI/NISO Z39.86  Specifications for the Digital Talking Book</a><br />
+	  Copyright &copy; <a href="http://www.daisy.org">The DAISY Consortium</a>, Some Rights Reserved. <br />
+       <a href="http://creativecommons.org/licenses/by-nd/3.0/">Creative Commons License: No Derivative Works</a><br />
+      <a class="image-link" href="http://creativecommons.org/licenses/by-nd/3.0/"><img src="images/somerights20.png" alt="Creative Commons" width="88" height="31" vspace="6" border="0" /></a></p>
+   </div>
+</body>
+</html>

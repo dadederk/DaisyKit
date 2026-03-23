@@ -1,0 +1,59 @@
+name: DaisyKit Test Matrix
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  macos-spm-tests:
+    name: macos-spm-tests
+    runs-on: macos-15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Swift Package tests with coverage
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          swift test --enable-code-coverage 2>&1 | tee artifacts/macos-swift-test.log
+          COVERAGE_JSON_PATH="$(swift test --show-code-coverage-path)"
+          if [[ -f "$COVERAGE_JSON_PATH" ]]; then
+            cp "$COVERAGE_JSON_PATH" artifacts/DaisyKit.json
+          else
+            echo "{}" > artifacts/DaisyKit.json
+          fi
+
+      - name: Upload macOS artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-spm-artifacts
+          path: artifacts
+
+  ios-simulator-package-tests:
+    name: ios-simulator-package-tests
+    runs-on: macos-15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run DaisyKit package tests on iOS Simulator
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          xcodebuild test \
+            -packagePath . \
+            -scheme DaisyKit-Package \
+            -destination "platform=iOS Simulator,name=iPhone 17 Pro" \
+            -enableCodeCoverage YES \
+            -resultBundlePath artifacts/DaisyKit-Package.xcresult \
+            2>&1 | tee artifacts/ios-package-tests.log
+
+      - name: Upload iOS artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-package-artifacts
+          path: artifacts

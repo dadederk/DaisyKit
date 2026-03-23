@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <link href="default.css" rel="STYLESHEET" type="text/css" />
+
+    <title>DAISY 3 Structure Guidelines - Part 1: Introduction</title>
+  </head>
+                                                 
+  <body>
+    <div class="navigate">
+      <a href="foreword.html">Previous Section</a> | <a href="index.html#contents">Table Of Contents</a> | <a href="part2-major.html">Next Section</a>
+    </div>
+    <hr class="navigate" />
+	
+    <h1 id="auto_0000">	
+	<a href="http://www.daisy.org/"><img src="http://www.daisy.org/images/daisylogo-w.gif" 
+		alt="DAISY Consortium Logo - Link to Home Page" width="150" height="110" vspace="12" border="0" /></a>Part I: Introduction to Structured Markup</h1>
+
+    <p class="revise"><span class="title">DAISY 3 Structure Guidelines</span>
+    <br />
+     Last Revised: June 4, 2008</p>
+     <!-- Modified - LEL: Date changed; Title changed, copyright statement added       -->
+	
+                                 
+    <p>These guidelines are written to assist producers of talking books. They focus on how the textual content file of a DAISY Digital Talking Book (DTB) is to be marked up or "tagged" to clearly define the structure and semantics of the book. They are applicable to DTBs produced in accordance with the <a href="http://www.daisy.org/z3986/">DAISY/NISO 2005 standard, "Specifications for the Digital Talking Book"</a>, also known as DAISY 3, and ANSI/NISO Z39.86.</p>
+    <!-- known previously as DAISY 3 changed to also known as DAISY 3 - Jan 08 -->
+
+    <p>The objective of these guidelines is to recommend how this tagging should be done to provide the end user with an understanding of the structure of the book, and to introduce means to navigate through the DTB.</p>
+
+    <p>The guidelines will show how to recognize the structure elements (e.g., prefaces, chapters, sections, sidebars, lists, etc.) in a print or electronic text book, and how to tag those elements using Extensible Markup Language (XML). Throughout these guidelines "book" refers to any type of document, including magazines, workbooks, reference works, etc.</p>
+
+    <p>The DTB structure set by the producer determines the level of navigability available to the end user. The greater the structural markup, the greater the number of navigation points available to the reader. This is of course constrained by the structure of the source material and the resources available to produce the DTB. These guidelines offer producers great flexibility in selecting the most suitable approach. However, once the degree of the markup is chosen, it is strongly recommended that directions for tagging provided in these guidelines be followed closely to help ensure the markup is "valid." Markup is said to be valid when it strictly follows a set of rules called a Document Type Definition (DTD), described below. All finished content must be valid according to the DTBook DTD.</p>
+    <!-- Modified - LEL: typo in paragraph above corrected, "determineS" changed to "determines" -->
+
+    <p>The DAISY Structure Guidelines describe how to correctly apply the tags from the current DTBook DTD (found in the <a href="http://www.daisy.org/z3986/2005/">Standards area</a> of the DAISY Web site), developed as part of the DAISY Standard.</p>
+    <!-- Modified - LEL: url to DTD added -->
+    <!-- Modified 0801 - LEL: DTBook DTD, version 2005 CHANGED to "current DTBook DTD" throughout file -->
+
+    <p>Familiarity with XML markup and with authoring and validation tools is required for those working at a detailed level with structuring according to the DAISY Standard.</p>
+
+    <p>This introduction presents some of the general aspects of structuring a DTB. Examples of various categories of DAISY DTBs are given - from the simplest (audio and title only) to the most complex (audio and full text). Markup is explained, and the order in which content is presented to the end user is discussed. Hierarchy, nesting, and navigation are examined.</p>
+
+    <h2 id="auto_0001">The DAISY Digital Talking Book</h2>
+<!--               Start Modified              -->
+    <p>The DAISY DTB is a collection of digital files (from this point onward referred to simply as "files") that provides an accessible representation of the printed book for individuals who are blind, visually-impaired, or print-disabled. These files may contain digital audio recordings of human or synthetic speech, marked up text, and a range of machine-readable files.</p>
+<!--               -End Modified-              -->
+    <p>The structure of the book is designated by the XML tags and is accessible to the reader by use of a browser or a playback device. The DAISY DTB utilizes the technology of the Internet with some specialized applications added to provide greatly improved access to the information.</p>
+
+<!--               -LEL: Updated, changed 6 types to 3 types. Cross referenced file posted on ftp with file in working set/Brandon's files to ensure all changes in this version-              -->    
+    <p>There are three basic types of DAISY DTBs:</p>
+
+    <ul>
+      <li><strong>Audio with NCX (see "The NCX" below):</strong> DTB with structure. The NCX is the Navigation Control Center, a file containing all points in the book to which the user may navigate. The XML textual content file, if present, contains the structure of the book and may contain links to features such as narrated footnotes, etc. Some DTBs of this type may also contain additional textual components, for example, index or glossary, supporting keyword searching. </li>
+
+      <li><strong>Audio and full text:</strong> DTB with structure and complete text and audio. This form of a DTB is the most complete and provides the richest, multimedia reading experience and the greatest level of access. The XML textual content file contains the structure and the full text of the book. The audio and the text are synchronized.</li>
+
+      <li><strong>Text and no audio:</strong> DTB without audio. The XML textual content file contains the structure and full text of the book. There are no audio files. This type of DAISY DTB may, for example, be rendered with synthetic speech or with a refreshable braille display. </li>
+    </ul>
+
+    <p>XML provides the producer with the ability to structure a book in great detail. Compared to HTML markup, XML increases markup options and makes more detailed structure and proper nesting possible.</p>
+
+    <p>A DTB produced to the DAISY Standard consists of some or all of the following files:</p>
+
+    <ul>
+      <li>A Package File (drawn from the current Open eBook Forum (OEBF) Publication Structure Specification 1.2), containing administrative information about the DTB, the files that comprise it, and how these files interrelate.</li> <!-- Modified - LEL: slight change to indicate it is the current spec -->
+
+      <li>A textual content file containing some or all of the text of the book with appropriate markup.</li>
+
+      <li>Audio files containing the human voice recording and/or synthetic speech rendering of the book.</li>
+
+      <li>SMIL (Synchronized Multimedia Integration Language) file(s) containing information linking the audio and textual content files.</li>
+
+      <li>NCX (See "The NCX" below) - a file containing all points in the book to which the user may navigate.</li> <!-- Modified - LEL: double hyphen changed to single -->
+    </ul>
+
+    <h2 id="auto_0002">DTBook DTD</h2>
+
+    <p>The XML Document Type Definition (DTD) used for the textual content files of DAISY DTBs is the DTBook DTD. It is a machine-readable list of allowable tags, the attributes that may be applied to them, and rules on where the tags may be used. For example, sentence tags (&lt;sent&gt;) can be used inside paragraph tags (&lt;p&gt;), but not the other way around. To verify that a document has been marked up in accordance with a DTD, one runs a program called a validating parser that compares the markup with the DTD and lists any errors that may be present in tags, attributes, etc.</p><!-- Modified: LEL - dtbook-2005-1 changed to dtbook-2005-2; 0801 changed to simply "current" -->
+    
+    <p>The current version of the DTD can be found at <a href="http://www.daisy.org/z3986/2005/">http://www.daisy.org/z3986/2005/</a>.
+    Please note that as DTDs are machine-readable, it requires considerable knowledge of DTDs for a human to be able to intelligently interpret the information within the file.</p>
+    <!-- Modified - LEL: url updated. NOTE: direct link to the dtd is not available, when the 2005-2 link is selected on this page, open to open, thus ablity to get direct link, is not available -->
+
+    <h2 id="auto_0003">The NCX</h2>
+
+    <p>The NCX (Navigation Control File for XML Applications) is a critical component of the user interface of the book in that it provides a view of all the points in a text to which a user may navigate. Each navigation point in the NCX is linked through the SMIL file to the corresponding location in the audio and XML textual content files, providing direct access to that location. The NCX may not be identical to the table of contents (TOC) of the printed edition. (It will usually contain more elements of the book than the TOC does.) <em>For DTBs containing an XML textual content file the NCX is generated from the XML markup.</em> The way in which the markup is applied will determine what is contained within the NCX.</p>
+
+    <h2 id="auto_0004">Why Mark Up?</h2>
+
+    <p>An analogue book on cassette without tone indexing does not allow the end user to navigate to points within the book. A DTB without markup is equally inaccessible.</p>
+
+    <p>When a book is prepared for recording for analogue cassette format, a chapter and an appendix usually fit in the same level of the tone index hierarchy and are therefore treated in the same way. In terms of access, distinguishing these elements as different from each other is unimportant. Each is identified by a tone or a set number of tones.</p>
+
+    <p>This is not the case when producing a DTB. In the digital world, distinguishing one structural element from another is of great importance; when an element is identified and marked up, properties special to that element can be assigned to it, resulting in increased flexibility and enhanced navigation for the end user. For example, in an analogue recording the narrator pronounces or spells out an acronym, as appropriate. In a DTB containing a text file that may be accessed by a browser with synthetic speech it is important for the markup to indicate if the acronym should be spelled out or pronounced. Whether the acronym is to be spelled or pronounced is a property assigned to the acronym tag.</p>
+<!--               Start Modified              -->
+    <p>Furthermore, when elements are identified they can be displayed according to user needs. A user may not want to hear the sidebars in a book. If the sidebars are identified and marked up with the sidebar tag, the end user can choose to skip them, listen to them as they occur, or even listen only to them.</p>
+<!--               -End Modified-              -->
+    <p>In short, markup is the identification and tagging of the components of a text. The more detailed the markup, the greater the access provided to the end user.</p>
+
+    <h2 id="auto_0005">Markup Tags</h2>
+<!-- Modified: LEL - Signficant wording changes here. Clarification was required. Please check for clarity and meaning -->
+    <p>XML markup components are variously referred to as elements and tags, although we attempt to maintain a distinction: A <dfn>tag</dfn> is XML code, surrounded by angle brackets (&lt; and &gt;). All tags are either opening (as in <code>&lt;p&gt;</code>), closing (as in <code>&lt;/p&gt;</code>) or self-closing (as in <code>&lt;br/&gt;</code>). In the following example, the <code>q</code> tags are used to mark a short quotation within a paragraph:</p>
+        
+    <blockquote class="example"><code>
+        &lt;p&gt;As Yogi Berra said, &lt;q&gt;"It ain't over 'til it's over."&lt;/q&gt;&lt;/p&gt;
+    </code></blockquote>
+        
+    <p><code>&lt;q&gt;</code> indicates the beginning of the quote and <code>&lt;/q&gt;</code> indicates the end of the quote; <code>&lt;p&gt;</code> and <code>&lt;/p&gt;</code> wrap the entire paragraph. Note that to be well-formed XML, tags <em>must</em> be closed in the reverse order in which they are opened. Tags are not normally displayed in a DTB.</p>
+        
+    <p>An <dfn>element</dfn> is a matched pair of tags (opening and closing), attributes in the opening tag, and all text and tags contained between the matched tags. An element can also be a self-closing tag and its attributes.</p>
+
+    <p>Tags and elements are not normally displayed in a DTB.</p>
+
+    <h2 id="auto_0006">Attributes</h2>
+
+    <p>An attribute functions somewhat like an adjective, providing more information about the structure a tag identifies. It is a qualifier on an XML tag that provides additional information. One of the most commonly used attributes is "class". In the following example, class="chapter" indicates that the "level" tag begins a chapter section:</p>
+
+    <blockquote class="example"><code>
+      &lt;level1 class="chapter"&gt;...&lt;/level1&gt;
+    </code></blockquote>
+
+    <p>The attribute "id" is heavily used to <em>uniquely</em> identify each structural element of the book, and is usually inserted automatically by DTB production software. Other uses of attributes include indicating whether or not an item may be "turned off" as part of a group of items the user wishes to skip, and indicating if an acronym should be pronounced as a word or spelled out letter by letter, as mentioned earlier.</p>
+
+    <p>An attribute, if used, must appear in the start tag and the value of the attribute (in the above example, "chapter") must be in quotes. <em>In most cases the use of attributes is optional.</em> Tags for which they are required will be clearly identified in Part II of these guidelines.</p>
+<!--               Start Modified              -->
+    <p>One attribute that requires special mention is "smilref." It is used to synchronize the textual content file and the SMIL file when a user moves between navigation controlled by the SMIL file and navigation controlled by the textual content file. The DAISY Standard requires that it be present and have a value for each element in the textual content file that is referenced by a SMIL file. Normally, both the SMIL files and the smilref attributes will be created by the DTB production software.</p>
+<!--               -End Modified-              -->
+    <h2 id="auto_0007">Required Tags</h2>
+
+    <p>The following tags are required for a book to be valid to the current DTBook DTD. The complete DAISY DTB is surrounded by the <code>&lt;dtbook&gt;</code> and <code>&lt;/dtbook&gt;</code> tags. Within these, the <code>&lt;head&gt;</code> and <code>&lt;/head&gt;</code> and <code>&lt;book&gt;</code> and <code>&lt;/book&gt;</code> tags must also be present in this order as shown, and as required by the DTD. The <code>&lt;head&gt;</code> tags identify information about the book that is separate from the content. The <code>&lt;book&gt;</code> tags enclose the content of the book. The following example illustrates how these tags are used.</p> <!-- Modified: LEL - v2005-1 changed to V2005-2 -->
+
+    <blockquote class="example"><pre><code>
+      &lt;dtbook&gt;
+        &lt;head&gt; </code> (Information About the Book) <code>
+        &lt;/head&gt;
+        &lt;book&gt;</code>  (The entire content of the book, including cover information, etc.) <code>
+        &lt;/book&gt;
+      &lt;/dtbook&gt;
+    </code></pre></blockquote>
+
+
+<!-- ljs added meta and link mar 3, 2007 LEL ordered corrected in ToC 0703-12 -->
+
+
+	<h2 id="auto_0021">Link</h2>
+
+	<p>This element, <code>&lt;link&gt;</code>, appears in the <code>&lt;head&gt;</code> section of a document. It establishes the relationships between the current document and other documents, useful in cases where the content has been divided into separate DTBook documents. The <code>&lt;link&gt;</code> element conveys relationship information (for example, "next" and "previous") that may be rendered by user agents in a variety of ways. <code>&lt;link&gt;</code> is implemented similarly as in XHTML; for information on its use, consult sources on "link" within XHTML, such as this <a href="http://www.w3.org/QA/Tips/use-links">W3C tip sheet on link</a>, or the <a href="http://www.w3.org/TR/2004/WD-xhtml2-20040722/mod-meta.html#sec_20.5."><code>link</code> element section in the XHTML 2.0 spec</a></p>
+
+<h2 id="auto_0022">Meta</h2>
+
+	<p>Meta provides information about the book and occurs in <code>&lt;head&gt;</code>. It is not a part of the body or content of the book itself. Meta contains the metadata elements and is the container for the Dublin Core attributes and the additional DTBook attributes. As a minumum the dc:Title and dtb:uid are required. Complete, accurate metadata should be included in all DAISY DTBs. </p>
+
+    
+
+    <h2 id="auto_0008">Front Matter, Body Matter, and Rear Matter</h2>
+
+    <p>Within <code>&lt;book&gt;</code> the content should generally be divided into three sections called front matter, body matter and rear matter, presented in that order and tagged with the elements <code>&lt;frontmatter&gt;</code>, <code>&lt;bodymatter&gt;</code>, and <code>&lt;rearmatter&gt;</code>.</p>
+
+    <h3 id="auto_0009">Front Matter</h3>
+
+    <p>The front matter consists of information found in the preliminary pages of a book (e.g., title, author, book jacket material, foreword, acknowledgements, dedication, and table of contents) as well as information added by the talking book producer (e.g., date of recording, narrator, studio, special copyright message). See <a href="part2-major.html#front_matter">Information Object: Front Matter</a> in Part II(a): Major Structures.</p>
+
+    <h3 id="auto_0010">Body Matter</h3>
+
+    <p>The body matter of a book consists of the basic content of the document as distinguished from prefatory and supplementary materials. The body matter may be divided into parts, chapters, sections, etc. See <a href="part2-major.html#body_matter">Information Object: Body Matter</a> in Part II(a): Major Structures.</p>
+
+    <h3 id="auto_0011">Rear Matter</h3>
+
+    <p>The rear matter consists of material following the main body of the book. Examples are: appendices, bibliographies, alphabetical indexes, etc. These items should be presented in the sequence found in the printed book. See <a href="part2-major.html#rear_matter">Information Object: Rear Matter</a> in Part II(a): Major Structures.</p>
+
+    <p>In summary, the following list shows content belonging to frontmatter, bodymatter, and rearmatter:</p>
+
+    <dl>
+      <dt>frontmatter:</dt>
+
+      <dd>Title, Author, Book jacket information, Dedication, Table of contents, etc.</dd>
+
+      <dt>bodymatter:</dt>
+
+      <dd>Part 1, Chapters 1 - 3, Part 2, Chapters 4 - 6, etc.</dd>
+
+      <dt>rearmatter:</dt>
+
+      <dd>Glossary, Appendices, Bibliography, Index.</dd>
+    </dl>
+
+    <h2 id="auto_0012">Structure and Hierarchy</h2>
+
+    <p>The main elements of a document, such as parts, chapters, sections, stanzas, etc., and their interrelationships, constitute its primary structure. These are ordinarily arranged hierarchically. For example, a novel consisting of an introduction and ten chapters has a very simple structure of eleven elements all at the same hierarchical level. On the other hand, a textbook containing parts, chapters, and sections has a more complex structure with text elements at three hierarchical levels: parts at the highest level, chapters at the middle level, and sections at the lowest level. Appropriate markup is used to identify the proper hierarchical structure of a document.</p>
+
+    <h3 id="auto_0013">Levels</h3>
+
+    <p>Levels describe the relative position of the major structural elements of a book. The hierarchy they define provides the end user with the ability to navigate within the DTB. Therefore it is critical that the markup of levels be correct.</p>
+
+    <p>Two methods of marking up levels are allowed. The first uses six tags: <code>&lt;level1&gt;</code>, <code>&lt;level2&gt;</code>, <code>&lt;level3&gt;</code>, etc., through <code>&lt;level6&gt;</code>, with the highest level of a book tagged as <code>&lt;level1&gt;</code>. The second method uses a single <code>&lt;level&gt;</code> tag to mark all levels, with differences between the levels defined by nesting hierarchy, and optionally with the "depth" attribute. (See <a href="part2-major.html#altmarkup">Alternative Markup</a> in Part II(a): Major Structures). In the following examples and discussion, only the level1 through level6 method is described.</p> <!-- Modified: LEL - v2005-1 changed to V2005-2, also corrected link. Note, link change was simply to alter htm to html, this has been changed throughout this section -->
+
+    <p>A level is marked up in the following way. Determine at which level the structural component (part, chapter, section, etc.) occurs in the original document. The class attribute may be used to name (identify) it. The use of class attributes is not required, however, in some players they may provide additional information to the user.</p>
+
+    <blockquote class="example"><pre><code>
+    &lt;level1 class="chapter"&gt;</code></pre></blockquote>
+
+    <p>If the highest level of the book is "Part" the tag might read <code>&lt;level1 class="part"&gt;</code> and if the next level consists of "Chapter", the second level might read <code>&lt;level2 class="chapter"&gt;</code>. If a book is made up of chapters which contain sections, the chapters might be tagged <code>&lt;level1 class="chapter"&gt;</code> and the sections tagged as level <code>&lt;level2 class="section"&gt;</code>. In a book with one level (chapters) only the <code>&lt;level1 class="chapter"&gt;</code> tag would be used.</p>
+
+    <p>It is not necessary to use the class attribute names shown in the examples in these guidelines (part, chapter, section, etc.). A level can be called anything that doesn't violate basic naming conventions (spaces, colons, commas, and periods cannot be used in attributes). <code>&lt;level1 class="kazong"&gt;</code> is a valid name, even if it is not very descriptive. DTB producers should assign names to levels using their local language. For example: <code>&lt;level1 class="kapitel"&gt;</code> (Nordic for chapter).</p>
+
+    <p>If the structural component has a heading in the print book, mark it using the tags <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>. The numbers of the level tag and of the heading tag must be identical (h1 for level1, h2 for level2, etc.). The class attribute value used in the level tag may also be used within the heading tag. For example:</p>
+
+    <blockquote class="example"><pre><code>
+      &lt;level1 class="chapter"&gt;
+      &lt;h1 class="chapter"&gt;Darwin's Formative Years&lt;/h1&gt;
+    </code></pre></blockquote>
+
+    <p>In the remaining examples in this document, the class attribute value is not used in the heading tags.</p>
+
+    <p><em>The level tags are the container for the part, chapter, etc., while the h1 to h6 tags mark the heading for that part, chapter, etc.</em></p>
+
+    <p>At the end of the structural component being contained by the level it is necessary to insert the appropriate end tag: <code>&lt;/level2&gt;</code> (end of level 2), <code>&lt;/level1&gt;</code> (end of level1). For example:</p>
+
+    <blockquote class="example"><pre><code>
+      &lt;level1 class="chapter"&gt;
+        &lt;h1&gt;Darwin's Formative Years&lt;/h1&gt;
+        &lt;!-- content of chapter --&gt;
+      &lt;/level1&gt;
+    </code></pre></blockquote>
+
+    <p>For further discussion of levels, see <a href="part2-major.html#levels">Information Object: Levels</a> in Part II(a) Major Structures.</p>
+
+    <h3 id="auto_0014">Nesting</h3>
+
+    <p>In a DTB that is valid to the DTD and the DAISY Standard, (and thus produced according to the requirements of XML), components at different levels in the hierarchy must be nested, that is, contained one within the other. See the <a href="http://www.w3.org/TR/REC-xml/">W3C Extensible Markup Language 2004 Recommendation</a>. This means that a component at a lower level must fit completely inside the higher level. In other words, when a second tag is opened before the previous tag is closed, proper nesting must be observed - the second tag must be closed before the first is closed.</p>
+
+    <blockquote class="example">
+      <p>Valid markup: <code>&lt;level1&gt; &lt;level2&gt; &lt;/level2&gt; &lt;/level1&gt;</code></p>
+
+      <p>Invalid markup: <code>&lt;level1&gt; &lt;level2&gt; &lt;/level1&gt; &lt;/level2&gt;</code></p>
+    </blockquote>
+
+    <p>Note also that the invalid markup shown above is also not well-formed XML.</p>
+
+    <p>In addition, when marking up levels using the level1 to level6 tags, the tags must be used in sequence. For example, a level 3 must be preceded by a level 2, and a level 2 by a level 1. A level 3 element (e.g., section) that is not inside a level 2 element (e.g., chapter) will be invalid to the DTD. If the document is run through a validation process (via a parser) the invalid markup will be flagged.</p>
+
+    <h2 id="auto_0015">Navigation and Hierarchy</h2>
+
+    <p>The hierarchy in the DTB should reflect the hierarchy in the print book. The markup used in the DTB to represent the hierarchy determines the extent of the "global" navigation (from heading to heading) available to the end user.</p>
+
+    <p>In most cases, only structural components with headings should be identified using the level1 to level6 tags. Components such as acknowledgements or dedication sometimes appear in the print book without a heading, in which case they should be marked up with the <code>&lt;div&gt;</code> tag (See Major Structures).</p>
+
+    <p>The producer should impose a structural scheme in the DAISY DTB when it is absent from the print book. In some cases where the structural scheme is unclear, it may be necessary to promote a level, add a level, or flatten the hierarchy. As long as the final result is a well-structured DAISY DTB the producer has the flexibility to do this. For example, sometimes there is a discrepancy between the appearance of a heading, as indicated by typography, and the apparent hierarchy in the printed book. A subheading printed in the same typeface as level 3 headings in that book may appear as the first heading following a chapter heading at level 1. This could be due to various reasons. First, there may be no true hierarchy in the book and the typography used could reflect an aspect of content rather than hierarchy. In such cases it would be possible to flatten the hierarchy in the DTB, placing such headings at an appropriate superior level. Second, there may be a hierarchy in the book that is not correctly represented by the typography. In this case the actual hierarchy should be reflected in the DTB regardless of the typography.</p>
+
+    <h2 id="auto_0016">Sequential Structure</h2>
+
+    <p>The contents of a DTB should generally be presented to the end user in the order in which they appear in the printed book. That sequence does not necessarily relate to the physical location of the digital information in a DTB (that is, items that follow each other in the book may be located in different files in the DTB), or to the order in which the contents were recorded (that is, a note that is read at the end of a sentence in the DTB may in fact have been recorded on a different day than the sentence was). Proper sequence is especially important for the end user who does not navigate randomly through the DTB, but instead listens to it from beginning to end.</p>
+
+    <p>A presentation sequence should be established where none exists in the original document. For example, some material such as pictures, sidebars, boxes etc. "float" within the surrounding text. That is, they do not fall at a clearly identified point within the text. They are positioned on the print page for visual effect and may not be meant to be read at a single specific point within the surrounding text. The talking book producer must establish the sequence in which such elements are presented within the surrounding text, and presentation should be consistent throughout the DTB.</p>
+
+    <p>Such floating information may be vital for the understanding of the continuous text, but text and floating information may function more or less independently of each other. When such material is inserted into the text this should be done as closely as possible to existing reference points or relevant text, without disrupting the flow of the content. Floating information should be placed logically and consistently throughout the book. Wherever possible it should be included on the same page as it occurs in the printed book (some users may use the audio of a DTB as support or reinforcement with visual reading).</p>
+    <!-- Modified: LEL - spelling error corrected -->
+
+    <p>Some books rely strongly on visual presentation and have no continuous text. When there is no apparent order in the printed book an order must be established for the DTB. This is done according to the conventions of the producing country. For example, in the western world a left to right, top to bottom sequence would be appropriate.</p>
+
+    <p>In a DTB it may sometimes be beneficial to move selected material, (e.g., picture captions) from its location in the print book and gather it into a section created for the DTB. This section should be placed at an appropriate point within the overall sequential structure, often as part of the rear matter. Any divergence (such as this) from the print book should always be described in the producer's introduction to the DAISY DTB or in a specific Producer's Note.</p>
+
+    <h2 id="auto_0017">Page Identification</h2>
+
+    <h3 id="auto_0018">General Instructions</h3>
+
+    <p>It is not a requirement that pages be individually tagged in a DTB, but it is strongly recommended for textbooks or books that may be used for study purposes. When tagging the pages of a book, all pages should be included. Pages that are not numbered and are not part of the pagination sequence are tagged without being assigned a page number.</p>
+
+    <p>To aid in navigation, each page number should be placed preceding the first text on the page, regardless of its location in the printed book. This allows the "Go To Page" feature of most players to navigate directly to the top of a given page, so that playback begins with the requested page and includes the full content of that page. When a chapter or section, for example, begins at the top of a page, the level tag would occur first, followed by the page number, the heading (if present in the print book), and then the text.</p>
+
+    <p>Sentences often span a page break. A standard procedure for placement of the page tag should be developed by producing organizations, and the tagging should be handled consistently in all books produced. Some organizations consider it is best practice to place the page tag at the the end of the sentence, rather than mid-sentence. For example, if only the first one or two words appear on the previous page, the page tag would be placed at the beginning of the sentence (on the page prior to the actual page break). Other organizations may place the page tag exactly where it appears in the sentence. It would not however be appropriate to place a page tag mid-word if a word is broken and hyphenated at the page break.</p>
+
+    <h3 id="auto_0019">Books Containing Blank Pages</h3>
+
+    <p>Blank pages should be tagged and assigned the appropriate page numbers regardless of whether a printed number appears on the pages of the print book. The listener should also receive aural confirmation of the existence of blank pages. For example: "Page 43, blank page."</p>
+    <!-- Modified: LEL: First sentence modified, and, double hyphen changed to comma -->
+
+    <p>See Inline Elements: <a href="part2-inline.html#pagenum">Information Object: Page Numbers</a> for a more complete discussion of this topic.</p>
+
+    <h2 id="auto_0020">Producer's Notes</h2>
+
+    <p>Information added to the DTB by the producer should be tagged as producer's notes using the <code>&lt;prodnote&gt;</code> tag. Producer's notes may be used in the front matter, body matter or rear matter of a DTB. In the front matter, producer's notes may contain information such as a special copyright message, differences between the DTB and the print book, narrator's name and production date, etc.</p>
+    
+    <p>In addition, the producer may create a whole section, ideally near the beginning of the frontmatter, titled "How to use this DTB," that may contain a general description of the structure of the book, number of levels, navigation features, etc., without reference to any specific playback platform.</p>
+    
+    <p>The body matter will often contain producer's notes incorporating descriptions of pictures, diagrams, maps, etc. Producer's notes in the rear matter may contain information about the production of the DTB that is not included in the front matter.</p>
+
+    <p>The producer <strong>must</strong> classify producer's notes as either required or optional via the "render" attribute. The end user may choose to have the material that is classified as optional turned on or off. "How to use this DTB" would typically be classified as required whereas descriptions of pictures could be classified as optional.</p>
+    <!-- Modified: LEL -  Changed "should" to "must" -->
+    
+    <hr class="navigate" />
+
+    <div class="navigate">
+      <a href="foreword.html">Previous Section</a> | <a href="index.html#contents">Table Of Contents</a> | <a href="part2-major.html">Next Section</a>
+	  <p class="cr">
+<span class="title-footer">Structure Guidelines for DAISY 3</span>, officially, the <a href="http://www.daisy.org/z3986/">ANSI/NISO Z39.86  Specifications for the Digital Talking Book</a><br />
+	  Copyright &copy; <a href="http://www.daisy.org">The DAISY Consortium</a>, Some Rights Reserved. <br />
+       <a href="http://creativecommons.org/licenses/by-nd/3.0/">Creative Commons License: No Derivative Works</a><br />
+      <a class="image-link" href="http://creativecommons.org/licenses/by-nd/3.0/"><img src="images/somerights20.png" alt="Creative Commons" width="88" height="31" vspace="6" border="0" /></a></p>
+   </div>
+</body>
+</html>

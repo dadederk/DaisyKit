@@ -1,0 +1,330 @@
+/*
+ * Style sheet for the HTML 4.0 specification
+ * $Id: default.css,v 1.12 1997/12/12 18:46:53 ijacobs Exp $
+ */
+
+body {
+    background: white;
+    color: black;
+    margin: 0 2em 0 2em;
+}
+.title {
+    font-weight: bold; font-size: 140%;
+}
+.title-footer {
+    font-weight: bold; font-size: 90%;
+}
+div.example {
+    width: 100%;
+    color: black;
+}
+div.dtd-example {
+    width: 100%;
+    color: black;
+}
+tt.example {
+    color: maroon;
+    margin-left: 1em;
+}
+pre {
+    color: maroon;
+    margin-left: 1em;
+}
+div.dtd-fragment {
+    width: 100%;
+    border: none;
+    background-color: #eee;
+}
+pre.dtd-fragment {
+    margin-left: 0;
+}
+pre.dtd {
+    color: black;
+    margin-left: 0;
+}
+div.illegal-example {
+    width: 100%;
+    color: red;
+    border: solid red;
+}
+div.illegal-example p {
+    color: black;
+}
+
+div.focusbox {
+    border: 2px solid #000;
+    background-color: #eee;
+    padding: 0 1em 0 1em;
+    margin: 0 .5em 0 .5em;
+}
+div.deprecated-example {
+    width: 100%;
+    color: red;
+    border: solid rgb(255,165,0); /* orange */
+}
+div.deprecated-example p {
+    color: black;
+}
+div.note {
+    color: #00a;
+    margin-left: 1em;
+}
+p.note {
+    color: #00a;
+    margin-left: 1em;
+}
+a.normref { 
+    color : red;
+}	
+
+a.informref {
+    color : green;
+}	
+
+DIV.subtoc {padding: 1em; border: solid thin; margin: 1em 0;
+    background: #ddd}
+
+ul.toc {
+    list-style-type: none;
+}
+
+p.ad {
+    color: red;
+    font-size: larger;
+}
+
+span.ad {
+    color: red;
+    font-size: larger;
+}
+
+blockquote.example {
+    color: maroon;
+    margin-left: 1em;
+}
+
+.element {
+   color: blue;
+   margin-left: 0em;
+}
+
+dd {
+   margin-left: 1em;
+}
+
+dt {
+   color: blue;
+}
+
+div.navigate {
+   text-align: center;
+   color: #333333;  /* kk changed from teal */
+   font-size: larger;
+}
+hr.navigate {
+   width: 90%;
+}
+
+.comment {
+   margin-left: 1em;
+   color: rgb(70,00,150);
+}
+
+.entity {
+   color: rgb(0,100,100);
+}
+
+.attrib {
+   color: green;
+   margin-left: 1em;
+}
+
+div.reference {
+   margin-left: 1em;
+   color: maroon;
+}
+
+hr.reference {
+   width: 95%;
+}
+
+sup {
+	font-size: 70%;
+}
+
+/*lel added style for copyright statement*/
+p.cr {
+   font-size : 80%
+}
+/*lel added style for revise statement*/
+p.revise {
+   font-size : 80%;  color: #000099;
+}
+
+
+/*gh added styles*/
+
+/*navigation, print, show_hide*/
+.button {
+	cursor: pointer;
+	color: white;
+	font-family: sans-serif;
+	text-align: center;
+	padding: 2px;
+	border: 1px solid gray;
+	background-color: black;
+	margin: 5px;
+	display: inline;
+}
+
+.normal_css {
+	display: none;
+
+}
+
+.show_hide {
+	width: 70px;
+}
+
+.shall {
+	text-align: center;
+}
+
+/*samples*/
+.sample {
+	border: thin solid black;
+	padding: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background-color: black;
+	color: white;
+
+}
+
+.sample a.showhide {
+	cursor: pointer;
+	font-size: 75%;
+	font-family: sans-serif;
+	text-align: center;
+	display: block;
+	padding: 2px;
+	width: 70px;
+	color: white;
+	border: 1px solid white;
+	background-color: black;
+}
+
+.sample .image {
+	margin-left: 10px;
+	margin-right: 10px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	padding-bottom: 5px;
+}
+
+.sample .code {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	padding-bottom: 5px;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+	color: white;
+}
+
+.sample .comments {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	padding-bottom: 5px;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+	color: white;
+}
+
+
+.sample .code_ident {
+	font-weight: bold;
+	font-size: 110%;
+	padding: 1px;
+	color: black;
+	background-color: white;
+
+}
+
+.sample .sample_head {
+	font-family: sans-serif;
+}
+
+.sample .sample_sub_head {
+	font-family: sans-serif;
+	font-size: 85%;
+	font-weight: bold;
+	margin-bottom: 2px;
+}
+
+.sample .zoom {
+	color: white;
+}
+
+.sample pre {
+	color: white;
+}
+
+
+.imggroup {
+	text-align: center;
+}
+
+.imggroup .zoom {
+	font-size: 75%;
+}
+
+.imggroup_enlarged {
+	text-align: center;
+}
+
+.imggroup_enlarged img {
+	width: 100%;
+	height: 100%;
+}
+
+
+.imggroup p {
+	font-size: 75%;
+}
+
+.block {
+	display: block;
+}
+
+body {font-family: arial, verdana, sans-serif;}
+h6 {font-weight: bold; font-size:  75%; color: #000099; margin-top: 1.2em; margin-bottom: 0.2em;}
+h5 {font-weight: bold; font-size:  80%; color: #000099; margin-top: 1.2em; margin-bottom: 0.2em;}
+h4 {font-weight: bold; font-size:  88%; color: #000099; margin-top: 2.0em; margin-bottom: 0.4em;}
+h3 {font-weight: bold; font-size: 100%; color: #000099; margin-top: 2.0em; margin-bottom: 0.5em; letter-spacing: 0.04em;}
+h2 {font-weight: bold; font-size: 115%; color: #000099; margin-top: 2.5em; margin-bottom: 0.5em; letter-spacing: 0.15em;}
+h1 {font-weight: bold; font-size: 130%; color: #000099; margin-top: 3.0em; margin-bottom: 0.5em; letter-spacing: 0.20em;}
+ul.linklist {list-style: none; margin-left: 0em;}
+ul.linklist ul {list-style: none; margin-left: 2em;}
+.top {font-size: 80%; display: block;}
+*.box {font-size:95%; border: 1px solid rgb(100,100,100); padding:0.3em}
+*.author {color:#000099; font-size:80%;}
+*.comment {color:#000099; font-size:80%;}
+*.alert {border: 1px solid red; padding: 0.2em; font-size:95%; font-weight:bold;}
+*.action {color: rgb(0,0,153); font-size:90%; border: 1px solid rgb(0,0,50); padding: 0.2em; background-color: rgb(240,240,240); font-weight:bold;}
+span.bullet {font-family:"Courier New", sans-serif;}
+span.padding {font:.3em "Courier New", sans-serif;}
+/* code {font: 80% "Courier New", sans-serif;} */
+span.indent {margin-left:1em;text-indent:-1em;}
+span.indent2 {text-indent:1.5em;}
+ol.indent3 {margin-top:0em;}
+dt {font-weight:bold;}
+/* pre {margin-left:10px;} */
+.diff-ins {background:yellow;}
+.diff-del {text-decoration: line-through; background:pink; }
+.hidden { position:absolute; left:0px; top:-100px; width:0px; height:0px; overflow: hidden; }
+.center { text-align:center;}
+h4.sample_head { color: white; } /* KK fixed this - h4 color */
+h1 img {border:inherit none; float: right} /* note do not want to affect all images */
+a.image-link { text-decoration:none; float:none; }  /* do not want to underline images */

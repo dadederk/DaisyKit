@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+    <title>DAISY 3 Structure Guidelines- Miscellaneous Items: Excessive images in mid-level math titles</title>
+    <link rel="stylesheet" href="default.css" type="text/css" />
+  </head>
+
+  <body>
+    <div class="navigate">
+      <a href="misc.html">Previous Section</a> | <a href="index.html#contents">Table Of Contents</a>
+    </div>
+    <hr class="navigate" />
+
+    <h1 id="titleval"><a href="http://www.daisy.org/"><img src="http://www.daisy.org/images/daisylogo-w.gif" 
+		alt="DAISY Consortium Logo - Link to Home Page" width="150" height="110" vspace="12" border="0" /></a>NIMAS: Excessive Images in Mid-level Mathematics Books</h1>
+    <p class="revise"><span class="title">DAISY 3 Structure Guidelines</span>
+    <br />
+     Last Revised: June 4, 2008</p>
+     <!-- Modified - LEL: Date changed; Title changed, 
+copyright statement added       -->
+
+<p class="intro">This page is initially intended for discussion. This section will be expanded as resolution is reached. The information provided here is specific to books produced to the NIMAS Standard; it does not apply to books produced to the DAISY Standard.</p>
+
+<div class="focusbox">
+      <p>The DAISY MathML Modular Extension Mathematics was approved February 23, 2007. Producers creating DAISY/NISO, that is, DAISY 3 books which contain mathematical notations should incorporate the DAISY MathML Extension into their production processes. </p>
+      
+      <p>See the <a href="http://www.daisy.org/projects/mathml/mathml-in-daisy-spec.html">DAISY Specification for MathML</a>. See also the section in the 
+<a href="part2-math.html">Part II(g): Mathematics</a> in these Guidelines.</p>
+
+  </div>
+
+<p class="intro">The current NIMAS recommendation is for all mathematical content to be inserted into the document as an image.  While this may be appropriate for titles with an average number of mathematical objects, many mid-level mathematics textbooks are filled with mathematical objects, with an average of 25+ equations per page. An example, and the marked-up text as required by the NIMAS Standard are given below.</p>
+<!-- Mods above LEL: Added focusbox with links, corrected "is" to "are" in sentence immediately above, changed DAISY/NISO Standard to DAISY Standard with one exception where it was necessary to indicate the version of the DAISY Standard being referenced  -->
+
+<!--               Start Modified              -->
+<h2>Examples</h2>
+    <div class="sample">
+    <h3 class="sample_head">Example 1</h3>
+    <div class="image">
+    <p class="sample_sub_head">Page Sample:</p>
+    <div id="equations_printpage_01">
+    <div class="imggroup">
+    	<img src="images/misc/equations01.jpg" alt="Page 198 from Envision Math (0-328-27285-X) by Scott Foresman Addison Wesley"/>
+    	<p class="caption">Page 198 from <em>Envision Math</em> (0-328-27285-X) by <strong>Scott Foresman Addison Wesley</strong></p>
+    </div>
+    </div>
+    </div>
+    <div class="code">
+    <p class="sample_sub_head">Sample Code:</p>
+    <div id="equations_samp_code_01">
+    <pre>
+    	<samp>
+&lt;level1&gt;
+    &lt;pagenum id="IDAJAKP"&gt;198&lt;/pagenum&gt;
+    &lt;h1&gt;Set A pages 186-187&lt;/h1&gt;
+    &lt;p&gt; You can use a model to multiply
+    &lt;imggroup&gt;
+        &lt;img src="images/p198-001.png" alt="Fraction" width="36" 
+            height="30"/&gt;
+    &lt;/imggroup&gt;.&lt;/p&gt;
+    &lt;p&gt;6 is divisible by 3, so divide 6 by 3.&lt;/p&gt;
+    &lt;imggroup&gt;
+        &lt;img src="images/p198-002.png" alt="Counters" width="90" 
+            height="78"/&gt;
+    &lt;/imggroup&gt;
+    &lt;list type="ul"&gt;
+        &lt;li&gt;6 ÷ 3 = and &lt;img src="images/p198-003.png" alt="Equation" 
+            width="56" height="32"/&gt;.&lt;/li&gt;
+        &lt;li&gt;&lt;img src="images/p198-004.png" alt="Equation" width="93" 
+            height="36" /&gt;&lt;/li&gt;
+        &lt;li&gt;= 2(2) or 4.&lt;/li&gt;
+    &lt;/list&gt;
+    &lt;p&gt;&lt;strong&gt;Remember&lt;/strong&gt; that if the whole number factor is 
+        divisible by the denominator of the fraction factor, you can 
+        divide first and then multiply.&lt;/p&gt;
+    &lt;list type="pl"&gt;
+        &lt;li&gt;1. &lt;img src="images/p198-005.png" alt="Equation" 
+            width="34" height="30"/&gt;&lt;/li&gt;
+        &lt;li&gt;2. &lt;img src="images/p198-006.png" alt="Equation" 
+            width="41" height="30"/&gt;&lt;/li&gt;
+        &lt;li&gt;3. &lt;img src="images/p198-007.png" alt="Equation" 
+            width="42" height="31"/&gt;&lt;/li&gt;
+        &lt;li&gt;4. &lt;img src="images/p198-008.png" alt="Equation" 
+            width="42" height="33"/&gt;&lt;/li&gt;
+        &lt;li&gt;5. &lt;img src="images/p198-009.png" alt="Equation" 
+            width="53" height="29"/&gt;&lt;/li&gt;
+        &lt;li&gt;6. &lt;img src="images/p198-010.png" alt="Equation" 
+            width="46" height="30"/&gt;&lt;/li&gt;
+        &lt;li&gt;7. &lt;img src="images/p198-011.png" alt="Equation" 
+            width="59" height="31"/&gt;&lt;/li&gt;
+        &lt;li&gt;8. &lt;img src="images/p198-012.png" alt="Equation" 
+            width="69" height="30"/&gt;&lt;/li&gt;
+    &lt;/list&gt;
+&lt;/level1&gt;
+&lt;level1&gt;
+    &lt;h1&gt;Set B, pages 188-189&lt;/h1&gt;
+    &lt;p&gt;Estimate &lt;img src="images/p198-013.png" alt="Equation" 
+        width="52" height="35"/&gt; using rounding and compatible 
+        numbers.&lt;/p&gt;
+    &lt;p&gt;Round to the nearest whole numbers:&lt;/p&gt;
+    &lt;imggroup&gt;
+        &lt;img src="images/p198-014.png" alt="Rounding whole numbers" 
+            width="69" height="72"/&gt;
+    &lt;/imggroup&gt;
+    &lt;p&gt;Use compatible numbers:&lt;/p&gt;
+    &lt;imggroup&gt;
+        &lt;img src="images/p198-015.png" alt="Rounding compatible 
+            numbers" width="83" height="78"/&gt;
+    &lt;/imggroup&gt;
+    &lt;p&gt;Using rounding or compatible numbers sometimes gives the 
+        same answer.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Remember&lt;/strong&gt; that you can use the benchmark 
+        fraction &lt;img src="images/p198-016.png" alt="Fraction" 
+        width="17" height="26"/&gt; as a compatiblenumber for 
+        fractions close to &lt;img src="images/p198-017.png" 
+        alt="Fraction" width="17" height="27"/&gt;.&lt;/p&gt;
+    &lt;list type="pl"&gt;
+        &lt;li&gt;1. &lt;img src="images/p198-018.png" alt="Equation" 
+            width="36" height="30"/&gt;&lt;/li&gt;
+        &lt;li&gt;2. &lt;img src="images/p198-019.png" alt="Equation" 
+            width="56" height="32"/&gt;&lt;/li&gt;
+        &lt;li&gt;3. &lt;img src="images/p198-020.png" alt="Equation" 
+            width="54" height="29"/&gt;&lt;/li&gt;
+        &lt;li&gt;4. &lt;img src="images/p198-021.png" alt="Equation" 
+            width="52" height="30"/&gt;&lt;/li&gt;
+        &lt;li&gt;5. &lt;img src="images/p198-022.png" alt="Equation" 
+            width="64" height="30"/&gt;&lt;/li&gt;
+        &lt;li&gt;6. &lt;img src="images/p198-023.png" alt="Equation" 
+            width="56" height="30"/&gt;&lt;/li&gt;
+        &lt;li&gt;7. &lt;img src="images/p198-024.png" alt="Equation" 
+            width="51" height="30"/&gt;&lt;/li&gt;
+        &lt;li&gt;8. &lt;img src="images/p198-025.png" alt="Equation" 
+            width="59" height="31"/&gt;&lt;/li&gt;
+    &lt;/list&gt;
+&lt;/level1&gt;
+&lt;level1&gt;
+    &lt;h1&gt;Set C, pages 190-191&lt;/h1&gt;
+    &lt;p&gt; Find &lt;img src="images/p198-026.png" alt="Equation" 
+        width="43" height="34"/&gt;.&lt;/p&gt;
+    &lt;p&gt;Multiply the numerators and denominators.&lt;/p&gt;
+    &lt;imggroup&gt;
+        &lt;img src="images/p198-027.png" alt="Equation" width="102" 
+            height="34"/&gt;
+    &lt;/imggroup&gt;
+    &lt;p&gt;Simplify if possible. Divide the numerator and denominator 
+        by their GCF. The GCF of 12 and 72 is 12.&lt;/p&gt;
+    &lt;imggroup&gt;
+        &lt;img src="images/p198-028.png" alt="Equation" width="92" 
+            height="35"/&gt;
+    &lt;/imggroup&gt;
+    &lt;p&gt;&lt;strong&gt;Remember&lt;/strong&gt; that you can also simplify before 
+        multiplying by using the GCFs of any numerator and any 
+        denominator.&lt;/p&gt;
+    &lt;list type="pl"&gt;
+        &lt;li&gt;1. &lt;img src="images/p198-029.png" alt="Equation" 
+            width="36" height="32"/&gt;&lt;/li&gt;
+        &lt;li&gt;2. &lt;img src="images/p198-030.png" alt="Equation" 
+            width="39" height="33"/&gt;&lt;/li&gt;
+        &lt;li&gt;3. &lt;img src="images/p198-031.png" alt="Equation" 
+            width="42" height="31"/&gt;&lt;/li&gt;
+        &lt;li&gt;4. &lt;img src="images/p198-032.png" alt="Equation" 
+            width="36" height="31"/&gt;&lt;/li&gt;
+        &lt;li&gt;5. &lt;img src="images/p198-033.png" alt="Equation" 
+            width="37" height="31"/&gt;&lt;/li&gt;
+        &lt;li&gt;6. &lt;img src="images/p198-034.png" alt="Equation" 
+            width="42" height="31"/&gt;&lt;/li&gt;
+        &lt;li&gt;7. &lt;img src="images/p198-035.png" alt="Equation" 
+            width="47" height="30"/&gt;&lt;/li&gt;
+        &lt;li&gt;8. &lt;img src="images/p198-036.png" alt="Equation" 
+            width="45" height="36"/&gt;&lt;/li&gt;
+    &lt;/list&gt;
+&lt;/level1&gt;
+</samp>
+    </pre>
+    </div></div>
+    </div>
+	
+    <hr class="navigate" />
+<!--               Start Modified              -->
+    <div class="navigate">
+      <a href="biblio.html">Previous Section</a> | <a href="index.html#contents">Table Of Contents</a> | <a href="acknowledgments.html">Next Section</a>
+	  <p class="cr">
+<span class="title-footer">Structure Guidelines for DAISY 3</span>, officially, the <a href="http://www.daisy.org/z3986/">ANSI/NISO Z39.86  Specifications for the Digital Talking Book</a><br />
+	  Copyright &copy; <a href="http://www.daisy.org">The DAISY Consortium</a>, Some Rights Reserved. <br />
+       <a href="http://creativecommons.org/licenses/by-nd/3.0/">Creative Commons License: No Derivative Works</a><br />
+      <a class="image-link" href="http://creativecommons.org/licenses/by-nd/3.0/"><img src="images/somerights20.png" alt="Creative Commons" width="88" height="31" vspace="6" border="0" /></a></p>
+   </div>
+</body>
+</html>
