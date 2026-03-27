@@ -104,6 +104,11 @@ func parseReadableText(at inputURL: URL) async throws -> DaisyTextParseReport {
 - `DaisyTextParseReport`: output wrapper containing `publication` (`DaisyTextPublication`) and `diagnostics`
 - `DaisyParseError`: typed thrown error with a `diagnostic`
 
+## Apps Using DaisyKit
+
+- [Xarra!](https://accessibilityupto11.com/apps/xarra/) ([App Store](https://apps.apple.com/app/id6759402266)) - accessibility-focused text-to-audio reading app.
+- Let us know if you'd like your app to be listed here.
+
 ## Architecture
 
 For a diagram-first view of the parser pipeline, package components, and model relationships, see [ARCHITECTURE.md](ARCHITECTURE.md).
