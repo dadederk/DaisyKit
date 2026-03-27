@@ -28,7 +28,7 @@ enum DaisyDTBookParser {
 
         return DaisySection(
             sourcePath: relativePath,
-            title: state.headings.first?.text,
+            title: state.sectionTitle ?? state.headings.first?.text,
             paragraphs: state.paragraphs,
             headings: state.headings,
             anchors: state.anchors
@@ -40,14 +40,32 @@ enum DaisyDTBookParser {
             state.anchors.append(DaisyAnchor(id: anchorID, href: "\(state.sourcePath)#\(anchorID)"))
         }
 
+        if node.name == "doctitle", let text = node.textValue, !text.isEmpty {
+            state.sectionTitle = state.sectionTitle ?? text
+            let headingID = node.attributes["id"]
+            let anchor = headingID.map { "\(state.sourcePath)#\($0)" }
+            state.headings.append(DaisyHeading(id: headingID, level: 1, text: text, anchor: anchor))
+            return
+        }
+
+        if node.name == "hd", let text = node.textValue, !text.isEmpty {
+            let headingID = node.attributes["id"]
+            let anchor = headingID.map { "\(state.sourcePath)#\($0)" }
+            let declaredLevel = node.attributes["level"].flatMap(Int.init) ?? 2
+            let normalizedLevel = max(1, min(6, declaredLevel))
+            state.headings.append(DaisyHeading(id: headingID, level: normalizedLevel, text: text, anchor: anchor))
+            return
+        }
+
         if let headingLevel = headingLevel(for: node.name), let text = node.textValue, !text.isEmpty {
             let headingID = node.attributes["id"]
             let anchor = headingID.map { "\(state.sourcePath)#\($0)" }
             state.headings.append(DaisyHeading(id: headingID, level: headingLevel, text: text, anchor: anchor))
+            state.sectionTitle = state.sectionTitle ?? text
             return
         }
 
-        if node.name == "p", let text = node.textValue, !text.isEmpty {
+        if paragraphElementNames.contains(node.name), let text = node.textValue, !text.isEmpty {
             state.paragraphs.append(DaisyParagraph(id: node.attributes["id"], text: text))
             return
         }
@@ -63,10 +81,22 @@ enum DaisyDTBookParser {
         }
         return (1...6).contains(level) ? level : nil
     }
+
+    private static let paragraphElementNames: Set<String> = [
+        "p",
+        "sent",
+        "li",
+        "dd",
+        "dt",
+        "caption",
+        "prodnote",
+        "note"
+    ]
 }
 
 private struct TraversalState {
     let sourcePath: String
+    var sectionTitle: String?
     var paragraphs: [DaisyParagraph] = []
     var headings: [DaisyHeading] = []
     var anchors: [DaisyAnchor] = []

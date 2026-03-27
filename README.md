@@ -14,6 +14,7 @@ Text-first DAISY 3 parser for Swift packages and Apple-platform apps.
 DaisyKit parses DAISY 3 publications from a directory or `.zip` and returns:
 - Raw publication structures (OPF, NCX, DTBook, optional SMIL refs).
 - A normalized reading model for app consumption (sections, headings, paragraphs, anchors).
+- A text-focused, line + heading model for reader/transcript style experiences.
 - Typed diagnostics with strict and lenient parse modes.
 
 v1 scope is text-first parsing only. Playback/timeline audio engine behavior is intentionally out of scope.
@@ -33,7 +34,7 @@ Add DaisyKit to your `Package.swift` dependencies:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/dadederk/DaisyKit.git", from: "0.9.0")
+    .package(url: "https://github.com/dadederk/DaisyKit.git", from: "0.10.0")
 ]
 ```
 
@@ -84,12 +85,23 @@ func parseBookStrict(at inputURL: URL) async throws -> DaisyParseReport {
 }
 ```
 
+Text-focused extraction example:
+
+```swift
+func parseReadableText(at inputURL: URL) async throws -> DaisyTextParseReport {
+    // In lenient mode, this can recover DTBook-only packages that do not include OPF metadata.
+    try await parseTextPublication(at: inputURL, options: .init(mode: .lenient))
+}
+```
+
 ## API Overview
 
 - `parsePublication(at:options:) async throws -> DaisyParseReport`
+- `parseTextPublication(at:options:) async throws -> DaisyTextParseReport`
 - `DaisyParseMode`: `.strict` or `.lenient`
 - `DaisyParseOptions`: parser options container (`mode`)
 - `DaisyParseReport`: output wrapper containing `raw`, `publication`, and `diagnostics`
+- `DaisyTextParseReport`: output wrapper containing `publication` (`DaisyTextPublication`) and `diagnostics`
 - `DaisyParseError`: typed thrown error with a `diagnostic`
 
 ## Architecture
