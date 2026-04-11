@@ -7,6 +7,14 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.11.0] - 2026-04-11
+
+### Added
+- Added `DaisySectionRole` enum with cases `bodymatter`, `frontmatter`, `rearmatter`, and `fullDocument`.
+- Added `role: DaisySectionRole` property to `DaisySection` (defaults to `.fullDocument` for backward compatibility).
+- `DTBookParser` now detects `<bodymatter>`, `<frontmatter>`, and `<rearmatter>` structural elements and sets the appropriate `role` on the parsed section. When none are present, `role` is `.fullDocument`.
+- Consumers can use `section.role` to selectively process sections — for example, skipping `frontmatter` sections that typically contain navigational content like a table of contents.
+
 ## [0.10.0] - 2026-03-27
 
 ### Added

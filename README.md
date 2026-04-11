@@ -34,7 +34,7 @@ Add DaisyKit to your `Package.swift` dependencies:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/dadederk/DaisyKit.git", from: "0.10.0")
+    .package(url: "https://github.com/dadederk/DaisyKit.git", from: "0.11.0")
 ]
 ```
 

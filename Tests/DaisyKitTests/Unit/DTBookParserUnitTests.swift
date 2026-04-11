@@ -53,4 +53,42 @@ struct DTBookParserUnitTests {
         #expect(anchors.count == 1)
         #expect(anchors.first?.id == "dup")
     }
+
+    @Test("Given dtbook with bodymatter when parsing then section role is bodymatter and only body content is included")
+    func test_givenDTBookWithBodymatter_whenParsing_thenSectionRoleIsBodymatterAndOnlyBodyContentIncluded() async throws {
+        let fixtureURL = try TestFixtureBuilder.makePublicationDirectory(variant: .dtbookBodymatterOnly)
+        defer { TestFixtureBuilder.removeIfPresent(fixtureURL) }
+
+        let report = try await parsePublication(at: fixtureURL)
+        let section = try #require(report.publication.sections.first)
+
+        #expect(section.role == .bodymatter)
+        #expect(section.paragraphs.map(\.text).contains("Body paragraph."))
+        #expect(!section.paragraphs.map(\.text).contains("Index entry."))
+        #expect(!section.paragraphs.map(\.text).contains("Chapter One"))
+    }
+
+    @Test("Given dtbook with only frontmatter when parsing then section role is frontmatter")
+    func test_givenDTBookWithOnlyFrontmatter_whenParsing_thenSectionRoleIsFrontmatter() async throws {
+        let fixtureURL = try TestFixtureBuilder.makePublicationDirectory(variant: .dtbookFrontmatterOnly)
+        defer { TestFixtureBuilder.removeIfPresent(fixtureURL) }
+
+        let report = try await parsePublication(at: fixtureURL)
+        let section = try #require(report.publication.sections.first)
+
+        #expect(section.role == .frontmatter)
+        #expect(section.paragraphs.map(\.text).contains("Introductory material."))
+    }
+
+    @Test("Given dtbook without structural elements when parsing then section role is fullDocument")
+    func test_givenDTBookWithoutStructuralElements_whenParsing_thenSectionRoleIsFullDocument() async throws {
+        let fixtureURL = try TestFixtureBuilder.makePublicationDirectory(variant: .dtbookNoStructuralElements)
+        defer { TestFixtureBuilder.removeIfPresent(fixtureURL) }
+
+        let report = try await parsePublication(at: fixtureURL)
+        let section = try #require(report.publication.sections.first)
+
+        #expect(section.role == .fullDocument)
+        #expect(section.paragraphs.map(\.text).contains("Flat paragraph without structural containers."))
+    }
 }

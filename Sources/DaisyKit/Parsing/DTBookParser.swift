@@ -22,7 +22,7 @@ enum DaisyDTBookParser {
             return DaisySection(sourcePath: relativePath, title: nil, paragraphs: [], headings: [], anchors: [])
         }
 
-        let body = root.firstDescendant(named: "bodymatter") ?? root.firstDescendant(named: "book") ?? root
+        let (body, role) = resolveBodyNode(from: root)
         var state = TraversalState(sourcePath: relativePath)
         collect(from: body, state: &state)
 
@@ -31,8 +31,30 @@ enum DaisyDTBookParser {
             title: state.sectionTitle ?? state.headings.first?.text,
             paragraphs: state.paragraphs,
             headings: state.headings,
-            anchors: state.anchors
+            anchors: state.anchors,
+            role: role
         )
+    }
+
+    /// Resolves the traversal root node and its structural role from a DTBook document root.
+    ///
+    /// Prefers `<bodymatter>` (the primary narrative body), then falls back to `<frontmatter>` if it is the
+    /// only structural container present, and finally uses `<book>` or the document root when no explicit
+    /// structural elements are found.
+    private static func resolveBodyNode(from root: DaisyXMLElement) -> (node: DaisyXMLElement, role: DaisySectionRole) {
+        if let bodymatter = root.firstDescendant(named: "bodymatter") {
+            return (bodymatter, .bodymatter)
+        }
+        if let rearmatter = root.firstDescendant(named: "rearmatter"),
+           root.firstDescendant(named: "frontmatter") == nil {
+            return (rearmatter, .rearmatter)
+        }
+        if let frontmatter = root.firstDescendant(named: "frontmatter"),
+           root.firstDescendant(named: "rearmatter") == nil {
+            return (frontmatter, .frontmatter)
+        }
+        let fallback = root.firstDescendant(named: "book") ?? root
+        return (fallback, .fullDocument)
     }
 
     private static func collect(from node: DaisyXMLElement, state: inout TraversalState) {

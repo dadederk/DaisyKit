@@ -21,6 +21,9 @@ enum DaisyFixtureVariant {
     case smilOutsideWorkspaceTarget
     case unresolvedSmilTarget
     case smilFileMissingReferencedByOPF
+    case dtbookBodymatterOnly
+    case dtbookFrontmatterOnly
+    case dtbookNoStructuralElements
 }
 
 enum TestFixtureBuilder {
@@ -410,6 +413,47 @@ enum TestFixtureBuilder {
                   <h1 id=\"dup\">Heading Dup</h1>
                   <p id=\"dup\">Paragraph Dup</p>
                 </bodymatter>
+              </book>
+            </dtbook>
+            """
+        case .dtbookBodymatterOnly:
+            return """
+            <?xml version=\"1.0\" encoding=\"UTF-8\"?>
+            <dtbook xmlns=\"http://www.daisy.org/z3986/2005/dtbook/\" version=\"2005-1\">
+              <book>
+                <frontmatter>
+                  <doctitle id=\"title\">My Book</doctitle>
+                  <p id=\"toc-entry-1\">Chapter One</p>
+                </frontmatter>
+                <bodymatter>
+                  <h1 id=\"h1\">Chapter One</h1>
+                  <p id=\"p1\">Body paragraph.</p>
+                </bodymatter>
+                <rearmatter>
+                  <p id=\"r1\">Index entry.</p>
+                </rearmatter>
+              </book>
+            </dtbook>
+            """
+        case .dtbookFrontmatterOnly:
+            return """
+            <?xml version=\"1.0\" encoding=\"UTF-8\"?>
+            <dtbook xmlns=\"http://www.daisy.org/z3986/2005/dtbook/\" version=\"2005-1\">
+              <book>
+                <frontmatter>
+                  <h1 id=\"h1\">Preface</h1>
+                  <p id=\"p1\">Introductory material.</p>
+                </frontmatter>
+              </book>
+            </dtbook>
+            """
+        case .dtbookNoStructuralElements:
+            return """
+            <?xml version=\"1.0\" encoding=\"UTF-8\"?>
+            <dtbook xmlns=\"http://www.daisy.org/z3986/2005/dtbook/\" version=\"2005-1\">
+              <book>
+                <h1 id=\"h1\">Flat Chapter</h1>
+                <p id=\"p1\">Flat paragraph without structural containers.</p>
               </book>
             </dtbook>
             """
