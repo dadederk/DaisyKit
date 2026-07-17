@@ -104,6 +104,13 @@ func parseReadableText(at inputURL: URL) async throws -> DaisyTextParseReport {
 - `DaisyTextParseReport`: output wrapper containing `publication` (`DaisyTextPublication`) and `diagnostics`
 - `DaisyParseError`: typed thrown error with a `diagnostic`
 
+## Parser Boundaries
+
+- DaisyKit reads local DAISY publication directories or `.zip` files and returns typed Swift models and diagnostics.
+- It does not contact network services while parsing.
+- Zip input is treated as local file input and resolved through the same workspace and path-safety boundaries as directory input.
+- Playback, timeline audio synchronization, library management, reader UI, and user-facing recovery copy stay in the consuming app.
+
 ## Apps Using DaisyKit
 
 - [Xarra!](https://accessibilityupto11.com/apps/xarra/) ([App Store](https://apps.apple.com/app/id6759402266)) - accessibility-focused text-to-audio reading app.
@@ -138,6 +145,10 @@ swift test
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for release history and breaking-change notes.
+
+## Support
+
+See [SUPPORT.md](SUPPORT.md) for issue-reporting guidance and package support boundaries.
 
 ## Contributing
 
