@@ -16,9 +16,18 @@ swift test
 
 - Keep parser behavior deterministic (stable ordering and diagnostics).
 - Preserve typed diagnostics behavior for strict and lenient parse modes.
-- Keep v1 scope text-first (no playback/timeline engine behavior).
+- Keep the package text-first (no playback/timeline engine behavior).
+- Keep workspace resolution, format parsers, normalization, and diagnostics separate. Preserve source identifiers, reading order, and mixed-language text.
+- Prefer small, pure parsing helpers and async/await for new asynchronous work. Avoid sleeps or timers to sequence parsing.
+- Use the existing `DaisyLogger`/OSLog categories and feature markers for package logging, not `print()`.
 - Avoid adding third-party dependencies without explicit approval.
 - Do not add network-dependent tests.
+
+## Tests and Fixtures
+
+- Cover OPF, NCX, DTBook, and SMIL references, plus directory/zip equivalence, malformed inputs, strict/lenient diagnostics, and deterministic normalized output.
+- Keep fixtures checked in, small, and synthetic or public-domain. Avoid large binary audio assets.
+- Prefer Given/When/Then scenario names. Name test doubles by their role (`Dummy`, `Stub`, `Fake`, `Spy`, or `Mock`) rather than a generic `Test` prefix.
 
 ## Pull Requests
 

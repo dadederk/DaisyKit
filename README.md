@@ -17,7 +17,7 @@ DaisyKit parses DAISY 3 publications from a directory or `.zip` and returns:
 - A text-focused, line + heading model for reader/transcript style experiences.
 - Typed diagnostics with strict and lenient parse modes.
 
-v1 scope is text-first parsing only. Playback/timeline audio engine behavior is intentionally out of scope.
+Current scope is text-first parsing only. Playback/timeline audio engine behavior is intentionally out of scope.
 
 ## Requirements
 
