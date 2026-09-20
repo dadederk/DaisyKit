@@ -99,6 +99,8 @@ DaisyKit/
 
 ## Public API Guidelines
 
+Use the global `swift-api-design-guidelines-skill` when designing public package APIs. Use the global `swift-concurrency` skill for isolation or async code and `swift-testing-expert` for tests. Global skills live in `~/.agents/skills`; project rules remain in this file.
+
 - Prefer one clear entrypoint (for example `parsePublication(at:mode:)`).
 - Keep input URL-based and explicit.
 - Separate parse mode and options in typed config.
